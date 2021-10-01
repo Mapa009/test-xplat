@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="baseSalaryManage" classname="baseSalaryManage" inheritanceid="" position="absolute 0 0 1024 768" titletext="New Form" onload="baseSalaryManage_onload" style="background:#333333ff;">
+    <Layouts>
+      <Layout>
+        <Tab id="Tab01" taborder="0" position2="absolute l:251 w:493 t:29 h:601" positiontype="position2" tabindex="0" scrollbars="autoboth" style="color:white;font:나눔고딕 ExtraBold,10,bold antialias;">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="급여기준관리" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout width="132" height="376">
+                  <Button id="Button00" taborder="1" text="변경확정" position2="absolute l:191 w:93 t:75 h:42" positiontype="position2" style="background:#5d5d5dff;color:white;" onclick="Tab01_tabpage1_Button00_onclick"/>
+                  <Grid id="Grid00" taborder="1" binddataset="ds_baseSalaryList" useinputpanel="false" autofittype="col" position2="absolute l:57 w:360 t:141 h:391" positiontype="position2" style="align:center;font:맑은 고딕 Semilight,9,antialias;" ontextchanged="Tab01_tabpage1_Grid00_ontextchanged">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head" style="background:#008040ff;">
+                          <Cell style="font:나눔고딕,9;" text="직급코드"/>
+                          <Cell col="1" style="font:나눔고딕,9;" text="직급"/>
+                          <Cell col="2" style="font:나눔고딕,9;" text="기본급"/>
+                          <Cell col="3" style="font:나눔고딕,9;" text="호봉인상율"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell displaytype="text" edittype="text" style="align:center;font:나눔고딕,9;" text="bind:POSITION_CODE" editlimit="6"/>
+                          <Cell col="1" displaytype="text" edittype="text" style="font:나눔고딕,9;" text="bind:POSITION"/>
+                          <Cell col="2" displaytype="number" edittype="text" style="align:center;font:나눔고딕,9;" text="bind:BASE_SALARY" mask="###,##0" editlimit="4"/>
+                          <Cell col="3" displaytype="text" edittype="text" style="font:나눔고딕,9;" text="bind:HOBONG_RATIO"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                  <Static id="Static00" text="급여기준관리" position2="absolute l:123 w:229 t:13 h:42" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕 ExtraBold,12,bold;"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_baseSalaryList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="POSITION_CODE" type="STRING" size="256"/>
+          <Column id="POSITION" type="STRING" size="256"/>
+          <Column id="BASE_SALARY" type="STRING" size="256"/>
+          <Column id="HOBONG_RATIO" type="STRING" size="256"/>
+          <Column id="STATUS" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript4.0"><![CDATA[	//로드될때
+	function baseSalaryManage_onload(obj:Form, e:LoadEventInfo)
+	{ 
+			transaction(
+						 "baseSalaryID"
+						,"svcSalary::findBaseSalaryList"
+						,""
+						,"ds_baseSalaryList=ds_baseSalary"
+						,""
+						,"fn_callback"
+			);
+	}
+
+	function fn_callback(trID,ErrorCode,ErrorMsg){
+		if(trID=="baseSalaryID"){
+			if(ErrorCode!=0){
+				alert("로드실패"+ErrorMsg);
+			}else{
+			   var count=ds_baseSalaryList.getColumn(i,"STATUS");
+			   for(var i=0;i<count;i++){
+					ds_baseSalaryList.setColumn(i,"STATUS","");
+			   }
+			}
+		}
+		if(trID=="submitID"){
+		   if(ErrorCode!=0){
+			alert("변경실패"+ErrorMsg);
+		   }else{
+		   alert("변경되었습니다.");
+		   }
+		}
+	}
+
+	//그리드 내의 값이 변경됐을때 
+	function Tab01_tabpage1_Grid00_ontextchanged(obj:Grid, e:GridEditTextChangedEventInfo)
+	{
+	   ds_baseSalaryList.setColumn(e.row,"STATUS","update");
+	}
+
+
+	//변경확정 
+	function Tab01_tabpage1_Button00_onclick(obj:Button,  e:ClickEventInfo)
+	{
+		transaction(
+					"submitID"
+					,"svcSalary::modifyBaseSalaryList"
+					,"ds_baseSalary=ds_baseSalaryList:u"
+					,"ds_baseSalaryList=ds_baseSalary"
+					,""
+					,"fn_callback"
+		);
+	}
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="deptList" classname="deptList" inheritanceid="" position="absolute 0 0 938 656" titletext="New Form" onload="deptList_onload" style="background:#333333ff;">
+    <Layouts>
+      <Layout>
+        <Tab id="Tab00" taborder="0" position2="absolute l:283 w:445 t:37 h:595" positiontype="position2" tabindex="0" scrollbars="autoboth" multiline="false" style="color:#5d5d5dff;font:나눔고딕 ExtraBold,10,bold antialias;">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="부서관리목록" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout width="132" height="376">
+                  <Button id="Button00" taborder="1" text="삭제" position2="absolute l:165 w:93 t:36 h:42" positiontype="position2" onclick="Tab00_tabpage1_Button00_onclick" style="background:#5d5d5dff;color:aliceblue;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Button id="addBtn" taborder="1" text="추가" position2="absolute l:56 w:93 t:36 h:42" positiontype="position2" onclick="Tab00_tabpage1_addBtn_onclick" style="background:#5d5d5dff;color:aliceblue;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Button id="Button02" taborder="1" text="저장" position2="absolute l:274 w:93 t:36 h:42" positiontype="position2" onclick="Tab00_tabpage1_Button02_onclick" style="background:#5d5d5dff;color:aliceblue;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Grid id="Grid00" taborder="1" binddataset="ds_codeList" useinputpanel="false" autofittype="col" position2="absolute l:34 w:360 t:102 h:427" positiontype="position2" style="background:gray;align:center;font:맑은 고딕 Semilight,9,antialias;" autoenter="select">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head" style="background:#008040ff;">
+                          <Cell style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="부서코드 "/>
+                          <Cell col="1" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="부서명"/>
+                          <Cell col="2" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="부서전화번호"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell displaytype="text" edittype="text" style="align:center;font:나눔고딕,9;" text="bind:DEPT_CODE" mask="DEP###" editlimit="6"/>
+                          <Cell col="1" displaytype="decoratetext" edittype="text" style="font:나눔고딕,9;" text="bind:DEPT_NAME" expr="expr:getRowType(currow) == 4 ? DEPT_NAME+ &quot;&lt;ff v='굴림'&gt;&lt;fc v='red'&gt; new&lt;/fc&gt;&lt;/ff&gt;&quot; : DEPT_NAME"/>
+                          <Cell col="2" displaytype="text" edittype="text" style="align:center;font:나눔고딕,9;" text="bind:DEPT_TEL" mask="####" editlimit="4"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_codeList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="DEPT_CODE" type="STRING" size="256"/>
+          <Column id="DEPT_NAME" type="STRING" size="256"/>
+          <Column id="DEPT_TEL" type="STRING" size="256"/>
+          <Column id="STATUS" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript4.0"><![CDATA[//로드
+function deptList_onload(obj:Form, e:LoadEventInfo)
+{	
+	transaction(
+				"deptID"
+				,"svcBase::findDeptList"
+				,""
+				,"ds_codeList=gds_deptcode"
+				,""
+				,"fn_callback"
+	);
+}
+
+
+
+//추가버튼
+function Tab00_tabpage1_addBtn_onclick(obj:Button,  e:ClickEventInfo)
+{
+	ds_codeList.addRow();
+	ds_codeList.setColumn(ds_codeList.rowposition,"DEPT_CODE","DEP");
+	ds_codeList.setColumn(ds_codeList.rowposition,"STATUS","insert");
+}
+
+//삭제버튼
+function Tab00_tabpage1_Button00_onclick(obj:Button,  e:ClickEventInfo)
+{
+	ds_codeList.setColumn(ds_codeList.rowposition,"STATUS","delete");
+}
+
+
+//저장버튼
+function Tab00_tabpage1_Button02_onclick(obj:Button,  e:ClickEventInfo)
+{
+	var status=ds_codeList.getColumn(ds_codeList.rowposition,"STATUS");
+
+	if(status!="insert"&&status!="delete"){
+	ds_codeList.setColumn(ds_codeList.rowposition,"STATUS","update");
+	}
+	transaction(
+				"submitID"
+				,"svcBase::batchDeptProcess"
+				,"gds_deptcode=ds_codeList:u"
+				,""
+				,""
+				,"fn_callback"
+	);
+}
+
+
+//콜백
+function fn_callback(trID,ErrorCode,ErrorMsg){
+	if(trID=="deptID"){
+		if(ErrorCode!=0){
+			alert("로드실패");
+		}
+	}
+	if(trID=="submitID"){
+		if(ErrorCode!=0){
+			alert("저장실패"+ErrorMsg);
+		}else{
+			alert("저장되었습니다.");
+			form.reload();
+		}
+	}
+}]]></Script>
+  </Form>
+</FDL>

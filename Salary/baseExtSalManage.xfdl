@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="baseExtSalManage" classname="baseExtSalManage" inheritanceid="" position="absolute 0 0 1024 768" titletext="New Form" onload="baseExtSalManage_onload" style="background:#333333ff;">
+    <Layouts>
+      <Layout>
+        <Tab id="Tab01" taborder="0" position2="absolute l:259 w:493 t:37 h:601" positiontype="position2" tabindex="0" scrollbars="autoboth" style="color:white;font:나눔고딕 ExtraBold,10,bold antialias;">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="초과수당관리" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout width="132" height="376">
+                  <Grid id="Grid00" taborder="1" binddataset="ds_baseExtSalList" useinputpanel="false" autofittype="col" position2="absolute l:57 w:368 t:141 h:391" positiontype="position2" style="align:center;font:맑은 고딕 Semilight,9,antialias;">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head" style="background:#008040ff;">
+                          <Cell style="font:나눔고딕,9;" text="초과수당코드"/>
+                          <Cell col="1" style="font:나눔고딕,9;" text="초과수당명"/>
+                          <Cell col="2" style="font:나눔고딕,9;" text="배율"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell displaytype="text" edittype="text" style="align:center;font:나눔고딕,9;" text="bind:EXT_SAL_CODE" editlimit="6"/>
+                          <Cell col="1" displaytype="text" edittype="text" style="font:나눔고딕,9;" text="bind:EXT_SAL_NAME"/>
+                          <Cell col="2" displaytype="text" edittype="text" style="align:center;font:나눔고딕,9;" text="bind:RATIO" editlimit="4"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                  <Static id="Static00" text="초과수당관리" position2="absolute l:123 w:229 t:13 h:42" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕 ExtraBold,12,bold;"/>
+                  <Button id="Button02" taborder="1" text="변경확정" position2="absolute l:191 w:93 t:77 h:42" positiontype="position2" style="background:#5d5d5dff;color:white;" onclick="Tab01_tabpage1_Button02_onclick"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_baseExtSalList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="EXT_SAL_CODE" type="STRING" size="256"/>
+          <Column id="EXT_SAL_NAME" type="STRING" size="256"/>
+          <Column id="RATIO" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript4.0"><![CDATA[//로딩시 
+function baseExtSalManage_onload(obj:Form, e:LoadEventInfo)
+{ 
+	transaction(
+				"baseExtID"   
+				,"svcSalary::findBaseExtSalList"
+				,""
+				,"ds_baseExtSalList=ds_baseExtSal"
+				,""
+				,"fn_callback"
+	);
+}
+//콜벡
+function fn_callback(trID,ErrorCode,ErrorMsg){
+	if(trID=="baseExtID"){
+		if(ErrorCode!=0){
+			alert("로드실패");
+		}
+	}
+	if(trID=="submitID"){
+		if(ErrorCode!=0){
+			alert("변경실패");
+		}else{
+			alert("확정되었습니다.");
+		}
+	}
+}
+
+//변경확정
+function Tab01_tabpage1_Button02_onclick(obj:Button,  e:ClickEventInfo)
+{
+	transaction(
+				"submitID"
+				,"svcSalary::modifyBaseExtSalList"
+				,"ds_baseExtSal=ds_baseExtSalList:u"
+				,"ds_baseExtSalList=ds_baseExtSal"
+				,""
+				,"fn_callback"
+	);
+}
+]]></Script>
+  </Form>
+</FDL>

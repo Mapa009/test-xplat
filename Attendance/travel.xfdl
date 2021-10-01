@@ -1,0 +1,464 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="travel" classname="travel" inheritanceid="" position="absolute 0 0 1024 768" titletext="New Form" onload="travel_onload" style="background:#333333ff;color:#fa5252ff;">
+    <Layouts>
+      <Layout>
+        <Tab id="Tab" taborder="0" position2="absolute l:105 w:794 t:78 h:497" positiontype="position2" tabindex="0" scrollbars="autoboth" style="background:transparent;color:white;font:나눔고딕 ExtraBold,10,bold antialias; :selected {color:#5d5d5dff;}">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="출장/교육 신청" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout width="776" height="476">
+                  <Static id="Static00" text="출장/교육 구분" onclick="Tab00_tabpage1_Static00_onclick" position2="absolute l:238 w:107 t:52 h:34" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕,11,bold;"/>
+                  <Edit id="selectt_ravel" taborder="1" position2="absolute l:375 w:175 t:53 h:31" positiontype="position2" style="background:white;align:center;font:나눔고딕,11,bold;" oneditclick="Tab_tabpage1_selectt_ravel_oneditclick"/>
+                  <Static id="Static01" text="신청자" position2="absolute l:98 w:121 t:132 h:31" positiontype="position2" style="color:white;align:center;font:나눔고딕,9,bold;"/>
+                  <Static id="Static02" text="부서" position2="absolute l:98 w:121 t:173 h:31" positiontype="position2" style="color:white;align:center;font:나눔고딕,9,bold;"/>
+                  <Static id="Static03" text="종료시간" position2="absolute l:375 w:121 t:300 h:31" positiontype="position2" style="color:white;align:center;font:나눔고딕,9,bold;"/>
+                  <Static id="Static04" text="시작일" position2="absolute l:98 w:121 t:214 h:31" positiontype="position2" style="color:white;align:center;font:나눔고딕,9,bold;"/>
+                  <Static id="Static06" text="시작시간" position2="absolute l:98 w:121 t:300 h:31" positiontype="position2" style="color:white;align:center;font:나눔고딕,9,bold;"/>
+                  <Static id="Static08" text="사유" position2="absolute l:98 w:121 t:337 h:31" positiontype="position2" style="color:white;align:center;font:나눔고딕,9,bold;"/>
+                  <Static id="Static09" text="직급" position2="absolute l:375 w:121 t:173 h:31" positiontype="position2" style="color:white;align:center;font:나눔고딕,9,bold;"/>
+                  <Static id="Static10" text="종료일" position2="absolute l:375 w:121 t:214 h:31" positiontype="position2" style="color:white;align:center;font:나눔고딕,9,bold;"/>
+                  <Edit id="travel_emp" taborder="1" position2="absolute l:193 w:174 t:132 h:27" positiontype="position2" style="background:white;align:center;font:나눔고딕,9;"/>
+                  <Edit id="travel_position" taborder="1" position2="absolute l:473 w:174 t:173 h:27" positiontype="position2" style="background:white;align:center;font:나눔고딕,9;"/>
+                  <Edit id="travel_cause" taborder="1" position2="absolute l:193 w:174 t:337 h:27" positiontype="position2" style="background:white;align:center;font:나눔고딕,9;"/>
+                  <Edit id="travel_dept" taborder="1" position2="absolute l:193 w:174 t:173 h:27" positiontype="position2" style="background:white;align:center;font:나눔고딕,9;"/>
+                  <Calendar id="travel_startD" taborder="1" position2="absolute l:193 w:173 t:218 h:27" positiontype="position2" style="background:white;align:center;font:나눔고딕,9;" dateformat="yyyy-MM-dd" value="null"/>
+                  <Calendar id="travel_endD" taborder="1" position2="absolute l:473 w:173 t:218 h:27" positiontype="position2" style="background:white;align:center;font:나눔고딕,9;" dateformat="yyyy-MM-dd" value="null" onchanged="Tab_tabpage1_travel_endD_onchanged"/>
+                  <Button id="regist" taborder="1" text="신청" position2="absolute l:273 w:87 t:400 h:29" positiontype="position2" style="background:#5d5d5dff;color:white;align:center;font:나눔고딕,9,bold;" onclick="Tab_tabpage1_regist_onclick"/>
+                  <Button id="cancel" taborder="1" text="취소" position2="absolute l:387 w:87 t:400 h:29" positiontype="position2" style="background:#5d5d5dff;color:white;align:center;font:나눔고딕,9,bold;" onclick="Tab_tabpage1_cancel_onclick"/>
+                  <MaskEdit id="travel_startT" taborder="1" type="string" mask="##:##" onkillfocus="Tab_tabpage1_travel_startT_onkillfocus" position2="absolute l:193 w:173 t:300 h:29" positiontype="position2" style="background:white;align:center middle;font:나눔고딕,9;"/>
+                  <MaskEdit id="travel_endT" taborder="1" type="string" mask="##:##" onkillfocus="Tab_tabpage1_travel_endT_onkillfocus" position2="absolute l:473 w:173 t:300 h:29" positiontype="position2" style="background:white;align:center middle;font:나눔고딕,9;"/>
+                  <Edit id="travel_day" taborder="1" position2="absolute l:193 w:174 t:265 h:27" positiontype="position2" style="background:white;align:center;font:나눔고딕,9;"/>
+                  <Static id="Static07" text="일수" position2="absolute l:98 w:121 t:261 h:31" positiontype="position2" style="color:white;align:center;font:나눔고딕,9,bold;"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tabpage2" text="출장/교육 조회" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout width="776" height="457">
+                  <Static id="Static00" text="조회범위 선택" position2="absolute l:281 w:214 t:36 h:38" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:HY헤드라인M,12;"/>
+                  <Static id="Static01" text="구분" position2="absolute l:176 w:81 t:88 h:25" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:HY헤드라인M,9;"/>
+                  <Edit id="selectTravel" taborder="1" position2="absolute l:281 w:159 t:88 h:25" positiontype="position2" oneditclick="Tab_tabpage2_selectTravel_oneditclick" style="background:white;align:center;"/>
+                  <Static id="Static02" text="기간" position2="absolute l:176 w:81 t:128 h:25" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:HY헤드라인M,9;"/>
+                  <Button id="search_restAttdList_Btn" taborder="1" text="조회하기" position2="absolute l:281 w:92 t:180 h:26" positiontype="position2" style="background:black;color:white;font:HY헤드라인M,9;" onclick="Tab_tabpage2_search_restAttdList_Btn_onclick"/>
+                  <Button id="delete_restAttd_Btn" taborder="1" text="삭제하기" position2="absolute l:403 w:92 t:180 h:26" positiontype="position2" style="background:black;color:white;font:HY헤드라인M,9;" onclick="Tab_tabpage2_delete_restAttd_Btn_onclick"/>
+                  <Grid id="Grid00" taborder="1" binddataset="ds_travelList" useinputpanel="false" autofittype="col" position2="absolute l:60 w:657 t:223 h:221" positiontype="position2" style="align:center;font:맑은 고딕 Semilight,9,antialias;" onheadclick="grd_output_onheadclick" cellclickbound="cell">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="50"/>
+                          <Column size="94"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head" style="background:#008040ff;">
+                          <Cell displaytype="checkbox" edittype="checkbox" style="align:center;font:HY헤드라인M,9;" expr="0"/>
+                          <Cell col="1" style="align:center;font:HY헤드라인M,9;" text="근태구분명"/>
+                          <Cell col="2" style="align:center;font:HY헤드라인M,9;" text="신청일자"/>
+                          <Cell col="3" style="align:center;font:HY헤드라인M,9;" text="시작일"/>
+                          <Cell col="4" style="align:center;" text="종료일"/>
+                          <Cell col="5" style="align:center;" text="일수"/>
+                          <Cell col="6" style="align:center;" text="시작시각"/>
+                          <Cell col="7" text="종료시간"/>
+                          <Cell col="8" text="사유"/>
+                          <Cell col="9" text="승인여부"/>
+                          <Cell col="10" style="align:center;" text="반려사유"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell displaytype="checkbox" edittype="checkbox" style="align:center;" text="bind:STATUS" editlimit="6"/>
+                          <Cell col="1" style="align:center;" text="bind:REST_TYPE_NAME"/>
+                          <Cell col="2" style="align:center;" text="bind:REQUEST_DATE" editlimit="4"/>
+                          <Cell col="3" style="align:center;" text="bind:START_DATE"/>
+                          <Cell col="4" style="align:center;" text="bind:END_DATE"/>
+                          <Cell col="5" style="align:center;" text="bind:NUMBER_OF_DAYS"/>
+                          <Cell col="6" style="align:center;" text="bind:START_TIME" mask="##:##"/>
+                          <Cell col="7" style="align:center;" text="bind:END_TIME" mask="##:##"/>
+                          <Cell col="8" style="align:center;" text="bind:CAUSE"/>
+                          <Cell col="9" style="align:center;" text="bind:APPLOVAL_STATUS"/>
+                          <Cell col="10" style="align:center;" text="bind:REJECT_CAUSE"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                  <Static id="Static05" text="~" position2="absolute l:406 w:97 t:125 h:27" positiontype="position2" style="align:center;font:Verdana,14,bold;"/>
+                  <Calendar id="search_endD" taborder="1" dateformat="yyyy-MM-dd " onchanged="Tab_tabpage2_search_endD_onchanged" position2="absolute l:471 w:162 t:124 h:29" positiontype="position2" style="background:white;align:center middle;"/>
+                  <Calendar id="search_startD" taborder="1" dateformat="yyyy-MM-dd " position2="absolute l:276 w:162 t:124 h:29" positiontype="position2" style="background:white;align:center middle;"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_travel" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="EMP_CODE" type="STRING" size="256"/>
+          <Column id="REST_TYPE_CODE" type="STRING" size="256"/>
+          <Column id="REST_TYPE_NAME" type="STRING" size="256"/>
+          <Column id="REQUEST_DATE" type="STRING" size="256"/>
+          <Column id="START_DATE" type="STRING" size="256"/>
+          <Column id="END_DATE" type="STRING" size="256"/>
+          <Column id="NUMBER_OF_DAYS" type="STRING" size="256"/>
+          <Column id="CAUSE" type="STRING" size="256"/>
+          <Column id="APPLOVAL_STATUS" type="STRING" size="256"/>
+          <Column id="START_TIME" type="STRING" size="256"/>
+          <Column id="END_TIME" type="STRING" size="256"/>
+          <Column id="REST_ATTD_CODE" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_travelList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="EMP_CODE" type="STRING" size="256"/>
+          <Column id="REST_ATTD_CODE" type="STRING" size="256"/>
+          <Column id="REST_TYPE_CODE" type="STRING" size="256"/>
+          <Column id="REST_TYPE_NAME" type="STRING" size="256"/>
+          <Column id="REQUEST_DATE" type="STRING" size="256"/>
+          <Column id="START_DATE" type="STRING" size="256"/>
+          <Column id="END_DATE" type="STRING" size="256"/>
+          <Column id="NUMBER_OF_DAYS" type="STRING" size="256"/>
+          <Column id="START_TIME" type="STRING" size="256"/>
+          <Column id="END_TIME" type="STRING" size="256"/>
+          <Column id="CAUSE" type="STRING" size="256"/>
+          <Column id="APPLOVAL_STATUS" type="STRING" size="256"/>
+          <Column id="REJECT_CAUSE" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_weekdayCount" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="WEEKDAY_COUNT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="Tab00.tabpage1.Tab.tabpage1.travel_startT" propid="value" datasetid="ds_travel" columnid="START_TIME"/>
+      <BindItem id="item1" compid="Tab00.tabpage1.Tab.tabpage1.travel_endT" propid="value" datasetid="ds_travel" columnid="END_TIME"/>
+      <BindItem id="item2" compid="Tab00.tabpage1.selectt_ravel" propid="value" datasetid="ds_travel" columnid="REST_TYPE_NAME"/>
+      <BindItem id="item3" compid="Tab.tabpage1.selectt_ravel" propid="value" datasetid="ds_travel" columnid="REST_TYPE_NAME"/>
+      <BindItem id="item4" compid="Tab.tabpage1.travel_startT" propid="value" datasetid="ds_travel" columnid="START_TIME"/>
+      <BindItem id="item5" compid="Tab.tabpage1.travel_endT" propid="value" datasetid="ds_travel" columnid="END_TIME"/>
+      <BindItem id="item6" compid="Tab.tabpage1.travel_startD" propid="value" datasetid="ds_travel" columnid="START_DATE"/>
+      <BindItem id="item7" compid="Tab.tabpage1.travel_endD" propid="value" datasetid="ds_travel" columnid="END_DATE"/>
+      <BindItem id="item8" compid="Tab.tabpage1.travel_day" propid="value" datasetid="ds_travel" columnid="NUMBER_OF_DAYS"/>
+      <BindItem id="item9" compid="Tab.tabpage1.travel_cause" propid="value" datasetid="ds_travel" columnid="CAUSE"/>
+      <BindItem id="item10" compid="Tab.tabpage2.selectTravel" propid="value" datasetid="ds_travel" columnid="REST_TYPE_NAME"/>
+    </Bind>
+    <Script type="xscript4.0"><![CDATA[//로딩시
+function travel_onload(obj:Form, e:LoadEventInfo)
+{
+	Tab.tabpage1.travel_emp.value=g_empName; //신청자 
+	Tab.tabpage1.travel_dept.value=g_deptName; //부서
+	Tab.tabpage1.travel_position.value=g_position; //직급 
+
+//오늘날짜구하기 
+    var today = new Date();
+    var rrrr = today.getFullYear();
+    var mm = today.getMonth()+1;
+    var dd = today.getDate();
+    var searchDay = rrrr+"-"+mm+"-"+dd;
+    
+    trace(searchDay);
+    ds_travel.setColumn(0,"REQUEST_DATE",searchDay); //오늘날짜 추가
+    
+}
+
+//다이알로그
+function Tab_tabpage1_selectt_ravel_oneditclick(obj:Edit,  e:EditClickEventInfo)
+{   
+	g_codeNumber="CO-08";
+	
+	 dialog(   
+			   "detailCodeList",   // 생성될 ChildFrame의 이름
+			   "Base::codeDialog.xfdl",   // 로딩한 폼의 URL
+			   MainFrame,   // ParentFrame
+               null,   // ChildFrame에 추가될 변수 리스트 {변수명:변수값, 변수명:변수값}
+			   "",   // ChildFrame에 설정할 속성 리스트 a=b b='c' 
+			   650,   // ChildFrame의 position 중 left 값
+			   350   // ChildFrame의 position 중 top 값
+   );
+   
+       //다이얼로그 값 변수set
+		ds_travel.setColumn(0,"REST_TYPE_CODE",g_detailCodeNumber); //근태코드set
+		ds_travel.setColumn(0,"REST_TYPE_NAME",g_detailCodeName); //근태명 set
+		ds_travel.setColumn(0,"EMP_CODE",g_empCode); //사원코드
+        ds_travel.setColumn(0,"APPLOVAL_STATUS","승인대기");//승인여부
+        
+        
+}
+
+
+//달력
+function Tab_tabpage1_travel_endD_onchanged(obj:Calendar, e:ChangeEventInfo)
+{
+	var startD=Tab.tabpage1.travel_startD.value;
+	var endD=Tab.tabpage1.travel_endD.value;
+	
+	trace(startD);
+	trace(endD);
+	if(startD>endD){
+		Tab.tabpage1.travel_endD.value="";
+		alert("종료일을 다시확인해주세요.");
+	}
+	
+	transaction(
+				"holidayID",
+				"svcBase::findWeekDayCount",
+				"",//서<클
+				"ds_weekdayCount=ds_dayCount",//클<서
+				"startDate='"+Tab.tabpage1.travel_startD.value+"' endDate='"+Tab.tabpage1.travel_endD.value+"'",
+				"fn_callbackk");
+}
+
+
+//시작시간
+function Tab_tabpage1_travel_startT_onkillfocus(obj:MaskEdit, e:KillFocusEventInfo)
+{
+	var start=Tab.tabpage1.travel_startT.value;
+	var substart=start.substring(0,2);
+	var subend=start.substring(2,4);
+	trace("start"+start);
+	trace("substart"+substart);
+	trace("subend"+subend);
+	
+	if(start.length!=4||substart>"24"||subend>"60"){
+		alert("시작시간을 정확히 입력 해주세요.");
+		Tab.tabpage1.travel_startT.value="";
+	}
+}
+
+//종료시간
+function Tab_tabpage1_travel_endT_onkillfocus(obj:MaskEdit, e:KillFocusEventInfo)
+{
+
+	var end=Tab.tabpage1.travel_endT.value;
+	var substart=end.substring(0,2);
+	var subend=end.substring(2,4);
+	trace(end);
+	trace(substart);
+	trace(subend);
+	
+	if(end.length!=4||substart>"24"||subend>"60"){
+		alert("종료시간을 정확히 입력 해주세요.");
+		Tab.tabpage1.travel_endT.value="";
+	}
+	
+	
+}
+
+
+
+//트랜잭션 콜백
+function fn_callbackk(trID ,ErrorCode ,ErrorMsg)
+{
+if(trID=="holidayID"){
+		if(ErrorCode!=0){
+			alert("일수 실패 : "+ErrorMsg);
+		}else{ //성공시
+				Tab.tabpage1.travel_day.value=ds_weekdayCount.getColumn(0,"WEEKDAY_COUNT");
+		}
+	}
+}
+
+
+//신청
+function Tab_tabpage1_regist_onclick(obj:Button,  e:ClickEventInfo)
+{
+
+trace("1:"+ds_travel.getColumn(0,"EMP_CODE"));
+trace("2:"+ds_travel.getColumn(0,"REST_TYPE_CODE"));
+trace("3:"+ds_travel.getColumn(0,"REST_TYPE_NAME"));
+trace("4:"+ds_travel.getColumn(0,"REQUEST_DATE"));
+trace("5:"+ds_travel.getColumn(0,"START_DATE"));
+trace("6:"+ds_travel.getColumn(0,"END_DATE"));
+trace("7:"+ds_travel.getColumn(0,"NUMBER_OF_DAYS"));
+trace("8:"+ds_travel.getColumn(0,"CAUSE"));
+trace("9:"+ds_travel.getColumn(0,"APPLOVAL_STATUS"));
+trace("10:"+ds_travel.getColumn(0,"START_TIME"));
+trace("11:"+ds_travel.getColumn(0,"END_TIME"));
+
+ds_travel.setColumn(0,"REST_ATTD_CODE","test");
+
+
+ 
+ if(Tab.tabpage1.selectt_ravel.value==null){
+		alert("출장/교육 구분을 선택해주세요");
+		return;
+		
+ }else if(Tab.tabpage1.travel_startD.value==null ||Tab.tabpage1.travel_endD.value==null){
+			alert("날짜를 선택해주세요");
+			return;
+ }else{
+ 
+	transaction(
+				"travelID",
+				"svcAttendance::registRestAttd",
+				"ds_restAttd=ds_travel",//서<클
+				"",//클<서
+				"",
+				"fn_callback");	
+	}
+}
+
+//트랜잭션 콜백
+function fn_callback(trID ,ErrorCode ,ErrorMsg)
+{
+if(trID=="travelID"){
+		if(ErrorCode!=0){
+			alert("신청실패 : "+ErrorMsg);
+		}else{ //성공시
+		alert("신청되었습니다.");
+			form.reload();	
+		}
+	}
+else if(trID=="deleteAtteID"){
+		if(ErrorCode!=0){
+			alert("삭제실패 : "+ErrorMsg);
+		}else{ //성공시
+		alert("삭제완료");
+			reload();	
+		}
+	}
+}
+
+//취소
+function Tab_tabpage1_cancel_onclick(obj:Button,  e:ClickEventInfo)
+{
+	form.reload();
+}
+//========================================tab2=====================================================
+
+//다이알로그
+function Tab_tabpage2_selectTravel_oneditclick(obj:Edit,  e:EditClickEventInfo)
+{
+	Tab_tabpage1_selectt_ravel_oneditclick();
+}
+
+//조회 일자 
+function Tab_tabpage2_search_endD_onchanged(obj:Calendar, e:ChangeEventInfo)
+{
+	var startD=Tab.tabpage2.search_startD.value;
+	var endD=Tab.tabpage2.search_endD.value;
+	
+	if(startD>endD){
+		Tab.tabpage2.search_endD.value="";
+		alert("종료일을 다시확인해주세요.");
+	}
+}
+
+//조회하기 버튼
+function Tab_tabpage2_search_restAttdList_Btn_onclick(obj:Button,  e:ClickEventInfo)
+{
+	if(Tab.tabpage2.selectTravel.value==null){
+			alert("휴가 구분을 선택해주세요");
+			return;
+ }else if(Tab.tabpage2.search_startD.value==null || Tab.tabpage2.search_endD.value==null){
+			alert("날짜를 선택해주세요");
+			return;
+ }else{
+ trace(g_empCode);
+ trace(Tab.tabpage2.search_startD.value);
+ trace(Tab.tabpage2.search_endD.value);
+
+ 
+	transaction(
+				"findBreakID",
+				"svcAttendance::findRestAttdList",
+				"",
+				"ds_travelList=ds_restAttd",
+				"empCode='"+g_empCode+"' startDate='"+Tab.tabpage2.search_startD.value+"' endDate='"+Tab.tabpage2.search_endD.value+"' code='"+g_detailCodeNumber+"'",
+				"fn_findcallback");	
+	}
+}
+
+function fn_findcallback(trID ,ErrorCode ,ErrorMsg)
+{
+if(trID=="findBreakID"){
+		if(ErrorCode!=0){
+			alert("조회실패 : "+ErrorMsg);
+		}
+	}
+}
+//삭제
+function Tab_tabpage2_delete_restAttd_Btn_onclick(obj:Button,  e:ClickEventInfo)
+{
+    var count=ds_travelList.rowcount;
+    var num=0;
+    
+     for(var i=0;i<count;i++){
+		var status=ds_travelList.getColumn(i,"STATUS");
+		
+		if(status==1){
+		transaction(
+					"deleteAtteID",
+					"svcAttendance::removeRestAttdList",
+					"ds_restAttd=ds_travelList:u",
+					"",
+					"",
+					"fn_callback"
+					);
+         }
+      }
+         if(num==0){
+				alert("삭제할 행이 없습니다.");
+				return;
+        }
+}		
+
+
+
+//체크박스 전체 선택 & 해제 
+function grd_output_onheadclick(obj:Grid, e:GridClickEventInfo) //이벤트가 발생한 object , event object
+{
+    if (e.cell == 0) // e.cell: Click된 Cell의 해당 Band내에서 Index 값을 가지는 Property 입니다.
+    {
+        fn_setGridCheckAll(obj, e);
+    }	
+}
+
+var fv_isGridCheckAll = 0;
+function fn_setGridCheckAll(obj:Grid, e:GridClickEventInfo)
+{
+    //Grid의 전체 Cell과 Bind 되는 Dataset의 ID를 설정하는 Property 입니다. BindDataset과 Gid는 Full Binding됩니다.
+    var objDs = eval(obj.binddataset); 
+    
+    var sCol  = obj.getCellProperty("body", e.cell, "text").replace("bind:", ""); 
+         //getCellProperty(얻고자하는 cell의 영역, 얻고자하는 cell의 index, 얻고자하는 cell의 property)
+         
+         
+    if (fv_isGridCheckAll)
+    {
+        fv_isGridCheckAll = 0;
+    }
+    else
+    {
+        fv_isGridCheckAll = 1;
+    }
+
+    objDs.enableevent = false;  // enableevent Dataset 의 Event 를 발생할지 여부를 설정하는 Property 입니다.
+    
+    for (var i = 0; i < objDs.getRowCount(); i++) 
+    {
+        objDs.setColumn(i, sCol, fv_isGridCheckAll);
+    }
+    
+    obj.setCellProperty("Head", 0, "expr", fv_isGridCheckAll);
+    
+    objDs.enableevent = true;
+}]]></Script>
+  </Form>
+</FDL>

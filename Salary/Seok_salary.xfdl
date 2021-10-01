@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="seokSalary" classname="Seok_salary" inheritanceid="" position="absolute 0 0 1024 768" titletext="New Form" onload="seokSalary_onload">
+    <Layouts>
+      <Layout>
+        <Div id="Div" taborder="0" position2="absolute l:218 w:390 t:33 h:503" positiontype="position2" text="Div00" style="background:#333333ff;">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" text="급 여 기 준 관 리" position2="absolute l:94 w:203 t:21 h:42" positiontype="position2" style="background:#333333ff;color:white;align:middle;font:나눔고딕 ExtraBold,14,bold;" onclick="Div_Static00_onclick"/>
+              <Button id="Button00" taborder="1" text="변경" onclick="Div00_Button00_onclick" position2="absolute l:270 w:87 t:86 h:35" positiontype="position2" style="background:black;color:white;font:나눔고딕,9,bold;"/>
+              <Grid id="Grid" taborder="2" useinputpanel="false" position2="absolute l:33 w:324 t:127 h:345" positiontype="position2" binddataset="Seok_Salary" style="background:#ffffffff;">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="84"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="24"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell style="background:#5d5d5dff;color:white;font:맑은 고딕 Semilight,9;" text="직급코드"/>
+                      <Cell col="1" style="background:#5d5d5dff;color:white;font:맑은 고딕 Semilight,9;" text="직급"/>
+                      <Cell col="2" style="background:#5d5d5dff;color:white;font:맑은 고딕 Semilight,9;" text="기본급"/>
+                      <Cell col="3" style="background:#5d5d5dff;color:white;font:맑은 고딕 Semilight,9;" text="호봉인상률"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell style="align:center;" text="bind:POSITION_CODE"/>
+                      <Cell col="1" style="align:center;" text="bind:POSITION"/>
+                      <Cell col="2" displaytype="number" edittype="text" style="align:center;" text="bind:BASE_SALARY" mask="###,##0"/>
+                      <Cell col="3" style="align:center;" text="bind:HOBONG_RATIO"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Seok_Salary" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="POSITION_CODE" type="STRING" size="256"/>
+          <Column id="POSITION" type="STRING" size="256"/>
+          <Column id="BASE_SALARY" type="STRING" size="256"/>
+          <Column id="HOBONG_RATIO" type="STRING" size="256"/>
+          <Column id="STATUS" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript4.0"><![CDATA[
+// 로드되자마자 실행되는 이벤트
+function seokSalary_onload(obj:Form, e:LoadEventInfo)
+{
+	transaction(
+					 "baseSalaryID"                      // transaction ID 지정
+					,"svcSalary::findBaseSalaryList"  // transaction 요청할 url주소값
+					,""                                  // 입력값
+					,"Seok_Salary=ds_baseSalary"         // 처리결과를 받을 Dataset = TO
+					,""                                  // transaction을 위한 인자값
+					,"fn_callback"                       // ajax의 success
+		);
+}
+
+
+
+
+// load callback함수
+function fn_callback(trID,ErrorCode,ErrorMsg){
+	if(trID=="baseSal aryID"){
+		if(ErrorCode!=0){
+			alert("로드실패"+ErrorMsg);
+		}else{
+		   var count=ds_baseSalaryList.getColumn(i,"STATUS");
+		   for(var i=0;i<count;i++){
+				ds_baseSalaryList.setColumn(i,"STATUS","");
+		   }
+		}
+	}
+	if(trID=="submitID"){
+	   if(ErrorCode!=0){
+		alert("변경실패"+ErrorMsg);
+	   }else{
+	   alert("변경되었습니다.");
+	   }
+	}
+}
+
+
+
+
+// 그리드에서 값이 변경될수있다 변경되었을때 실행될 함수
+function Tab01_tabpage1_Grid00_ontextchanged(obj:Grid, e:GridEditTextChangedEventInfo)
+{
+   Seok_Salary.setColumn(e.row,"STATUS","update");
+}
+
+
+
+
+// 변경버튼 클릭시 실행될 함수
+function Div00_Button00_onclick(obj:Button,  e:ClickEventInfo)
+{
+	transaction(
+				"submitID"                              // transaction ID 지정
+				,"svcSalary::modifyBaseSalaryList"   // transaction 요청할 url주소값
+				,"Seok_Salary=ds_baseSalaryList:u"      // 입력값
+				,"Seok_Salary=ds_baseSalary"            // 처리결과를 받을 Dataset = TO
+				,""                                     // transaction을 위한 인자값
+				,"fn_callback"                          // ajax의 success
+	);
+}
+]]></Script>
+  </Form>
+</FDL>

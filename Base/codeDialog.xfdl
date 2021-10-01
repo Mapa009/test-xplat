@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="codeDialog" classname="codeDialog" inheritanceid="" position="absolute 0 0 290 260" titletext="New Form" onload="codeDialog_onload" style="background:#333333ff;">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="0" binddataset="ds_deptcode" useinputpanel="false" autofittype="col" position2="absolute l:17 w:255 t:16 h:235" positiontype="position2" oncellclick="Grid00_oncellclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head" style="background:#008040ff;">
+                <Cell displaytype="normal" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="코드번호"/>
+                <Cell col="1" displaytype="normal" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="코드명"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="normal" text="bind:DETAIL_CODE_NUMBER"/>
+                <Cell col="1" displaytype="normal" text="bind:DETAIL_CODE_NAME"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_deptcode" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE_NUMBER" type="STRING" size="256"/>
+          <Column id="DETAIL_CODE_NUMBER" type="STRING" size="256"/>
+          <Column id="DETAIL_CODE_NAME" type="STRING" size="256"/>
+          <Column id="DETAIL_CODE_NAMEUSING" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript4.0"><![CDATA[	//로딩시
+	function codeDialog_onload(obj:Form, e:LoadEventInfo)
+	{
+		// console이라 생각하면됨
+		trace("코드넘버"+g_codeNumber);
+		
+		
+		// ex) CO-07 [회계,인사,전산,보안]
+		// $.ajax 생각하면됨
+		transaction( 
+					 "detailCode"						// callBack함수에서 사용될 ID
+					,"svcBase::detailCodeList"			// url
+					,""									// indata
+					,"ds_deptcode=gds_detailcode"		// outdata
+					,"code='"+g_codeNumber+"'"			// 인자값 서버로 보내줄 데이터
+					,"fn_code_callback"					// success라 생각하면됨
+					);
+	}
+
+
+	//트랜잭션 콜백
+	function fn_code_callback(trid, ErrorCode, ErrorMsg){
+
+	   if(trid == "detailCode"){
+			 if(ErrorCode <0){
+				   alert("조회 실패 : " + ErrorMsg);
+			 }
+	   }
+	}
+
+
+	//셀을 클릭했을때 글로벌변수에 값 세팅 
+	function Grid00_oncellclick(obj:Grid, e:GridClickEventInfo)
+	{
+
+		g_detailCodeNumber = ds_deptcode.getColumn(ds_deptcode.rowposition,"DETAIL_CODE_NUMBER");
+		g_detailCodeName = ds_deptcode.getColumn(ds_deptcode.rowposition,"DETAIL_CODE_NAME"); 
+		trace("code_name"+ds_deptcode.getColumn(ds_deptcode.rowposition,"DETAIL_CODE_NAME"));
+		trace("code_number"+ds_deptcode.getColumn(ds_deptcode.rowposition,"DETAIL_CODE_NUMBER"));
+
+
+	 close();
+	}
+
+
+]]></Script>
+  </Form>
+</FDL>

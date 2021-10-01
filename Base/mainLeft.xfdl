@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="mainLeft" classname="mainLeft" inheritanceid="" position="absolute 0 0 243 778" titletext="New Form" style="background:#333333ff;color:white;">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="0" useinputpanel="false" position2="absolute l:0 w:245 t:425 h:353" positiontype="position2" binddataset="gds_newMenu" formats="&lt;Formats&gt;&#10;  &lt;Format id=&quot;default&quot;&gt;&#10;    &lt;Columns&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;      &lt;Col size=&quot;80&quot;/&gt;&#10;    &lt;/Columns&gt;&#10;    &lt;Rows&gt;&#10;      &lt;Row band=&quot;head&quot; size=&quot;24&quot;/&gt;&#10;      &lt;Row band=&quot;body&quot; size=&quot;24&quot;/&gt;&#10;    &lt;/Rows&gt;&#10;    &lt;Band id=&quot;head&quot;&gt;&#10;      &lt;Cell col=&quot;0&quot; disptype=&quot;normal&quot; text=&quot;MENU_ID&quot;/&gt;&#10;      &lt;Cell col=&quot;1&quot; disptype=&quot;normal&quot; text=&quot;MENU_NM&quot;/&gt;&#10;      &lt;Cell col=&quot;2&quot; disptype=&quot;normal&quot; text=&quot;MENU_lV&quot;/&gt;&#10;      &lt;Cell col=&quot;3&quot; disptype=&quot;normal&quot; text=&quot;MENU_ST&quot;/&gt;&#10;      &lt;Cell col=&quot;4&quot; disptype=&quot;normal&quot; text=&quot;MENU_URL&quot;/&gt;&#10;    &lt;/Band&gt;&#10;    &lt;Band id=&quot;body&quot;&gt;&#10;      &lt;Cell col=&quot;0&quot; disptype=&quot;normal&quot; text=&quot;bind:MENU_ID&quot;/&gt;&#10;      &lt;Cell col=&quot;1&quot; disptype=&quot;normal&quot; text=&quot;bind:MENU_NM&quot;/&gt;&#10;      &lt;Cell col=&quot;2&quot; disptype=&quot;normal&quot; text=&quot;bind:MENU_lV&quot;/&gt;&#10;      &lt;Cell col=&quot;3&quot; disptype=&quot;normal&quot; text=&quot;bind:MENU_ST&quot;/&gt;&#10;      &lt;Cell col=&quot;4&quot; disptype=&quot;normal&quot; text=&quot;bind:MENU_URL&quot;/&gt;&#10;    &lt;/Band&gt;&#10;  &lt;/Format&gt;&#10;&lt;/Formats&gt;&#10;" tabstop="false" autofittype="col" treeusecheckbox="false" style="linetype:onlyvert;background:#333333ff;border:3px solid #697070b3 ;color:black;" treeinitstatus="collapse,all" oncellclick="Grid00_oncellclick" selecttype="row" autoenter="none">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="200"/>
+              </Columns>
+              <Rows>
+                <Row size="24"/>
+              </Rows>
+              <Band id="body">
+                <Cell displaytype="tree" edittype="tree" style="background:whitesmoke;background2:whitesmoke;font:맑은 고딕 Semilight,9;" text="bind:MENU_NM" treelevel="bind:MENU_LV" treestate="bind:MENU_ST"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static00" text="MENU" position2="absolute l:5 w:230 t:37 h:38" positiontype="position2" onclick="Static00_onclick" style="background:transparent;color:white;align:center;font:맑은 고딕,28;"/>
+        <Static id="Static01" text="사원명" position2="absolute l:14 w:89 t:104 h:38" positiontype="position2" style="color:white;align:center;font:나눔고딕 ExtraBold,10,bold;"/>
+        <Static id="Static02" text="사원번호" position2="absolute l:14 w:89 t:156 h:38" positiontype="position2" style="color:white;align:center;font:나눔고딕 ExtraBold,10,bold;"/>
+        <Static id="Static03" text="부서명" position2="absolute l:14 w:89 t:219 h:38" positiontype="position2" style="color:white;align:center;font:나눔고딕 ExtraBold,10,bold;"/>
+        <Static id="Static04" text="직급" position2="absolute l:14 w:89 t:277 h:38" positiontype="position2" style="color:white;align:center;font:나눔고딕 ExtraBold,10,bold;"/>
+        <Button id="Button00" taborder="1" text="로그아웃" position2="absolute l:7 w:95 t:358 h:38" positiontype="position2" onclick="logoutBtn_onclick" style="background:#eaeaeaff;color:black;font:나눔고딕 ExtraBold,10,bold;"/>
+        <Button id="Button01" taborder="2" text="종료" position2="absolute l:127 w:95 t:358 h:38" positiontype="position2" onclick="exitBtn_onclick" style="background:#eaeaeaff;color:black;font:나눔고딕 ExtraBold,10,bold;"/>
+        <Edit id="empName" taborder="3" position2="absolute l:99 w:100 t:104 h:35" positiontype="position2" style="background:#ffffffff;border:1 solid #999999ff,1 solid #ccccccff,1 solid #ccccccff,1 solid #999999ff;align:center;" readonly="true"/>
+        <Edit id="empCode" taborder="4" position2="absolute l:99 w:100 t:160 h:35" positiontype="position2" style="background:#ffffffff;border:1 solid #999999ff,1 solid #ccccccff,1 solid #ccccccff,1 solid #999999ff;align:center;" readonly="true"/>
+        <Edit id="deptName" taborder="5" position2="absolute l:99 w:100 t:219 h:35" positiontype="position2" style="background:#ffffffff;border:1 solid #999999ff,1 solid #ccccccff,1 solid #ccccccff,1 solid #999999ff;align:center;" readonly="true"/>
+        <Edit id="position" taborder="6" position2="absolute l:99 w:100 t:280 h:35" positiontype="position2" style="background:#ffffffff;border:1 solid #999999ff,1 solid #ccccccff,1 solid #ccccccff,1 solid #999999ff;align:center;" readonly="true"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript4.0"><![CDATA[
+function Grid00_oncellclick(obj:Grid, e:GridClickEventInfo)
+{
+	var sID=gds_newMenu.getColumn(e.row,"MENU_ID");
+	var sURL=gds_newMenu.getColumn(e.row,"MENU_URL");
+	var sTitle=gds_newMenu.getColumn(e.row,"MENU_NM");
+	trace(gds_newMenu.lookup("MENU_ID",sID,"MENU_LV"));
+		gfn_Open(sID, sURL, sTitle);
+
+}
+
+//로그아웃버튼누르면 로그인으로 이동
+function logoutBtn_onclick(obj:Button,  e:ClickEventInfo)
+{
+	application.mainframe.visible = false;
+	openLoginFormDialog("loginform","LoginForm","Base::loginForm.xfdl");
+}
+
+//종료버튼
+function exitBtn_onclick(obj:Button,  e:ClickEventInfo)
+{
+
+	application.mainframe.visible = false;
+}]]></Script>
+  </Form>
+</FDL>

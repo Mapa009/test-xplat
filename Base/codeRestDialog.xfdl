@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="codeRestDialog" classname="codeRestDialog" inheritanceid="" position="absolute 0 0 289 269" titletext="New Form" onload="codeRestDialog_onload" style="background:#333333ff;">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="0" binddataset="ds_codeListRest" useinputpanel="false" autofittype="col" oncellclick="Grid00_oncellclick" position2="absolute l:17 w:255 t:16 h:235" positiontype="position2">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head" style="background:#008040ff;">
+                <Cell displaytype="normal" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="코드번호"/>
+                <Cell col="1" displaytype="normal" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="코드명"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="normal" text="bind:DETAIL_CODE_NUMBER"/>
+                <Cell col="1" displaytype="normal" text="bind:DETAIL_CODE_NAME"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_codeListRest" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE_NUMBER" type="STRING" size="256"/>
+          <Column id="DETAIL_CODE_NUMBER" type="STRING" size="256"/>
+          <Column id="DETAIL_CODE_NAME" type="STRING" size="256"/>
+          <Column id="DETAIL_CODE_NAMEUSING" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript4.0"><![CDATA[	//로딩시 
+	function codeRestDialog_onload(obj:Form, e:LoadEventInfo)
+	{
+
+	g_code1.value="DAC004";    
+	g_code2.value="ADC003";
+	g_code3.value="ADC005";
+
+		
+		//CO-07 [회계,인사,전산,보안]
+		transaction( 
+					 "detailCode"
+					,"svcBase::detailCodeListRest"
+					,""
+					,"ds_codeListRest=gds_detailcode"
+					,"code1='"+g_code1+"' code2='"+g_code2+"' code3='"+g_code3+"'"
+					,"fn_code_callback");
+	}
+	//트랜잭션 콜백
+	function fn_code_callback(trid, ErrorCode, ErrorMsg){
+
+	   if(trid == "detailCode"){
+			 if(ErrorCode <0){
+				   alert("조회 실패 : " + ErrorMsg);
+			 }trace("다이알로그 성공");
+	   }
+	}
+
+	//그리드 셀을 클릭했을때 
+	function Grid00_oncellclick(obj:Grid, e:GridClickEventInfo)
+	{
+	 var codeNumber = ds_codeListRest.getColumn(ds_codeListRest.rowposition,"DETAIL_CODE_NUMBER");
+	 var codeName = ds_codeListRest.getColumn(ds_codeListRest.rowposition,"DETAIL_CODE_NAME"); 
+	// 		alert(codeNumber);
+	// 		alert(codeName);
+			
+			gds_detailcode.addRow();
+			gds_detailcode.setColumn(gds_detailcode.rowposition,"DETAIL_CODE_NUMBER",codeNumber);
+			gds_detailcode.setColumn(gds_detailcode.rowposition,"DETAIL_CODE_NAME",codeName);
+	// 		alert(gds_detailcode.getColumn(gds_detailcode.rowposition,'DETAIL_CODE_NUMBER'));
+	// 		alert(gds_detailcode.getColumn(gds_detailcode.rowposition,'DETAIL_CODE_NAME'));
+
+	close();	
+	}
+]]></Script>
+  </Form>
+</FDL>

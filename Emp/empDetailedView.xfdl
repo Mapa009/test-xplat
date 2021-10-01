@@ -1,0 +1,1265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="empDetailedView" classname="empDetailedView" inheritanceid="" position="absolute 0 0 1024 720" titletext="New Form" scrollbars="autovert" style="background:#333333ff;color:transparent;font:arial,11;">
+    <Layouts>
+      <Layout>
+        <Tab id="Tab" taborder="0" position2="absolute l:11 w:373 t:24 h:611" positiontype="position2" tabindex="0" scrollbars="autoboth" style="background:gray;color:white;font:나눔고딕,10,bold antialias; :selected {color:#5d5d5dff;}">
+          <Tabpages>
+            <Tabpage id="page1" text="부서명 검색" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout width="132" height="376">
+                  <Grid id="Grid00" taborder="1" binddataset="ds_empList" useinputpanel="false" autofittype="col" position2="absolute l:8 w:344 t:84 h:451" positiontype="position2" style="align:center;font:맑은 고딕 Semilight,9,antialias;" oncellclick="Tab_page1_Grid00_oncellclick" onheadclick="grd_output_onheadclick" cellclickbound="cell">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="40"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head" style="background:#008040ff;">
+                          <Cell displaytype="checkbox" edittype="checkbox" style="font:HY헤드라인M,9;" expr="0"/>
+                          <Cell col="1" style="font:나눔고딕,9;" text="사원명"/>
+                          <Cell col="2" style="font:나눔고딕,9;" text="부서"/>
+                          <Cell col="3" style="font:나눔고딕,9;" text="직급"/>
+                          <Cell col="4" style="font:나눔고딕,9;" text="이메일"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell displaytype="checkbox" edittype="checkbox" style="align:center;" text="bind:STATUS" editlimit="6"/>
+                          <Cell col="1" style="font:나눔고딕,9;" text="bind:EMP_NAME"/>
+                          <Cell col="2" style="align:center;font:나눔고딕,9;" text="bind:DEPT_NAME" editlimit="4"/>
+                          <Cell col="3" style="font:나눔고딕,9;" text="bind:POSITION"/>
+                          <Cell col="4" style="font:나눔고딕,9;" text="bind:EMAIL"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                  <Combo id="btn_dept_search" taborder="1" text="Combo00" position2="absolute l:24 w:179 t:39 h:36" positiontype="position2" style="align:center;font:HY헤드라인M,11,antialias;" codecolumn="codecolumn" datacolumn="datacolumn" onitemchanged="Tab_page1_btn_dept_search_onitemchanged">
+                    <Dataset id="innerdataset">
+                      <ColumnInfo>
+                        <Column id="codecolumn" size="256"/>
+                        <Column id="datacolumn" size="256"/>
+                      </ColumnInfo>
+                      <Rows>
+                        <Row>
+                          <Col id="codecolumn">전체부서</Col>
+                          <Col id="datacolumn">전체부서</Col>
+                        </Row>
+                        <Row>
+                          <Col id="codecolumn">회계팀</Col>
+                          <Col id="datacolumn">회계팀</Col>
+                        </Row>
+                        <Row>
+                          <Col id="codecolumn">인사팀</Col>
+                          <Col id="datacolumn">인사팀</Col>
+                        </Row>
+                        <Row>
+                          <Col id="codecolumn">전산팀</Col>
+                          <Col id="datacolumn">전산팀</Col>
+                        </Row>
+                        <Row>
+                          <Col id="codecolumn">보안팀</Col>
+                          <Col id="datacolumn">보안팀</Col>
+                        </Row>
+                      </Rows>
+                    </Dataset>
+                  </Combo>
+                  <Button id="btn_search" taborder="1" text="검색" position2="absolute l:224 w:40 t:48 h:28" positiontype="position2" style="background:#5d5d5dff;color:white;font:나눔고딕,9,antialias;" onclick="Tab_tabpage1_btn_search_onclick"/>
+                  <Button id="btn_delete" taborder="1" text="삭제" position2="absolute l:292 w:40 t:48 h:28" positiontype="position2" style="background:#5d5d5dff;color:white;font:나눔고딕,9,antialias;" onclick="Tab_page1_btn_delete_onclick"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="page2" text="사원명 검색" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout>
+                  <Grid id="Grid00" taborder="0" binddataset="ds_empList" useinputpanel="false" autofittype="col" position2="absolute l:8 w:320 t:96 h:445" positiontype="position2" style="align:center;font:맑은 고딕 Semilight,9,antialias;" oncellclick="Tab_page2_Grid00_oncellclick">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head">
+                          <Cell style="font:HY헤드라인M,9;" text="사원명"/>
+                          <Cell col="1" style="font:HY헤드라인M,9;" text="부서"/>
+                          <Cell col="2" style="font:HY헤드라인M,9;" text="직급"/>
+                          <Cell col="3" style="font:HY헤드라인M,9;" text="이메일"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell style="align:center;" text="bind:EMP_NAME" editlimit="6"/>
+                          <Cell col="1" text="bind:DEPT_NAME"/>
+                          <Cell col="2" style="align:center;" text="bind:POSITION" editlimit="4"/>
+                          <Cell col="3" text="bind:EMAIL"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                  <Button id="btn_search" taborder="2" text="검색" position2="absolute l:220 w:40 t:45 h:28" positiontype="position2" style="color:dimgray;" onclick="Tab_page2_btn_search_onclick"/>
+                  <Button id="btn_delete" taborder="1" text="삭제" position2="absolute l:288 w:40 t:45 h:28" positiontype="position2" style="color:dimgray;"/>
+                  <Edit id="name_text" taborder="3" position2="absolute l:12 w:190 t:41 h:32" positiontype="position2" oneditclick="Tab_page2_name_text_oneditclick"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+        <Tab id="Tab01" taborder="1" position2="absolute l:392 w:623 t:23 h:611" positiontype="position2" tabindex="0" scrollbars="autoboth" style="background:gray;color:white;font:나눔고딕,10,bold antialias; :selected {color:#5d5d5dff;}">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="기본정보" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout width="132" height="376">
+                  <ImageViewer id="empImg" taborder="11" position2="absolute l:119 w:294 t:16 h:135" positiontype="position2" stretch="fixaspectratio" resampling="false" onclick="Tab01_tabpage1_empImg_onclick"/>
+                  <Static id="Static00" text="직급" onclick="Tab00_tabpage1_Static00_onclick" position2="absolute l:19 w:76 t:300 h:28" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Static id="Static01" text="우편번호" position2="absolute l:315 w:76 t:262 h:28" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Static id="Static02" text="성별" position2="absolute l:19 w:76 t:339 h:28" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕 ExtraBold,9,bold;" onclick="Tab01_tabpage1_Static02_onclick"/>
+                  <Static id="Static03" text="생년월일" onclick="Tab00_tabpage1_Static03_onclick" position2="absolute l:19 w:76 t:378 h:28" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Static id="Static04" text="주소" onclick="Tab00_tabpage1_Static04_onclick" position2="absolute l:315 w:76 t:184 h:28" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Static id="Static05" text="상세주소" onclick="Tab00_tabpage1_Static05_onclick" position2="absolute l:315 w:76 t:223 h:28" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Static id="Static06" text="전화번호" position2="absolute l:315 w:76 t:301 h:28" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Static id="Static07" text="이름" position2="absolute l:19 w:76 t:222 h:28" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Static id="Static08" text="사원번호" position2="absolute l:19 w:76 t:183 h:28" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Static id="Static09" text="이메일" position2="absolute l:315 w:76 t:340 h:28" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Static id="Static10" text="부서" position2="absolute l:19 w:76 t:261 h:28" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Static id="Static11" text="최종학력" position2="absolute l:315 w:76 t:379 h:28" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Edit id="empCode" taborder="13" position2="absolute l:126 w:149 t:185 h:27" positiontype="position2" style="align:center;font:나눔고딕,9,bold;"/>
+                  <Edit id="empName" taborder="12" position2="absolute l:126 w:149 t:223 h:27" positiontype="position2" style="align:center;font:나눔고딕,9,bold;"/>
+                  <Edit id="deptName" taborder="10" position2="absolute l:126 w:149 t:263 h:27" positiontype="position2" style="align:center;font:나눔고딕,9,bold;" oneditclick="Tab01_tabpage1_deptName_oneditclick"/>
+                  <Edit id="position" taborder="9" position2="absolute l:126 w:149 t:302 h:27" positiontype="position2" style="align:center;font:나눔고딕,9,bold;" oneditclick="Tab01_tabpage1_position_oneditclick"/>
+                  <Edit id="gender" taborder="8" position2="absolute l:126 w:149 t:341 h:27" positiontype="position2" style="align:center;font:나눔고딕,9,bold;" oneditclick="Tab01_tabpage1_gender_oneditclick"/>
+                  <Edit id="address" taborder="7" position2="absolute l:422 w:165 t:186 h:27" positiontype="position2" style="align:center;font:나눔고딕,9,bold;" oneditclick="Tab01_tabpage1_address_oneditclick"/>
+                  <Edit id="detail_address" taborder="6" position2="absolute l:422 w:165 t:225 h:27" positiontype="position2" style="align:center;font:나눔고딕,9,bold;"/>
+                  <Edit id="post_Number" taborder="5" position2="absolute l:422 w:165 t:264 h:27" positiontype="position2" style="align:center;font:나눔고딕,9,bold;"/>
+                  <Edit id="email" taborder="4" position2="absolute l:422 w:165 t:342 h:27" positiontype="position2" style="align:center;font:나눔고딕,9,bold;"/>
+                  <Edit id="last_school" taborder="3" position2="absolute l:422 w:165 t:381 h:27" positiontype="position2" style="align:center;font:나눔고딕,9,bold;" oneditclick="Tab01_tabpage1_last_school_oneditclick"/>
+                  <MaskEdit id="phone_Number" taborder="2" mask="###-####-####" position2="absolute l:422 w:164 t:302 h:27" positiontype="position2" style="align:center;font:나눔고딕,9,bold;" oneditclick="Tab01_tabpage1_phone_Number_oneditclick"/>
+                  <Button id="findPhoto" taborder="1" text="사진수정하기" position2="absolute l:433 w:109 t:38 h:30" positiontype="position2" style="background:#5d5d5dff;color:white;font:나눔고딕,9,bold antialias;" onclick="Tab01_tabpage1_findPhoto_onclick"/>
+                  <Button id="savePhoto" taborder="0" text="사진저장" position2="absolute l:431 w:109 t:83 h:28" positiontype="position2" style="background:#5d5d5dff;color:white;font:나눔고딕,9,bold antialias;" onclick="Tab01_tabpage1_savePhoto_onclick"/>
+                  <MaskEdit id="birth" taborder="14" position2="absolute l:126 w:149 t:378 h:27" positiontype="position2" mask="####/##/##" type="string" style="align:center;font:나눔고딕,9,bold;" maskchar=" ">
+                    <Layouts>
+                      <Layout width="187" height="17"/>
+                    </Layouts>
+                  </MaskEdit>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tabpage2" text="재직정보" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout>
+                  <Button id="btn_add_work" taborder="0" text="추가" position2="absolute l:134 w:94 t:49 h:34" positiontype="position2" style="background:black;color:white;font:HY헤드라인M,9;" onclick="Tab01_tabpage2_btn_add_work_onclick"/>
+                  <Button id="btn_del_work" taborder="1" text="삭제" position2="absolute l:366 w:94 t:49 h:34" positiontype="position2" style="background:black;color:white;font:HY헤드라인M,9;" onclick="Tab01_tabpage2_btn_del_work_onclick"/>
+                  <Grid id="Grid00" taborder="1" binddataset="ds_workInfoLis" useinputpanel="false" autofittype="col" position2="absolute l:3 w:596 t:113 h:300" positiontype="position2">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="100"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head" style="background:#008040ff;">
+                          <Cell text="사원코드"/>
+                          <Cell col="1" text="적용일"/>
+                          <Cell col="2" text="입사일"/>
+                          <Cell col="3" text="퇴사일"/>
+                          <Cell col="4" text="직종"/>
+                          <Cell col="5" text="고용형태"/>
+                          <Cell col="6" text="호봉"/>
+                          <Cell col="7" text="직급"/>
+                          <Cell col="8" text="부서"/>
+                          <Cell col="9" text="상태"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell displaytype="text" edittype="text" style="align:center;" text="bind:EMP_CODE"/>
+                          <Cell col="1" displaytype="text" edittype="text" style="align:center;" text="bind:WORK_INFO_DAYS" mask="####년##월"/>
+                          <Cell col="2" displaytype="text" edittype="date" style="align:center;" text="bind:HIREDATE"/>
+                          <Cell col="3" displaytype="text" edittype="date" style="align:center;" text="bind:RETIRE_DATE"/>
+                          <Cell col="4" displaytype="text" edittype="text" style="align:center;" text="bind:OCCUPATION"/>
+                          <Cell col="5" displaytype="text" edittype="text" style="align:center;" text="bind:EMPLOYMENT_TYPE"/>
+                          <Cell col="6" displaytype="text" edittype="text" style="align:center;" text="bind:HOBONG"/>
+                          <Cell col="7" displaytype="text" edittype="text" style="align:center;" text="bind:POSITION"/>
+                          <Cell col="8" displaytype="text" edittype="text" style="align:center;" text="bind:DEPT_NAME"/>
+                          <Cell col="9" style="align:center;" text="bind:STATUS"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                  <Button id="btn_r_work00" taborder="1" text="수정" position2="absolute l:254 w:94 t:49 h:34" positiontype="position2" style="background:black;color:white;font:HY헤드라인M,9;" onclick="Tab01_tabpage2_btn_r_work00_onclick"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tabpage3" text="경력 정보" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout>
+                  <Button id="btn_add_career" taborder="0" text="추가" position2="absolute l:132 w:94 t:41 h:34" positiontype="position2" style="background:#5d5d5dff;color:white;font:HY헤드라인M,9;" onclick="Tab01_tabpage3_btn_add_career_onclick"/>
+                  <Button id="btn_del_career" taborder="1" text="삭제" position2="absolute l:375 w:94 t:41 h:34" positiontype="position2" style="background:#5d5d5dff;color:white;font:HY헤드라인M,9;" onclick="Tab01_tabpage3_btn_del_career_onclick"/>
+                  <Grid id="Grid00" taborder="1" binddataset="ds_careerInfoList" useinputpanel="false" autofittype="col" position2="absolute l:7 w:590 t:99 h:331" positiontype="position2" style="align:center;font:맑은 고딕 Semilight,9,antialias;">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head" style="background:#008040ff;">
+                          <Cell style="font:HY헤드라인M,9;" text="사원코드"/>
+                          <Cell col="1" style="font:HY헤드라인M,9;" text="일련번호"/>
+                          <Cell col="2" style="font:HY헤드라인M,9;" text="회사명"/>
+                          <Cell col="3" style="font:HY헤드라인M,9;" text="직종"/>
+                          <Cell col="4" text="담당업무"/>
+                          <Cell col="5" text="입사일"/>
+                          <Cell col="6" text="퇴사일"/>
+                          <Cell col="7" text="상태"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell displaytype="text" edittype="text" style="align:center;" text="bind:EMP_CODE" editlimit="6"/>
+                          <Cell col="1" displaytype="text" edittype="text" text="bind:CAREER_CODE"/>
+                          <Cell col="2" displaytype="text" edittype="text" style="align:center;" text="bind:COMPANY_NAME" editlimit="4"/>
+                          <Cell col="3" displaytype="text" edittype="text" text="bind:OCCUPATION"/>
+                          <Cell col="4" displaytype="text" edittype="text" text="bind:ASSIGNMENT_TASK"/>
+                          <Cell col="5" displaytype="text" edittype="date" text="bind:EX_HIREDATE"/>
+                          <Cell col="6" displaytype="text" edittype="date" text="bind:EX_RETIREMENT_DATE"/>
+                          <Cell col="7" displaytype="text" edittype="text" text="bind:STATUS"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                  <Button id="btn_r_career" taborder="1" text="수정" position2="absolute l:255 w:94 t:42 h:34" positiontype="position2" style="background:#5d5d5dff;color:white;font:HY헤드라인M,9;" onclick="Tab01_tabpage3_btn_r_career_onclick"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tabpage4" text="학력정보" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout>
+                  <Button id="btn_add_education" taborder="0" text="추가" position2="absolute l:143 w:94 t:38 h:34" positiontype="position2" style="background:#5d5d5dff;color:white;font:HY헤드라인M,9;" onclick="Tab01_tabpage4_btn_add_education_onclick"/>
+                  <Button id="btn_del_education" taborder="1" text="삭제" position2="absolute l:361 w:94 t:38 h:34" positiontype="position2" style="background:#5d5d5dff;color:white;font:HY헤드라인M,9;" onclick="Tab01_tabpage4_btn_del_education_onclick"/>
+                  <Grid id="Grid00" taborder="1" binddataset="ds_educationInfoList" useinputpanel="false" autofittype="col" position2="absolute l:13 w:586 t:96 h:307" positiontype="position2" style="align:center;font:맑은 고딕 Semilight,9,antialias;">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head" style="background:#008040ff;">
+                          <Cell style="font:HY헤드라인M,9;" text="사원코드"/>
+                          <Cell col="1" style="font:HY헤드라인M,9;" text="일련번호"/>
+                          <Cell col="2" style="font:HY헤드라인M,9;" text="학교명"/>
+                          <Cell col="3" style="font:HY헤드라인M,9;" text="전공"/>
+                          <Cell col="4" text="입학일"/>
+                          <Cell col="5" text="졸업일"/>
+                          <Cell col="6" text="학점"/>
+                          <Cell col="7" text="상태"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell displaytype="text" edittype="text" style="align:center;" text="bind:EMP_CODE" editlimit="6"/>
+                          <Cell col="1" displaytype="text" edittype="text" text="bind:EDUCATION_CODE"/>
+                          <Cell col="2" displaytype="text" edittype="text" style="align:center;" text="bind:SCHOOL_NAME" editlimit="4"/>
+                          <Cell col="3" displaytype="text" edittype="text" text="bind:MAJOR"/>
+                          <Cell col="4" displaytype="date" edittype="date" text="bind:ENTRANCE_DATE"/>
+                          <Cell col="5" displaytype="date" edittype="date" text="bind:GRADUATE_DATE"/>
+                          <Cell col="6" displaytype="text" edittype="text" text="bind:GRADE" combodataset="bind:GRADE"/>
+                          <Cell col="7" displaytype="text" edittype="text" text="bind:STATUS"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                  <Button id="btn_r_education00" taborder="1" text="수정" position2="absolute l:248 w:95 t:38 h:34" positiontype="position2" style="background:#5d5d5dff;color:white;font:HY헤드라인M,9;" onclick="Tab01_tabpage4_btn_r_education00_onclick"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tabpage5" text="자격증 정보" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout>
+                  <Button id="btn_add_license" taborder="0" text="추가" position2="absolute l:135 w:94 t:35 h:34" positiontype="position2" style="background:#5d5d5dff;color:white;font:HY헤드라인M,9;" onclick="Tab01_tabpage5_btn_add_license_onclick"/>
+                  <Button id="btn_del_license" taborder="1" text="삭제" position2="absolute l:361 w:94 t:35 h:34" positiontype="position2" style="background:#5d5d5dff;color:white;font:HY헤드라인M,9;" onclick="Tab01_tabpage5_btn_del_license_onclick"/>
+                  <Grid id="Grid00" taborder="1" binddataset="ds_licenseInfoList" useinputpanel="false" autofittype="col" position2="absolute l:24 w:568 t:98 h:281" positiontype="position2" style="align:center;font:맑은 고딕 Semilight,9,antialias;">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head" style="background:#008040ff;">
+                          <Cell style="font:HY헤드라인M,9;" text="사원코드"/>
+                          <Cell col="1" style="font:HY헤드라인M,9;" text="일련번호"/>
+                          <Cell col="2" style="font:HY헤드라인M,9;" text="자격명"/>
+                          <Cell col="3" style="font:HY헤드라인M,9;" text="취득일"/>
+                          <Cell col="4" text="만료일"/>
+                          <Cell col="5" text="급수"/>
+                          <Cell col="6" text="발행기관"/>
+                          <Cell col="7" text="발급번호"/>
+                          <Cell col="8" text="상태"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell displaytype="text" edittype="text" style="align:center;" text="bind:EMP_CODE" editlimit="6"/>
+                          <Cell col="1" displaytype="text" edittype="text" text="bind:LICENSE_CODE"/>
+                          <Cell col="2" displaytype="text" edittype="text" style="align:center;" text="bind:LICENSE_NAME" editlimit="4"/>
+                          <Cell col="3" displaytype="text" edittype="date" text="bind:REGIST_DATE"/>
+                          <Cell col="4" displaytype="text" edittype="date" text="bind:EXPIRE_DATE"/>
+                          <Cell col="5" displaytype="text" edittype="text" text="bind:LICENSE_LEVEL"/>
+                          <Cell col="6" displaytype="text" edittype="text" text="bind:LICENSE_CENTER"/>
+                          <Cell col="7" displaytype="text" edittype="text" text="bind:ISSUE_NUMBER"/>
+                          <Cell col="8" displaytype="text" edittype="text" text="bind:STATUS"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                  <Button id="btn_r_license00" taborder="1" text="수정" position2="absolute l:249 w:94 t:35 h:34" positiontype="position2" style="background:#5d5d5dff;color:white;font:HY헤드라인M,9;" onclick="Tab01_tabpage5_btn_r_license00_onclick"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tabpage6" text="가족 정보" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout>
+                  <Button id="add_family_btn" taborder="0" text="추가" position2="absolute l:135 w:94 t:35 h:34" positiontype="position2" style="background:#5d5d5dff;color:white;font:HY헤드라인M,9;" onclick="Tab01_tabpage6_add_family_btn_onclick"/>
+                  <Button id="del_family_btn" taborder="1" text="삭제" position2="absolute l:351 w:94 t:35 h:34" positiontype="position2" style="background:#5d5d5dff;color:white;font:HY헤드라인M,9;" onclick="Tab01_tabpage6_del_family_btn_onclick"/>
+                  <Grid id="Grid00" taborder="1" binddataset="ds_familyInfoList" useinputpanel="false" autofittype="col" position2="absolute l:24 w:556 t:102 h:297" positiontype="position2" style="align:center;font:맑은 고딕 Semilight,9,antialias;">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head" style="background:#008040ff;">
+                          <Cell style="font:HY헤드라인M,9;" text="사원코드"/>
+                          <Cell col="1" style="font:HY헤드라인M,9;" text="일련번호"/>
+                          <Cell col="2" style="font:HY헤드라인M,9;" text="성명"/>
+                          <Cell col="3" style="font:HY헤드라인M,9;" text="관계"/>
+                          <Cell col="4" text="생년월일"/>
+                          <Cell col="5" text="동기여부"/>
+                          <Cell col="6" text="상태"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell displaytype="text" edittype="text" style="align:center;" text="bind:EMP_CODE" editlimit="6"/>
+                          <Cell col="1" displaytype="text" edittype="text" text="bind:FAMILY_CODE"/>
+                          <Cell col="2" displaytype="text" edittype="text" style="align:center;" text="bind:FAMILY_NAME" editlimit="4"/>
+                          <Cell col="3" displaytype="text" edittype="text" text="bind:RELATION"/>
+                          <Cell col="4" displaytype="text" edittype="text" text="bind:BIRTHDATE"/>
+                          <Cell col="5" displaytype="text" edittype="text" text="bind:LIVE_TOGETHER"/>
+                          <Cell col="6" displaytype="text" edittype="text" text="bind:STATUS"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                  <Button id="r_family_btn00" taborder="1" text="수정" position2="absolute l:245 w:94 t:35 h:34" positiontype="position2" style="background:#5d5d5dff;color:white;font:HY헤드라인M,9;" onclick="Tab01_tabpage6_r_family_btn00_onclick"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+        <Button id="btn_saveEmp" taborder="1" text="저장" position2="absolute l:646 w:106 t:516 h:41" positiontype="position2" style="background:#5d5d5dff;color:white;font:나눔고딕,9,bold antialias;" onclick="btn_saveEmp_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_empList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="EMP_CODE" type="STRING" size="256"/>
+          <Column id="EMP_NAME" type="STRING" size="256"/>
+          <Column id="DEPT_NAME" type="STRING" size="256"/>
+          <Column id="POSITION" type="STRING" size="256"/>
+          <Column id="GENDER" type="STRING" size="256"/>
+          <Column id="MOBILE_NUMBER" type="STRING" size="256"/>
+          <Column id="EMAIL" type="STRING" size="256"/>
+          <Column id="ADDRESS" type="STRING" size="256"/>
+          <Column id="LAST_SCHOOL" type="STRING" size="256"/>
+          <Column id="IMG_EXTEND" type="STRING" size="256"/>
+          <Column id="BIRTHDATE" type="STRING" size="256"/>
+          <Column id="DETAIL_ADDRESS" type="STRING" size="256"/>
+          <Column id="POST_NUMBER" type="STRING" size="256"/>
+          <Column id="STATUS" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_educationInfoList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="EMP_CODE" type="STRING" size="256"/>
+          <Column id="EDUCATION_CODE" type="STRING" size="256"/>
+          <Column id="SCHOOL_NAME" type="STRING" size="256"/>
+          <Column id="MAJOR" type="STRING" size="256"/>
+          <Column id="ENTRANCE_DATE" type="STRING" size="256"/>
+          <Column id="GRADUATE_DATE" type="STRING" size="256"/>
+          <Column id="GRADE" type="STRING" size="256"/>
+          <Column id="STATUS" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_img" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="EMP_FILE_NAME" type="STRING" size="256"/>
+          <Column id="IMG_FILE_DATA" type="BLOB" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_workInfoLis" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="EMP_CODE" type="STRING" size="256"/>
+          <Column id="WORK_INFO_DAYS" type="STRING" size="256"/>
+          <Column id="HIREDATE" type="STRING" size="256"/>
+          <Column id="RETIRE_DATE" type="STRING" size="256"/>
+          <Column id="OCCUPATION" type="STRING" size="256"/>
+          <Column id="EMPLOYMENT_TYPE" type="STRING" size="256"/>
+          <Column id="HOBONG" type="STRING" size="256"/>
+          <Column id="POSITION" type="STRING" size="256"/>
+          <Column id="DEPT_NAME" type="STRING" size="256"/>
+          <Column id="STATUS" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_licenseInfoList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="EMP_CODE" type="STRING" size="256"/>
+          <Column id="LICENSE_CODE" type="STRING" size="256"/>
+          <Column id="LICENSE_NAME" type="STRING" size="256"/>
+          <Column id="REGIST_DATE" type="STRING" size="256"/>
+          <Column id="EXPIRE_DATE" type="STRING" size="256"/>
+          <Column id="LICENSE_LEVEL" type="STRING" size="256"/>
+          <Column id="LICENSE_CENTER" type="STRING" size="256"/>
+          <Column id="ISSUE_NUMBER" type="STRING" size="256"/>
+          <Column id="STATUS" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_familyInfoList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="EMP_CODE" type="STRING" size="256"/>
+          <Column id="FAMILY_CODE" type="STRING" size="256"/>
+          <Column id="FAMILY_NAME" type="STRING" size="256"/>
+          <Column id="RELATION" type="STRING" size="256"/>
+          <Column id="BIRTHDATE" type="STRING" size="256"/>
+          <Column id="LIVE_TOGETHER" type="STRING" size="256"/>
+          <Column id="STATUS" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_emp" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="EMP_CODE" type="STRING" size="256"/>
+          <Column id="EMP_NAME" type="STRING" size="256"/>
+          <Column id="DEPT_NAME" type="STRING" size="256"/>
+          <Column id="POSITION" type="STRING" size="256"/>
+          <Column id="GENDER" type="STRING" size="256"/>
+          <Column id="MOBILE_NUMBER" type="STRING" size="256"/>
+          <Column id="EMAIL" type="STRING" size="256"/>
+          <Column id="ADDRESS" type="STRING" size="256"/>
+          <Column id="LAST_SCHOOL" type="STRING" size="256"/>
+          <Column id="IMG_EXTEND" type="STRING" size="256"/>
+          <Column id="BIRTHDATE" type="STRING" size="256"/>
+          <Column id="DETAIL_ADDRESS" type="STRING" size="256"/>
+          <Column id="POST_NUMBER" type="STRING" size="256"/>
+          <Column id="STATUS" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_careerInfoList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="EMP_CODE" type="STRING" size="256"/>
+          <Column id="CAREER_CODE" type="STRING" size="256"/>
+          <Column id="COMPANY_NAME" type="STRING" size="256"/>
+          <Column id="OCCUPATION" type="STRING" size="256"/>
+          <Column id="ASSIGNMENT_TASK" type="STRING" size="256"/>
+          <Column id="EX_HIREDATE" type="STRING" size="256"/>
+          <Column id="EX_RETIREMENT_DATE" type="STRING" size="256"/>
+          <Column id="STATUS" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <FileDialog id="FileDialog" filter="All(*.*)|*.*|" filterindex="0" defaultextension="false"/>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="Tab01.tabpage1.empImg" propid="bindgestureset" datasetid="ds_empList" columnid="IMG_EXTEND"/>
+      <BindItem id="item1" compid="Tab01.tabpage1.empCode" propid="value" datasetid="ds_empList" columnid="EMP_CODE"/>
+      <BindItem id="item2" compid="Tab01.tabpage1.empName" propid="value" datasetid="ds_empList" columnid="EMP_NAME"/>
+      <BindItem id="item3" compid="Tab01.tabpage1.deptName" propid="value" datasetid="ds_empList" columnid="DEPT_NAME"/>
+      <BindItem id="item4" compid="Tab01.tabpage1.position" propid="value" datasetid="ds_empList" columnid="POSITION"/>
+      <BindItem id="item5" compid="Tab01.tabpage1.gender" propid="value" datasetid="ds_empList" columnid="GENDER"/>
+      <BindItem id="item6" compid="Tab01.tabpage1.birth" propid="value" datasetid="ds_empList" columnid="BIRTHDATE"/>
+      <BindItem id="item7" compid="Tab01.tabpage1.address" propid="value" datasetid="ds_empList" columnid="ADDRESS"/>
+      <BindItem id="item8" compid="Tab01.tabpage1.detail_address" propid="value" datasetid="ds_empList" columnid="DETAIL_ADDRESS"/>
+      <BindItem id="item9" compid="Tab01.tabpage1.post_Number" propid="value" datasetid="ds_empList" columnid="POST_NUMBER"/>
+      <BindItem id="item10" compid="Tab01.tabpage1.phone_Number" propid="value" datasetid="ds_emp" columnid="MOBILE_NUMBER"/>
+      <BindItem id="item11" compid="Tab01.tabpage1.email" propid="value" datasetid="ds_empList" columnid="EMAIL"/>
+      <BindItem id="item12" compid="Tab01.tabpage1.last_school" propid="value" datasetid="ds_empList" columnid="LAST_SCHOOL"/>
+    </Bind>
+    <Script type="xscript4.0"><![CDATA[	//부서 클릭
+	var imgName;
+	function Tab01_tabpage1_deptName_oneditclick(obj:Edit,  e:EditClickEventInfo)
+	{
+		// 부서명이 나오는 코드
+		g_codeNumber="CO-07";
+		
+		 dialog(   
+				   "detailCodeList",   			// 생성될 ChildFrame의 이름
+				   "Base::codeDialog.xfdl",   	// 로딩한 폼의 URL
+				   MainFrame,   				// ParentFrame
+				   null,   						// ChildFrame에 추가될 변수 리스트 {변수명:변수값, 변수명:변수값}
+				   "",   						// ChildFrame에 설정할 속성 리스트 a=b b='c' 
+				   650,   						// ChildFrame의 position 중 left 값
+				   350   						// ChildFrame의 position 중 top 값
+	   );
+	   
+		//부서명
+		ds_empList.setColumn(ds_empList.rowposition,"DEPT_NAME",g_detailCodeName); 	
+	}
+
+
+
+
+
+
+
+	//직급 클릭
+	function Tab01_tabpage1_position_oneditclick(obj:Edit,  e:EditClickEventInfo)
+	{
+	
+		// 직급이 나오는 코드
+		g_codeNumber="CO-04";
+		
+		 dialog(   
+				   "detailCodeList",   			// 생성될 ChildFrame의 이름
+				   "Base::codeDialog.xfdl",   	// 로딩한 폼의 URL
+				   MainFrame,   				// ParentFrame
+				   null,   						// ChildFrame에 추가될 변수 리스트 {변수명:변수값, 변수명:변수값}
+				   "",   						// ChildFrame에 설정할 속성 리스트 a=b b='c' 
+				   650,   						// ChildFrame의 position 중 left 값
+				   350   						// ChildFrame의 position 중 top 값
+	   );
+	   
+		ds_empList.setColumn(ds_empList.rowposition,"POSITION",g_detailCodeName);  	//직급
+	}
+
+
+
+
+
+
+
+
+	//최종학력 클릭
+	function Tab01_tabpage1_last_school_oneditclick(obj:Edit,  e:EditClickEventInfo)
+	{
+	
+		// 최종학력이 나오는 코드
+		g_codeNumber="CO-02";
+		
+		 dialog(   
+				   "detailCodeList",   			// 생성될 ChildFrame의 이름
+				   "Base::codeDialog.xfdl",   	// 로딩한 폼의 URL
+				   MainFrame,   				// ParentFrame
+				   null,   						// ChildFrame에 추가될 변수 리스트 {변수명:변수값, 변수명:변수값}
+				   "",   						// ChildFrame에 설정할 속성 리스트 a=b b='c' 
+				   650,   						// ChildFrame의 position 중 left 값
+				   350   						// ChildFrame의 position 중 top 값
+	   );
+	   
+		ds_empList.setColumn(ds_empList.rowposition,"LAST_SCHOOL",g_detailCodeName);  //최종학력 
+	}
+
+
+
+
+
+
+
+	//주소 클릭 
+	function Tab01_tabpage1_address_oneditclick(obj:Edit,  e:EditClickEventInfo)
+	{
+					// application.dialog
+					dialog(
+						   "zipCodeDialog",
+						   "Base::zipCodeDialog.xfdl",
+						   mainframe,
+						   {},
+						   "showtitlebar=true showstatusbar=false",
+						   300,300,300,300,
+						   this);
+
+	  ds_empList.setColumn(ds_empList.rowposition,"ADDRESS",g_address);
+	  ds_empList.setColumn(ds_empList.rowposition,"DETAIL_ADDRESS",g_detail_address);
+	  ds_empList.setColumn(ds_empList.rowposition,"POST_NUMBER",g_post_number);	
+	}
+
+
+
+
+
+
+
+	//성별 클릭
+	function Tab01_tabpage1_gender_oneditclick(obj:Edit,  e:EditClickEventInfo)
+	{
+		// 성별이 나오는 코드
+		g_codeNumber="CO-01";
+		
+		 dialog(   
+				   "detailCodeList",   			// 생성될 ChildFrame의 이름
+				   "Base::codeDialog.xfdl",   	// 로딩한 폼의 URL
+				   MainFrame,   				// ParentFrame
+				   null,   						// ChildFrame에 추가될 변수 리스트 {변수명:변수값, 변수명:변수값}
+				   "",   						// ChildFrame에 설정할 속성 리스트 a=b b='c' 
+				   650,   						// ChildFrame의 position 중 left 값
+				   350   						// ChildFrame의 position 중 top 값
+	   );
+		
+		ds_empList.setColumn(ds_empList.rowposition,"GENDER",g_detailCodeName); //성별 
+	}
+
+
+
+
+
+
+
+	//사진 수정하기
+	function Tab01_tabpage1_findPhoto_onclick(obj:Button,  e:ClickEventInfo)
+	{
+		// FileDialog.open(strTitle,constOpenMode,strInitialPath,strFileName)
+		// 타이틀 영역에 표시될 문자열 , 파일처리하는 형식
+		// FileDialog.LOAD(1): 하나의 파일을 읽기 위해서 가져온다
+		imgDialog=FileDialog.open("FileOpen",FileDialog.Load);
+		imgName = imgDialog.filename;		//파일명  ex)dochi.jpg
+		trace(imgName);
+		imgPath = imgDialog.path;			//파일경로    ex)C:\Users\user.DESKTOP-4AISN4G\Pictures\Saved Pictures\
+		trace(imgPath);
+		img = imgPath+imgName;
+		Tab01.tabpage1.empImg.image=img;
+		Tab01.tabpage1.empImg.stretch="fit";   // 이미지 컴포넌트를 크기에 맞게출력
+	}
+
+
+
+
+
+
+
+	//사진저장 
+	function Tab01_tabpage1_savePhoto_onclick(obj:Button,  e:ClickEventInfo)
+	{	
+		var selEmpCode = ds_empList.getColumn(ds_empList.rowposition,"EMP_CODE");
+		var fileExtend = String(imgName).substr(imgName.lastIndexOf('.'));	// .jpg에서 . 제거
+		trace("fileExtend  : "+fileExtend);
+		empFileName =  selEmpCode + fileExtend;
+		trace("empFileName : "+empFileName);
+		
+		// 바이너리파일 : 데이터로구성된 파일 , 이미지파일이나 데이터 , 실행파일
+		// 읽기전용파일 열때 |  바이러리파일을 열때 사용
+		imgDialog.open(VirtualFile.openRead | VirtualFile.openBinary); 
+		
+		// 파일 내용을 읽는 메소드입니다.
+		var img_binary=imgDialog.read(imgDialog.getFileSize());
+		trace("img_binary : "+img_binary);
+		// 버퍼데이터 또는 문자열 반환 
+		
+		
+		// 데이터셋에 추가하기 전에 기존 데이터가 있으면 삭제한다.
+		var findNum = ds_img.findRow("EMP_FILE_NAME",empFileName);
+		if(findNum > -1){
+			ds_img.deleteRow(findNum); 
+		}
+	   
+		ds_img.addRow();
+		ds_img.setColumn(0,"EMP_FILE_NAME",empFileName);
+		ds_img.setColumn(0,"IMG_FILE_DATA",img_binary);
+		
+		transaction(
+					"imgUpLoadID",
+					"svcBase::saveEmpImg",
+					"ds_img=ds_img:u",
+					"",
+					"",
+					"fn_callback"
+					);		 
+
+		}
+		
+		
+		
+		
+		
+		
+	
+	// 사원 디테일에서는 첫번째로 실행이되어야 나머지 값들도 나옴
+	// 부서명 검색 
+	function Tab_tabpage1_btn_search_onclick(obj:Button , e:ClickEventInfo)
+	{
+		codeName=Tab.page1.btn_dept_search.value;
+		
+		if(codeName==null){
+			Tab.page1.btn_dept_search.value="전체부서";
+		}
+		
+		transaction(
+					"searchDeptID"
+				   ,"svcEmp::list"
+				   ,""
+				   ,"ds_empList=gds_emp" 
+				   ,"value='"+codeName+"'"
+				   ,"fn_callback" 
+				);
+	}
+
+
+
+
+
+
+
+	//사원명 검색 
+	function Tab_page2_btn_search_onclick(obj:Button,  e:ClickEventInfo)
+	{
+		var empName=Tab.page2.name_text.value;
+		
+		if(empName==null){
+			  alert("사원명을 입력하세요");
+		}
+		
+		transaction(
+			   "searchEmpID"
+			   ,"svcEmp::list"
+			   ,""
+			   ,"ds_empList=gds_emp"
+			   ,"value='"+empName+"'"
+			   ,"fn_callback"
+		);
+	}
+
+
+
+
+
+
+
+	//부서검색 그리드 셀 클릭시 
+	function Tab_page1_Grid00_oncellclick(obj:Grid, e:GridClickEventInfo)
+	{
+		var empcode=ds_empList.getColumn(ds_empList.rowposition,"EMP_CODE");
+		trace(empcode);
+		transaction(
+					"searceCodeID",
+					"svcEmp::findAllEmployeeInfo",
+					"",
+					// 부서검색의 그리드 셀 클릭시 그 사원에대한 디테일 정보가 다 필요하기때문에
+					// 여러개의 dataset이 필요하다
+					// server에서 일 대 다 처리
+					"ds_workInfoLis=ds_workInfo ds_careerInfoList=ds_careerInfo ds_educationInfoList=ds_educationInfo ds_licenseInfoList=ds_licenseInfo ds_familyInfoList=ds_familyInfo",
+					"empCode='"+empcode+"'",
+					"fn_callback"
+				);	
+	}
+
+
+
+
+
+
+
+	// 사원검색 그리드 셀 클릭
+	// 사원검색 시에도 위의 부서 검색과 동일
+	function Tab_page2_Grid00_oncellclick(obj:Grid, e:GridClickEventInfo)
+	{
+		Tab_page1_Grid00_oncellclick();
+	}
+
+
+
+
+
+
+
+	//콜백
+	function fn_callback(trID ,ErrorCode ,ErrorMsg){
+	  if(trID=="searcDeptID"){  //부서명 검색 콜백 
+		if(ErrorCode!=0){
+		   alert("조회실패 :" +ErrorCode);
+		}else{
+		  var empCode =ds_empList.getColumn(ds_empList.rowposition,"EMP_CODE");
+		  var imgExtend =ds_empList.getColumn(ds_empList.rowposition,"IMG_EXTEND");
+			 // imgImage ::= 'url('리소스 이미지')' | 'url('절대경로 이미지')' | 'url('상대경로이미지')' | 'url("''웹이미지'"')'
+			 // 부서명클릭시 사원에 데이터들과 이미지 파일이 바로 load되야 하기때문
+			 Tab01.tabpage1.empImg.image="URL('http://localhost/EmpImg/"+empCode+'"."'+imgExtend+"')";  
+			 var empImg=Tab01.tabpage1.empImg.image;
+			 trace("부서명검색"+empImg);
+		}
+	  }
+	  
+	  
+	if(trID=="searceCodeID"){ //셀클릭 콜백 
+		 var empCode=ds_empList.getColumn(ds_empList.rowposition,"EMP_CODE");
+		 var imgExtend=ds_empList.getColumn(ds_empList.rowposition,"IMG_EXTEND");
+		   imgName=empCode+imgExtend;
+		   // 다른 사원을 클릭했을시
+		   Tab01.tabpage1.empImg.image="URL('http://localhost/EmpImg/"+empCode+'"."'+imgExtend+"')";
+		   var empImg=Tab01.tabpage1.empImg.image;
+		   trace(empImg);
+	   }
+	  
+	  
+	  if(trID=="searchEmpID"){ // 사원명 검색
+		if(ErrorCode!=0){
+			alert("검색실패"+ErrorMsg);
+		}else{
+		   var empList=ds_empList.rowcount;
+		  if(empList==0){	// 그 부서의 등록된 사원이 없을경우
+			 alert("해당 사원은 없습니다.");
+			 Tab.page2.name_text.value=null;
+		  }
+			var empCode=ds_empList.getColumn(ds_empList.rowposition,"EMP_CODE");
+			var imgExtend=ds_empList.getColumn(ds_empList.rowposition,"IMG_EXTEND");
+			
+		Tab01.tabpage1.empImg.image="URL('http://localhost/EmpImg/"+empCode+'"."'+imgExtend+"')";
+		}
+	  }
+	  
+	  
+	  if(trID=="updateEmpID"){ // 저장버튼 콜백  
+		if(ErrorCode!=0){
+			alert("저장실패 : "+ErrorMsg);
+		}else{ 
+			alert("저장되었습니다.");
+		 }
+	   }
+	  
+	  
+	  if(trID=="imgUpLoadID"){  // 사진 저장 콜백 
+		if(ErrorCode!=0){
+				alert("사진등록 실패 : "+ErrorMsg);
+			}else{
+				alert("사진등록 완료.");
+			}
+	 }
+	}
+
+
+
+
+
+
+
+
+	//재직정보 추가
+	function Tab01_tabpage2_btn_add_work_onclick(obj:Button,  e:ClickEventInfo)
+	{
+		if(ds_workInfoLis.rowposition<0){
+		ds_workInfoLis.addRow();
+		ds_workInfoLis.setColumn(ds_workInfoLis.rowposition,"STATUS","insert");
+		ds_workInfoLis.setColumn(ds_workInfoLis.rowposition,"EMP_CODE",ds_empList.getColumn(ds_empList.rowposition,"EMP_CODE"));
+		}else{
+		  alert("이미 재직정보가 있습니다.");
+		}
+	}
+	
+	
+	
+	
+	
+
+	//재직정보 수정
+	function Tab01_tabpage2_btn_r_work00_onclick(obj:Button,  e:ClickEventInfo)
+	{
+		ds_workInfoLis.setColumn(ds_workInfoLis.rowposition,"STATUS","update");
+	}
+	
+	
+	
+	
+	
+	
+
+	//재직정보 삭제 
+	function Tab01_tabpage2_btn_del_work_onclick(obj:Button,  e:ClickEventInfo)
+	{
+		ds_workInfoLis.setColumn(0,"STATUS","delete");
+	}
+
+
+
+
+
+
+
+
+	//경력정보 추가 
+	function Tab01_tabpage3_btn_add_career_onclick(obj:Button,  e:ClickEventInfo)
+	{
+		if(ds_careerInfoList.rowposition<0){
+		ds_careerInfoList.addRow();
+		ds_careerInfoList.setColumn(ds_careerInfoList.rowposition,"STATUS","insert");
+		ds_careerInfoList.setColumn(ds_careerInfoList.rowposition,"EMP_CODE",ds_empList.getColumn(ds_empList.rowposition,"EMP_CODE"));
+		}else{
+			alert("이미 경력정보가 있습니다.");
+		}
+	}
+
+
+
+
+
+
+
+
+	//경력정보 수정
+	function Tab01_tabpage3_btn_r_career_onclick(obj:Button,  e:ClickEventInfo)
+	{
+		ds_careerInfoList.setColumn(ds_careerInfoList.rowposition,"STATUS","update");	
+	}
+
+
+
+
+
+
+
+
+
+	//경력정보 삭제 
+	function Tab01_tabpage3_btn_del_career_onclick(obj:Button,  e:ClickEventInfo)
+	{
+		ds_careerInfoList.setColumn(0,"STATUS","delete");
+	}
+
+
+
+
+
+
+
+
+
+
+	//학력정보 추가 
+	function Tab01_tabpage4_btn_add_education_onclick(obj:Button,  e:ClickEventInfo)
+	{
+		if(ds_educationInfoList.rowposition<0){
+		ds_educationInfoList.addRow();
+		ds_educationInfoList.setColumn(ds_educationInfoList.rowposition,"STATUS","insert");
+		ds_educationInfoList.setColumn(ds_educationInfoList.rowposition,"EMP_CODE",ds_empList.getColumn(ds_empList.rowposition,"EMP_CODE"));
+		}else{
+		   alert("이미 학력정보가 있습니다.");
+		}
+	}
+
+
+
+
+
+
+
+
+
+	//학력정보 수정 
+	function Tab01_tabpage4_btn_r_education00_onclick(obj:Button,  e:ClickEventInfo)
+	{
+		ds_educationInfoList.setColumn(ds_educationInfoList.rowposition,"STATUS","update");	
+	}
+
+
+
+
+
+
+
+
+
+	//학력정보 삭제
+	function Tab01_tabpage4_btn_del_education_onclick(obj:Button,  e:ClickEventInfo)
+	{
+		ds_educationInfoList.setColumn(0,"STATUS","delete");	
+	}
+
+
+
+
+
+
+
+
+
+	//자격증정보 추가 
+	function Tab01_tabpage5_btn_add_license_onclick(obj:Button,  e:ClickEventInfo)
+	{ 
+	   if(ds_licenseInfoList.rowposition<0){
+		ds_licenseInfoList.addRow();
+		ds_licenseInfoList.setColumn(ds_licenseInfoList.rowposition,"STATUS","insert");
+		ds_licenseInfoList.setColumn(ds_licenseInfoList.rowposition,"EMP_CODE",ds_empList.getColumn(ds_empList.rowposition,"EMP_CODE"));	
+		}else{
+		 alert("이미 자격증정보가 있습니다.");
+		}
+	}
+
+
+
+
+
+
+
+
+	//자격증 정보 수정
+	function Tab01_tabpage5_btn_r_license00_onclick(obj:Button,  e:ClickEventInfo)
+	{
+		ds_licenseInfoList.setColumn(ds_licenseInfoList.rowposition,"STATUS","update");		
+	}
+
+
+
+
+
+
+
+
+	//자격증정보 삭제 
+	function Tab01_tabpage5_btn_del_license_onclick(obj:Button,  e:ClickEventInfo)
+	{
+		ds_licenseInfoList.setColumn(0,"STATUS","delete");	
+	}
+
+
+
+
+
+
+
+
+	//가족정보 추가 
+	function Tab01_tabpage6_add_family_btn_onclick(obj:Button,  e:ClickEventInfo)
+	{
+		ds_familyInfoList.addRow();
+		ds_familyInfoList.setColumn(ds_familyInfoList.rowposition,"STATUS","insert");
+		ds_familyInfoList.setColumn(ds_familyInfoList.rowposition,"EMP_CODE",ds_empList.getColumn(ds_empList.rowposition,"EMP_CODE"));		
+	}
+
+
+
+
+
+
+
+
+	//가족정보 수정
+	function Tab01_tabpage6_r_family_btn00_onclick(obj:Button,  e:ClickEventInfo)
+	{
+		ds_familyInfoList.setColumn(ds_familyInfoList.rowposition,"STATUS","update");		
+	}
+
+
+
+
+
+
+
+
+	//가족정보 삭제 
+	function Tab01_tabpage6_del_family_btn_onclick(obj:Button,  e:ClickEventInfo)
+	{
+		ds_familyInfoList.setColumn(ds_familyInfoList.rowposition,"STATUS","delete");
+	}
+
+
+
+
+
+
+
+	//저장 
+	function btn_saveEmp_onclick(obj:Button,  e:ClickEventInfo)
+	{
+	 
+	 var selEmpCode=ds_empList.getColumn(ds_empList.rowposition,"EMP_CODE");
+		trace(imgName);
+		var fileExtend = String(imgName).substr(imgName.lastIndexOf('.'));
+		trace("fileExtend  : "+fileExtend);
+		empFileName =  selEmpCode + fileExtend;
+		trace("empFileName : "+empFileName);
+
+		
+		ds_img.addRow();
+		ds_img.setColumn(0,"EMP_FILE_NAME",empFileName);
+		//ds_img.setColumn(0,"IMG_FILE_DATA",img_binary);
+	 
+	 
+	ds_emp.setColumn(0,"EMP_CODE",ds_empList.getColumn(ds_empList.rowposition,"EMP_CODE"));
+	ds_emp.setColumn(0,"EMP_NAME",ds_empList.getColumn(ds_empList.rowposition,"EMP_NAME"));
+	ds_emp.setColumn(0,"DEPT_NAME",ds_empList.getColumn(ds_empList.rowposition,"DEPT_NAME"));
+	ds_emp.setColumn(0,"POSITION",ds_empList.getColumn(ds_empList.rowposition,"POSITION"));
+	ds_emp.setColumn(0,"GENDER",ds_empList.getColumn(ds_empList.rowposition,"GENDER"));
+	ds_emp.setColumn(0,"MOBILE_NUMBER",ds_empList.getColumn(ds_empList.rowposition,"MOBILE_NUMBER"));
+	ds_emp.setColumn(0,"EMAIL",ds_empList.getColumn(ds_empList.rowposition,"EMAIL"));
+	ds_emp.setColumn(0,"ADDRESS",ds_empList.getColumn(ds_empList.rowposition,"ADDRESS"));
+	ds_emp.setColumn(0,"LAST_SCHOOL",ds_empList.getColumn(ds_empList.rowposition,"LAST_SCHOOL"));
+	ds_emp.setColumn(0,"IMG_EXTEND",ds_empList.getColumn(ds_empList.rowposition,"IMG_EXTEND"));
+	ds_emp.setColumn(0,"BIRTHDATE",ds_empList.getColumn(ds_empList.rowposition,"BIRTHDATE"));
+	ds_emp.setColumn(0,"DETAIL_ADDRESS",ds_empList.getColumn(ds_empList.rowposition,"DETAIL_ADDRESS"));
+	ds_emp.setColumn(0,"POST_NUMBER",ds_empList.getColumn(ds_empList.rowposition,"POST_NUMBER"));
+
+
+	if(confirm(" 변경한 내용을 서버에 저장하시겠습니까? ")){
+		
+		
+		// :u   status가 normal이 아닌것
+		transaction(
+					"updateEmpID",
+					"svcEmp::modifyEmployee",
+					// indata
+					"gds_emp=ds_emp ds_workInfo=ds_workInfoLis:u ds_careerInfo=ds_careerInfoList:u ds_educationInfo=ds_educationInfoList:u ds_licenseInfo=ds_licenseInfoList:u ds_familyInfo=ds_familyInfoList:u gds_fileupload=gds_fileupload:u",
+					// outdata
+					"",
+					// 인자값 variable
+					"",
+					"fn_callback"  // 응답이 올때 요청되는 함수 비동기처리
+					);		
+		}	
+		
+		
+	}
+
+
+
+
+
+
+
+
+	//사원 삭제 
+	function Tab_page1_btn_delete_onclick(obj:Button,  e:ClickEventInfo)
+	{
+
+	var count=ds_empList.rowcount;
+	var num=0;
+
+	  for(var i=0;i<count;i++){
+		 var status=ds_empList.getColumn(i,"STATUS");
+		 
+			 if(status==1){
+				 transaction(
+							"deleteEMP",
+							"svcEmp::removeEmployeeList",
+							"gds_emp=ds_empList:u",
+							"",
+							"",
+							"fn_delete"
+							);
+							num++;
+					}
+				}
+				if(num==0){
+				alert("삭제할 행이 없습니다.");
+				return;
+			}
+
+	 }
+
+
+	function fn_delete(trID,ErrorCode,ErrorMsg){
+	if(trID=="deleteEMP"){
+		if(ErrorCode!=0){
+			alert("삭제실패 : "+ErrorMsg);
+		}else{ //성공시
+			alert("삭제완료.");
+			reload();	
+		}
+	  }
+	 }
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	//체크박스 전체 선택 & 해제 
+	function grd_output_onheadclick(obj:Grid, e:GridClickEventInfo) //이벤트가 발생한 object , event object
+	{
+		if (e.cell == 0) // e.cell: Click된 Cell의 해당 Band내에서 Index 값을 가지는 Property 입니다.
+		{
+			fn_setGridCheckAll(obj, e);
+		}	
+	}
+
+	var fv_isGridCheckAll = 0;
+	function fn_setGridCheckAll(obj:Grid, e:GridClickEventInfo)
+	{
+		//Grid의 전체 Cell과 Bind 되는 Dataset의 ID를 설정하는 Property 입니다. BindDataset과 Gid는 Full Binding됩니다.
+		var objDs = eval(obj.binddataset); 
+		
+		var sCol  = obj.getCellProperty("body", e.cell, "text").replace("bind:", ""); 
+			 //getCellProperty(얻고자하는 cell의 영역, 얻고자하는 cell의 index, 얻고자하는 cell의 property)
+			 
+			 
+		if (fv_isGridCheckAll)
+		{
+			fv_isGridCheckAll = 0;
+		}
+		else
+		{
+			fv_isGridCheckAll = 1;
+		}
+
+		objDs.enableevent = false;  // enableevent Dataset 의 Event 를 발생할지 여부를 설정하는 Property 입니다.
+		
+		for (var i = 0; i < objDs.getRowCount(); i++) 
+		{
+			objDs.setColumn(i, sCol, fv_isGridCheckAll);
+		}
+		
+		obj.setCellProperty("Head", 0, "expr", fv_isGridCheckAll);
+		
+		objDs.enableevent = true;
+	}
+
+
+]]></Script>
+  </Form>
+</FDL>

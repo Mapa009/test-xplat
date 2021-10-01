@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="employment" classname="employment" inheritanceid="" position="absolute 0 0 1024 768" titletext="New Form" onload="employment_onload" style="background:#333333ff;color:#fa5252ff;">
+    <Layouts>
+      <Layout>
+        <Tab id="Tab00" taborder="0" position2="absolute l:107 w:806 t:88 h:459" positiontype="position2" tabindex="0" scrollbars="autoboth" style="color:white;font:나눔고딕 ExtraBold,10,bold antialias; :selected {color:#5d5d5dff;}">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="재직증명서 신청" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout width="788" height="387">
+                  <Static id="Static00" text="재직증명서 신청" position2="absolute l:233 w:323 t:26 h:42" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕 ExtraBold,14,bold;"/>
+                  <Static id="Static01" text="사원명" position2="absolute l:94 w:135 t:133 h:29" positiontype="position2" style="color:white;align:center;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Static id="Static02" text="비고" position2="absolute l:383 w:135 t:245 h:29" positiontype="position2" onclick="Tab00_tabpage1_Static02_onclick" style="color:white;align:center;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Static id="Static03" text="부서" position2="absolute l:383 w:135 t:133 h:29" positiontype="position2" style="color:white;align:center;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Static id="Static04" text="사용일" position2="absolute l:383 w:135 t:189 h:29" positiontype="position2" style="color:white;align:center;font:나눔고딕 ExtraBold,9,bold;" onclick="Tab00_tabpage1_Static04_onclick"/>
+                  <Static id="Static05" text="신청일" position2="absolute l:94 w:135 t:189 h:29" positiontype="position2" style="color:white;align:center;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Static id="Static06" text="용도" position2="absolute l:94 w:135 t:245 h:29" positiontype="position2" style="color:white;align:center;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Edit id="empName" taborder="1" position2="absolute l:212 w:163 t:133 h:27" positiontype="position2" style="color:#5d5d5dff;align:center;font:나눔고딕,9;"/>
+                  <Edit id="empDept" taborder="1" position2="absolute l:511 w:163 t:133 h:27" positiontype="position2" style="color:#5d5d5dff;align:center;font:나눔고딕,9;"/>
+                  <Calendar id="startDate" taborder="1" position2="absolute l:212 w:163 t:186 h:28" positiontype="position2" style="color:#5d5d5dff;align:center;font:나눔고딕,9; :disabled {background:#ffffffb3;color:#5d5d5dff;}" type="normal" enable="false" dateformat="yyyy-MM-dd " value="null"/>
+                  <Calendar id="useDate" taborder="1" position2="absolute l:511 w:163 t:186 h:28" positiontype="position2" style="color:#5d5d5dff;align:center;font:나눔고딕,9;" dateformat="yyyy-MM-dd" value="null" onchanged="Tab00_tabpage1_useDate_onchanged" oneditclick="Tab00_tabpage1_useDate_oneditclick"/>
+                  <Edit id="usetxt" taborder="1" position2="absolute l:212 w:163 t:246 h:27" positiontype="position2" style="color:#5d5d5dff;align:center;font:나눔고딕,9;" oneditclick="Tab00_tabpage1_usetxt_oneditclick"/>
+                  <Edit id="etc" taborder="1" position2="absolute l:511 w:163 t:246 h:27" positiontype="position2" style="color:#5d5d5dff;align:center;font:나눔고딕,9;"/>
+                  <Button id="applyBtn" taborder="1" text="재직증명서 신청" position2="absolute l:316 w:157 t:324 h:28" positiontype="position2" style="background:#5d5d5dff;color:white;font:나눔고딕,9,bold;" onclick="Tab00_tabpage1_applyBtn_onclick"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tabpage2" text="재직증명서 조회/발급/취소" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout>
+                  <Static id="Static00" text="신청일자" position2="absolute l:159 w:139 t:43 h:31" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:HY헤드라인M,9;" onclick="Tab00_tabpage2_Static00_onclick"/>
+                  <Calendar id="startDate1" taborder="1" position2="absolute l:319 w:150 t:43 h:31" positiontype="position2" dateformat="yyyy-MM-dd" value="null"/>
+                  <Calendar id="endDate1" taborder="1" position2="absolute l:506 w:150 t:43 h:31" positiontype="position2" dateformat="yyyy-MM-dd" value="null"/>
+                  <Static id="Static01" text="-" position2="absolute l:472 w:30 t:45 h:25" positiontype="position2" style="align:center;font:Verdana,14,bold;"/>
+                  <Button id="lookupBtn" taborder="1" text="신청 조회" position2="absolute l:235 w:82 t:90 h:33" positiontype="position2" style="background:black;color:white;align:center;font:HY헤드라인M,9;" onclick="Tab00_tabpage2_lookupBtn_onclick"/>
+                  <Button id="cancelBtn" taborder="1" text="신청 취소" position2="absolute l:357 w:74 t:90 h:33" positiontype="position2" style="background:black;color:white;align:center;font:HY헤드라인M,9;" onclick="Tab00_tabpage2_cancelBtn_onclick"/>
+                  <Button id="Button02" taborder="1" text="재직증명서 발급" position2="absolute l:463 w:98 t:89 h:33" positiontype="position2" style="background:black;color:white;align:center;font:HY헤드라인M,9;" enableevent="true"/>
+                  <Edit id="address" taborder="1" position2="absolute l:202 w:196 t:358 h:27" positiontype="position2" oneditclick="Tab00_tabpage2_address_oneditclick" displaynulltext="이메일을 입력하세요." style="color:darkgray;align:center;"/>
+                  <Button id="mailBtn" taborder="1" text="메일전송" position2="absolute l:422 w:139 t:354 h:31" positiontype="position2" style="background:black;color:white;" onclick="Tab00_tabpage2_mailBtn_onclick"/>
+                  <Grid id="Grid00" taborder="1" binddataset="ds_employmentList" useinputpanel="false" autofittype="col" position2="absolute l:27 w:734 t:146 h:186" positiontype="position2" style="align:center;" onheadclick="grd_output_onheadclick">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="40"/>
+                          <Column size="87"/>
+                          <Column size="80"/>
+                          <Column size="90"/>
+                          <Column size="100"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head" style="background:#008040ff;">
+                          <Cell displaytype="checkbox" edittype="checkbox" expr="0"/>
+                          <Cell col="1" displaytype="normal" text="사원코드"/>
+                          <Cell col="2" displaytype="normal" text="용도"/>
+                          <Cell col="3" displaytype="normal" text="신청일"/>
+                          <Cell col="4" displaytype="normal" text="사용일"/>
+                          <Cell col="5" displaytype="normal" text="승인여부"/>
+                          <Cell col="6" displaytype="normal" text="반려사유"/>
+                          <Cell col="7" displaytype="normal" text="비고"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell displaytype="checkbox" edittype="checkbox" text="bind:STATUS"/>
+                          <Cell col="1" displaytype="normal" text="bind:EMP_CODE"/>
+                          <Cell col="2" displaytype="normal" text="bind:USAGE_NAME"/>
+                          <Cell col="3" displaytype="normal" text="bind:REQUEST_DATE"/>
+                          <Cell col="4" displaytype="normal" text="bind:USE_DATE"/>
+                          <Cell col="5" displaytype="normal" text="bind:APPROVAL_STATUS"/>
+                          <Cell col="6" displaytype="normal" text="bind:REJECT_CAUSE"/>
+                          <Cell col="7" displaytype="normal" text="bind:ETC"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_employment" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="EMP_CODE" type="STRING" size="256"/>
+          <Column id="REQUEST_DATE" type="STRING" size="256"/>
+          <Column id="USE_DATE" type="STRING" size="256"/>
+          <Column id="USAGE_CODE" type="STRING" size="256"/>
+          <Column id="ETC" type="STRING" size="256"/>
+          <Column id="APPROVAL_STATUS" type="STRING" size="256"/>
+          <Column id="REJECT_CAUSE" type="STRING" size="256"/>
+          <Column id="STATUS" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_employmentList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="EMP_CODE" type="STRING" size="256"/>
+          <Column id="EMP_NAME" type="STRING" size="256"/>
+          <Column id="DEPT_NAME" type="STRING" size="256"/>
+          <Column id="REQUEST_DATE" type="STRING" size="256"/>
+          <Column id="USE_DATE" type="STRING" size="256"/>
+          <Column id="USAGE_CODE" type="STRING" size="256"/>
+          <Column id="USAGE_NAME" type="STRING" size="256"/>
+          <Column id="ETC" type="STRING" size="256"/>
+          <Column id="APPROVAL_STATUS" type="STRING" size="256"/>
+          <Column id="REJECT_CAUSE" type="STRING" size="256"/>
+          <Column id="STATUS" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item1" compid="Tab00.tabpage1.useDate" propid="value" datasetid="ds_employment" columnid="USE_DATE"/>
+      <BindItem id="item2" compid="Tab00.tabpage1.etc" propid="value" datasetid="ds_employment" columnid="ETC"/>
+      <BindItem id="item3" compid="Tab00.tabpage1.startDate" propid="value" datasetid="ds_employment" columnid="REQUEST_DATE"/>
+    </Bind>
+    <Script type="xscript4.0"><![CDATA[//로드
+function employment_onload(obj:Form, e:LoadEventInfo)
+{
+	Tab00.tabpage1.empName.value=g_empName;
+	Tab00.tabpage1.empDept.value=g_deptName;
+	
+	//오늘날짜
+var date = new Date(); 
+var year = date.getFullYear(); 
+var month = new String(date.getMonth()+1); 
+var day = new String(date.getDate()); 
+
+// 한자리수일 경우 0을 채워준다. 
+if(month.length == 1){ 
+  month = "0" + month; 
+} 
+if(day.length == 1){ 
+  day = "0" + day; 
+} 
+
+today=year+month+day;
+	trace("오늘"+today);
+	
+	Tab00.tabpage1.startDate.value=today;
+	Tab00.tabpage1.useDate.value=today;
+}
+
+//사용일이 바뀔때
+function Tab00_tabpage1_useDate_onchanged(obj:Calendar, e:ChangeEventInfo)
+{	
+	Tab00.tabpage1.startDate.value=Tab00.tabpage1.useDate.value;
+}
+
+
+//재직증명서 신청
+function Tab00_tabpage1_applyBtn_onclick(obj:Button,  e:ClickEventInfo)
+{
+
+	ds_employment.setColumn(0,"ETC","null"); 
+	ds_employment.setColumn(0,"STATUS","normal"); 
+
+	transaction(
+				"employmentID",
+				"svcCertificate::registRequest",
+				"ds_CertificateBean=ds_employment",
+				"",
+				"",
+				"fn_callback");
+}
+
+function fn_callback(trID,ErrorCode,ErrorMsg){
+	if(trID="applyID"){
+		if(ErrorCode!=0){
+			alert("선택한 날짜에 재직증명서가 이미 신청되었습니다.");
+			form.reload();
+		}else{
+		 alert("신청완료");
+		 form.reload();
+		}
+	}
+}
+
+//용도 다이얼로그 
+function Tab00_tabpage1_usetxt_oneditclick(obj:Edit,  e:EditClickEventInfo)
+{
+		//금융기관,관공서,회사,기타
+	g_codeNumber="CO-16";
+	
+	 dialog(    
+				"detailCodeList",   // 생성될 ChildFrame의 이름
+				"Base::codeDialog.xfdl",   // 로딩한 폼의 URL
+				MainFrame,   // ParentFrame
+				null,   // ChildFrame에 추가될 변수 리스트 {변수명:변수값, 변수명:변수값}
+				"",   // ChildFrame에 설정할 속성 리스트 a=b b='c' 
+				650,   // ChildFrame의 position 중 left 값
+				350   // ChildFrame의 position 중 top 값
+			);
+        //다이얼로그 값 변수set
+	ds_employment.setColumn(0,"USAGE_CODE",g_detailCodeNumber); //근태코드set
+	//ds_employment.setColumn(0,"USAGE_NAME",g_detailCodeName); //근태명 set
+	Tab00.tabpage1.usetxt.value=g_detailCodeName;
+	ds_employment.setColumn(0,"EMP_CODE",g_empCode); //사원코드
+	ds_employment.setColumn(0,"APPROVAL_STATUS","승인대기"); // 승인여부
+	ds_employment.setColumn(0,"REJECT_CAUSE","보류"); // 반려사유
+}
+
+
+//신청조회
+function Tab00_tabpage2_lookupBtn_onclick(obj:Button,  e:ClickEventInfo)
+{
+	startday=Tab00.tabpage2.startDate1.value;
+	endday=Tab00.tabpage2.endDate1.value;
+	
+	transaction(
+				"lookupID"
+				,"svcCertificate::findCertificateList"
+				,""
+				,"ds_employmentList=ds_employment"
+				,"empCode='"+g_empCode+"' startDate='"+startday+"' endDate='"+endday+"'"
+				,"fn_callback2"
+	);
+}
+
+function fn_callback2(trID,ErrorCode,ErrorMsg){
+	if(trID=="lookupID"){
+		if(ErrorCode!=0){
+			alert("조회실패");
+		}
+	}
+}
+
+//신청취소
+function Tab00_tabpage2_cancelBtn_onclick(obj:Button,  e:ClickEventInfo)
+{
+    var requestDate=ds_employmentList.getColumn(ds_employmentList.rowposition,"REQUEST_DATE");
+    
+			transaction(
+						"deleteID"
+						,"svcCertificate::removeCertificateRequest"
+						,""
+						,""
+						,"requestDate='"+requestDate+"' empCode='"+g_empCode+"'"
+						,"fn_deletecallback"
+			);
+		 }
+
+
+function fn_deletecallback(trID,ErrorCode,ErrorMsg){
+	if(trID=="deleteID"){
+		if(ErrorCode!=0){
+			alert("취소실패"+ErrorMsg);
+		}else{
+			alert("신청 취소되었습니다.");
+			form.reload();
+		}
+	}
+}
+
+
+//메일전송 
+function Tab00_tabpage2_mailBtn_onclick(obj:Button,  e:ClickEventInfo)
+{
+   var empCode=ds_employmentList.getColumn(ds_employmentList.rowposition,"EMP_CODE");
+   var usage="text01";
+   var eMail=Tab00.tabpage2.address.value;
+
+	transaction(
+			"mailID"
+			,"svcBase::sendEmail"
+			,""
+			,""
+			,"empCode='"+empCode+"' usage='"+usage+"' eMail='"+eMail+"'"
+			,"fn_mailBack"
+	);
+}
+
+function fn_mailBack(trID,ErrorCode,ErrorMsg){
+   if(trID=="mailID"){
+		if(ErrorCode!=0){
+			alert("메일전송실패"+ErrorMsg);
+		}else{
+			alert("메일이 전송되었습니다.");
+		}
+   }
+}
+
+
+
+
+
+
+//체크박스 전체 선택 & 해제 
+function grd_output_onheadclick(obj:Grid, e:GridClickEventInfo) //이벤트가 발생한 object , event object
+{
+    if (e.cell == 0) // e.cell: Click된 Cell의 해당 Band내에서 Index 값을 가지는 Property 입니다.
+    {
+        fn_setGridCheckAll(obj, e);
+    }	
+}
+
+var fv_isGridCheckAll = 0;
+function fn_setGridCheckAll(obj:Grid, e:GridClickEventInfo)
+{
+    //Grid의 전체 Cell과 Bind 되는 Dataset의 ID를 설정하는 Property 입니다. BindDataset과 Gid는 Full Binding됩니다.
+    var objDs = eval(obj.binddataset); 
+    
+    var sCol  = obj.getCellProperty("body", e.cell, "text").replace("bind:", ""); 
+         //getCellProperty(얻고자하는 cell의 영역, 얻고자하는 cell의 index, 얻고자하는 cell의 property)
+         
+         
+    if (fv_isGridCheckAll)
+    {
+        fv_isGridCheckAll = 0;
+    }
+    else
+    {
+        fv_isGridCheckAll = 1;
+    }
+
+    objDs.enableevent = false;  // enableevent Dataset 의 Event 를 발생할지 여부를 설정하는 Property 입니다.
+    
+    for (var i = 0; i < objDs.getRowCount(); i++) 
+    {
+        objDs.setColumn(i, sCol, fv_isGridCheckAll);
+    }
+    
+    obj.setCellProperty("Head", 0, "expr", fv_isGridCheckAll);
+    
+    objDs.enableevent = true;
+}
+
+
+
+]]></Script>
+  </Form>
+</FDL>

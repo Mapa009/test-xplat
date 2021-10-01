@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="positionList" classname="positionList" inheritanceid="" position="absolute 0 0 1024 662" titletext="New Form" onload="positionList_onload" style="background:#333333ff;">
+    <Layouts>
+      <Layout>
+        <Tab id="Tab00" taborder="0" position2="absolute l:275 w:426 t:29 h:601" positiontype="position2" tabindex="0" scrollbars="autoboth" style="color:#5d5d5dff;font:나눔고딕 ExtraBold,10,bold antialias;">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="직급관리목록" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout width="132" height="376">
+                  <Button id="Button00" taborder="1" text="삭제" position2="absolute l:158 w:93 t:36 h:42" positiontype="position2" onclick="Tab00_tabpage1_Button00_onclick" style="background:#5d5d5dff;color:white;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Button id="Button01" taborder="1" text="추가" position2="absolute l:49 w:93 t:36 h:42" positiontype="position2" onclick="Tab00_tabpage1_Button01_onclick" style="background:#5d5d5dff;color:white;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Button id="Button02" taborder="1" text="저장" position2="absolute l:267 w:93 t:36 h:42" positiontype="position2" onclick="Tab00_tabpage1_Button02_onclick" style="background:#5d5d5dff;color:white;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Grid id="Grid00" taborder="1" binddataset="ds_positionList" useinputpanel="false" autofittype="col" position2="absolute l:24 w:360 t:98 h:435" positiontype="position2" style="align:center;font:맑은 고딕 Semilight,9,antialias;">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="80"/>
+                          <Column size="87"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head" style="background:#008040ff;">
+                          <Cell style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="직급코드"/>
+                          <Cell col="1" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="직급명"/>
+                          <Cell col="2" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="기본급"/>
+                          <Cell col="3" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="호봉인상률"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell displaytype="text" edittype="text" style="align:center;font:나눔고딕,9;" text="bind:POSITION_CODE" mask="POS###" editlimit="6"/>
+                          <Cell col="1" displaytype="text" edittype="text" style="font:나눔고딕,9;" text="bind:POSITION"/>
+                          <Cell col="2" displaytype="number" edittype="text" style="align:center;font:나눔고딕,9;" text="bind:BASE_SALARY" mask="###,##0" editlimit="4"/>
+                          <Cell col="3" displaytype="text" edittype="text" style="font:나눔고딕,9;" text="bind:HOBONG_RATIO"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_positionList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="POSITION_CODE" type="STRING" size="256"/>
+          <Column id="POSITION" type="STRING" size="256"/>
+          <Column id="BASE_SALARY" type="STRING" size="256"/>
+          <Column id="HOBONG_RATIO" type="STRING" size="256"/>
+          <Column id="STATUS" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript4.0"><![CDATA[//로드
+function positionList_onload(obj:Form, e:LoadEventInfo)
+{ 
+		
+	transaction(
+				"positionID"
+				,"svcBase::findPositionList"
+				,""
+				,"ds_positionList=ds_baseSalary"
+				,""
+				,"fn_callback"			
+	);
+}
+
+
+//추가버튼
+function Tab00_tabpage1_Button01_onclick(obj:Button,  e:ClickEventInfo)
+{
+	ds_positionList.addRow();
+	ds_positionList.setColumn(ds_positionList.rowposition,"CODE_MENU","POS");
+	ds_positionList.setColumn(ds_positionList.rowposition,"CODE_NAME","insert");
+}
+
+//삭제버튼
+function Tab00_tabpage1_Button00_onclick(obj:Button,  e:ClickEventInfo)
+{
+	ds_positionList.setColumn(ds_positionList.rowposition,"STATUS","delete");
+}
+
+//저장버튼 
+function Tab00_tabpage1_Button02_onclick(obj:Button,  e:ClickEventInfo)
+{
+	var status=ds_positionList.getColumn(ds_positionList.rowposition,"STATUS");
+	
+	if(status!="insert"&&status!="delete"){
+		ds_positionList.setColumn(ds_positionList.rowposition,"STATUS","update");
+	}
+	transaction(
+				"submitID"
+				,"svcBase::modifyPosition"
+				,"ds_baseSalary=ds_positionList:u"
+				,""
+				,""
+				,"fn_callback"
+	);
+}
+
+
+//콜백 
+function fn_callback(trID,ErrorCode,ErrorMsg){
+	if(trID=="positionID"){
+		if(ErrorCode!=0){
+			alert("로드실패");
+		}
+	}
+	if(trID=="submitID"){
+		if(ErrorCode!=0){
+			alert("저장실패"+ErrorMsg);
+		}else{
+			alert("저장되었습니다.");
+			form.reload();
+		}
+	}
+}]]></Script>
+  </Form>
+</FDL>

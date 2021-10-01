@@ -1,0 +1,479 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="overwork" classname="overwork" inheritanceid="" position="absolute 0 0 1043 768" titletext="New Form" onload="overwork_onload" style="background:#333333ff;color:#fa5252ff;">
+    <Layouts>
+      <Layout>
+        <Tab id="Tab" taborder="0" position2="absolute l:48 w:968 t:64 h:527" positiontype="position2" tabindex="0" scrollbars="autoboth" style="color:white;font:나눔고딕 ExtraBold,10,bold antialias; :selected {color:#5d5d5dff;}">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="초과근무신청" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout width="776" height="476">
+                  <Static id="Static00" text="초과근무 구분" onclick="Tab00_tabpage1_Static00_onclick" position2="absolute l:247 w:147 t:51 h:42" positiontype="position2" style="background:#5d5d5dff;border:3px solid #5d5d5dff ;color:white;align:center;font:나눔고딕 ExtraBold,12,bold;"/>
+                  <Edit id="selectOverworkCode" taborder="1" position2="absolute l:444 w:215 t:54 h:39" positiontype="position2" style="background:white;align:center;font:나눔고딕 ExtraBold,11,bold;" oneditclick="Tab_tabpage1_selectOverworkCode_oneditclick"/>
+                  <Static id="Static01" text="신청자" position2="absolute l:119 w:76 t:128 h:39" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕,9,bold;"/>
+                  <Static id="Static02" text="부서" position2="absolute l:122 w:73 t:173 h:39" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕,9,bold;" onclick="Tab_tabpage1_Static02_onclick"/>
+                  <Static id="Static03" text="종료시간" position2="absolute l:471 w:73 t:293 h:39" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕,9,bold;"/>
+                  <Static id="Static04" text="시작일" position2="absolute l:122 w:73 t:214 h:39" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕,9,bold;"/>
+                  <Static id="Static06" text="시작시간" position2="absolute l:122 w:73 t:293 h:39" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕,9,bold;"/>
+                  <Static id="Static07" text="일수" position2="absolute l:122 w:73 t:252 h:39" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕,9,bold;"/>
+                  <Static id="Static08" text="사유" position2="absolute l:122 w:73 t:337 h:39" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕,9,bold;"/>
+                  <Static id="Static09" text="직급" position2="absolute l:471 w:73 t:173 h:39" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕,9,bold;"/>
+                  <Static id="Static10" text="종료일" position2="absolute l:471 w:73 t:214 h:39" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕,9,bold;" onclick="Tab_tabpage1_Static10_onclick"/>
+                  <Edit id="overwork_emp" taborder="1" position2="absolute l:241 w:214 t:132 h:35" positiontype="position2" style="background:white;align:center;font:나눔고딕,9;"/>
+                  <Edit id="overwork_position" taborder="1" position2="absolute l:567 w:214 t:173 h:35" positiontype="position2" style="background:white;align:center;font:나눔고딕,9;"/>
+                  <Edit id="overwork_day" taborder="1" position2="absolute l:241 w:214 t:256 h:35" positiontype="position2" style="background:white;align:center;font:나눔고딕,9;" oneditclick="Tab_tabpage1_overwork_day_oneditclick"/>
+                  <Edit id="overwork_cause" taborder="1" position2="absolute l:241 w:214 t:337 h:35" positiontype="position2" style="background:white;align:center;font:나눔고딕,9;"/>
+                  <Edit id="overwork_dept" taborder="1" position2="absolute l:241 w:214 t:173 h:35" positiontype="position2" style="background:white;align:center;font:나눔고딕,9;" oneditclick="Tab_tabpage1_overwork_dept_oneditclick"/>
+                  <Calendar id="overwork_startD" taborder="1" position2="absolute l:241 w:213 t:218 h:35" positiontype="position2" style="background:white;align:center;font:나눔고딕,9;" dateformat="yyyy-MM-dd" value="null"/>
+                  <Calendar id="overwork_endD" taborder="1" position2="absolute l:567 w:213 t:218 h:35" positiontype="position2" style="background:white;align:center;font:나눔고딕,9;" dateformat="yyyy-MM-dd" value="null" onchanged="Tab_tabpage1_overwork_endD_onchanged"/>
+                  <Button id="btn_regist" taborder="1" text="신청" position2="absolute l:311 w:127 t:413 h:37" positiontype="position2" style="background:#5d5d5dff;color:white;align:center;font:나눔고딕,9,bold;" onclick="Tab_tabpage1_btn_regist_onclick"/>
+                  <Button id="btn_cancel" taborder="1" text="취소" position2="absolute l:481 w:127 t:413 h:37" positiontype="position2" style="background:#5d5d5dff;color:white;align:center;font:나눔고딕,9,bold;" onclick="Tab_tabpage1_btn_cancel_onclick"/>
+                  <MaskEdit id="overwork_startT" taborder="1" type="string" mask="##:##" position2="absolute l:241 w:213 t:297 h:35" positiontype="position2" style="background:white;align:center middle;font:나눔고딕,9;"/>
+                  <MaskEdit id="overwork_endT" taborder="1" type="string" mask="##:##" onkillfocus="Tab_tabpage1_overwork_endT_onkillfocus" canchange="Tab_tabpage1_overwork_endT_canchange" position2="absolute l:567 w:213 t:297 h:35" positiontype="position2" style="background:white;align:center middle;font:나눔고딕,9;"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tabpage2" text="초과근무조회" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout>
+                  <Static id="Static00" text="조회범위 선택" position2="absolute l:373 w:214 t:28 h:38" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:HY헤드라인M,12;"/>
+                  <Static id="Static01" text="구분" position2="absolute l:268 w:81 t:80 h:25" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:HY헤드라인M,9;"/>
+                  <Edit id="selectOverworkType" taborder="4" position2="absolute l:373 w:159 t:80 h:25" positiontype="position2" oneditclick="Tab_tabpage2_selectOverworkType_oneditclick" style="align:center;"/>
+                  <Static id="Static02" text="기간" position2="absolute l:268 w:81 t:120 h:25" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:HY헤드라인M,9;"/>
+                  <Static id="Static03" text="-" position2="absolute l:449 w:21 t:128 h:25" positiontype="position2" style="align:center;font:Verdana,15,bold;"/>
+                  <Button id="search_overworkList_Btn" taborder="3" text="조회하기" position2="absolute l:373 w:92 t:172 h:26" positiontype="position2" style="background:black;color:white;font:HY헤드라인M,9;" onclick="Tab_tabpage2_search_overworkList_Btn_onclick"/>
+                  <Button id="delete_overwork_Btn" taborder="2" text="삭제하기" position2="absolute l:495 w:92 t:172 h:26" positiontype="position2" style="background:black;color:white;font:HY헤드라인M,9;" onclick="Tab_tabpage2_delete_overwork_Btn_onclick"/>
+                  <Calendar id="search_endD" taborder="5" dateformat="yyyy-MM-dd " position2="absolute l:574 w:154 t:115 h:30" positiontype="position2" style="align:center middle;" onkillfocus="Tab_tabpage2_search_endD_onkillfocus"/>
+                  <Calendar id="search_startD" taborder="0" dateformat="yyyy-MM-dd " position2="absolute l:376 w:154 t:116 h:29" positiontype="position2" style="align:center middle;"/>
+                  <Grid id="Grid00" taborder="1" binddataset="ds_overworkList" useinputpanel="false" autofittype="col" position2="absolute l:15 w:910 t:215 h:267" positiontype="position2" style="align:center;" onheadclick="grd_output_onheadclick" cellclickbound="cell">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="40"/>
+                          <Column size="80"/>
+                          <Column size="75"/>
+                          <Column size="74"/>
+                          <Column size="91"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="66"/>
+                          <Column size="59"/>
+                          <Column size="58"/>
+                          <Column size="61"/>
+                          <Column size="45"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head" style="background:#008040ff;">
+                          <Cell displaytype="checkbox" edittype="checkbox" expr="0"/>
+                          <Cell col="1" displaytype="normal" text="사원명"/>
+                          <Cell col="2" displaytype="normal" text="코드명"/>
+                          <Cell col="3" displaytype="normal" text="근무명"/>
+                          <Cell col="4" displaytype="normal" text="요청일자"/>
+                          <Cell col="5" displaytype="normal" text="시작일"/>
+                          <Cell col="6" displaytype="normal" text="종료일"/>
+                          <Cell col="7" displaytype="normal" text="사유"/>
+                          <Cell col="8" displaytype="normal" text="승인여부"/>
+                          <Cell col="9" displaytype="normal" text="시작시각"/>
+                          <Cell col="10" displaytype="normal" text="종료시각"/>
+                          <Cell col="11" displaytype="normal" text="일수"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell displaytype="checkbox" edittype="checkbox" text="bind:STATUS"/>
+                          <Cell col="1" displaytype="normal" style="align:center;" text="bind:EMP_NAME"/>
+                          <Cell col="2" displaytype="normal" style="align:center;" text="bind:REST_TYPE_CODE"/>
+                          <Cell col="3" displaytype="normal" style="align:center;" text="bind:REST_TYPE_NAME"/>
+                          <Cell col="4" displaytype="normal" style="align:center;" text="bind:REQUEST_DATE"/>
+                          <Cell col="5" displaytype="normal" style="align:center;" text="bind:START_DATE"/>
+                          <Cell col="6" displaytype="normal" style="align:center;" text="bind:END_DATE"/>
+                          <Cell col="7" displaytype="normal" style="align:center;" text="bind:CAUSE"/>
+                          <Cell col="8" displaytype="normal" style="align:center;" text="bind:APPLOVAL_STATUS"/>
+                          <Cell col="9" displaytype="normal" style="align:center;" text="bind:START_TIME" mask="##:##"/>
+                          <Cell col="10" displaytype="normal" style="align:center;" text="bind:END_TIME" mask="##:##"/>
+                          <Cell col="11" displaytype="normal" style="align:center;" text="bind:NUMBER_OF_DAYS"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_overworkList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="EMP_CODE" type="STRING" size="256"/>
+          <Column id="REST_ATTD_CODE" type="STRING" size="256"/>
+          <Column id="REST_TYPE_CODE" type="STRING" size="256"/>
+          <Column id="REST_TYPE_NAME" type="STRING" size="256"/>
+          <Column id="REQUEST_DATE" type="STRING" size="256"/>
+          <Column id="START_DATE" type="STRING" size="256"/>
+          <Column id="END_DATE" type="STRING" size="256"/>
+          <Column id="CAUSE" type="STRING" size="256"/>
+          <Column id="APPLOVAL_STATUS" type="STRING" size="256"/>
+          <Column id="REJECT_CAUSE" type="STRING" size="256"/>
+          <Column id="COST" type="STRING" size="256"/>
+          <Column id="START_TIME" type="STRING" size="256"/>
+          <Column id="END_TIME" type="STRING" size="256"/>
+          <Column id="NUMBER_OF_DAYS" type="STRING" size="256"/>
+          <Column id="EMP_NAME" type="STRING" size="256"/>
+          <Column id="STATUS" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_weekdayCount" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="WEEKDAY_COUNT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_overwork" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="EMP_CODE" type="STRING" size="256"/>
+          <Column id="REST_TYPE_CODE" type="STRING" size="256"/>
+          <Column id="REST_TYPE_NAME" type="STRING" size="256"/>
+          <Column id="REQUEST_DATE" type="STRING" size="256"/>
+          <Column id="START_DATE" type="STRING" size="256"/>
+          <Column id="END_DATE" type="STRING" size="256"/>
+          <Column id="CAUSE" type="STRING" size="256"/>
+          <Column id="APPLOVAL_STATUS" type="STRING" size="256"/>
+          <Column id="REJECT_CAUSE" type="STRING" size="256"/>
+          <Column id="COST" type="STRING" size="256"/>
+          <Column id="START_TIME" type="STRING" size="256"/>
+          <Column id="END_TIME" type="STRING" size="256"/>
+          <Column id="NUMBER_OF_DAYS" type="STRING" size="256"/>
+          <Column id="REST_ATTD_CODE" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="Tab.tabpage1.overwork_startT" propid="value" datasetid="ds_overwork" columnid="START_TIME"/>
+      <BindItem id="item1" compid="Tab.tabpage1.overwork_endT" propid="value" datasetid="ds_overwork" columnid="END_TIME"/>
+      <BindItem id="item2" compid="Tab.tabpage1.selectOverworkCode" propid="value" datasetid="ds_overwork" columnid="REST_TYPE_NAME"/>
+      <BindItem id="item3" compid="Tab.tabpage1.overwork_startD" propid="value" datasetid="ds_overwork" columnid="START_DATE"/>
+      <BindItem id="item4" compid="Tab.tabpage1.overwork_endD" propid="value" datasetid="ds_overwork" columnid="END_DATE"/>
+      <BindItem id="item5" compid="Tab.tabpage1.overwork_day" propid="value" datasetid="ds_overwork" columnid="NUMBER_OF_DAYS"/>
+      <BindItem id="item7" compid="Tab.tabpage1.overwork_cause" propid="value" datasetid="ds_overwork" columnid="CAUSE"/>
+      <BindItem id="item6" compid="Tab.tabpage1.Tab.tabpage1.overwork_startT" propid="value" datasetid="ds_overwork" columnid="START_TIME"/>
+      <BindItem id="item8" compid="Tab.tabpage1.Tab.tabpage1.overwork_endT" propid="value" datasetid="ds_overwork" columnid="END_TIME"/>
+      <BindItem id="item9" compid="Tab.tabpage2.selectOverworkType" propid="value" datasetid="ds_overwork" columnid="REST_TYPE_NAME"/>
+    </Bind>
+    <Script type="xscript4.0"><![CDATA[	include "lib::commDate.xjs";
+	//로딩시
+	function overwork_onload(obj:Form, e:LoadEventInfo)
+	{
+	//오늘날짜
+	var date = new Date(); 
+	var year = date.getFullYear(); 
+	var month = new String(date.getMonth()+1); 
+	var day = new String(date.getDate()); 
+
+	// 한자리수일 경우 0을 채워준다. 
+	if(month.length == 1){ 
+	  month = "0" + month; 
+	} 
+	if(day.length == 1){ 
+	  day = "0" + day; 
+	} 
+
+	today=year+month+day;
+	trace(today);
+		
+		Tab.tabpage1.overwork_emp.value=g_empName;//신청자set
+		Tab.tabpage1.overwork_dept.value=g_deptName;//부서set
+		Tab.tabpage1.overwork_position.value=g_position;//직급set
+		ds_overwork.setColumn(0,"EMP_CODE",g_empCode);//사원코드set
+		ds_overwork.setColumn(0,"REQUEST_DATE",today);//요청날짜set
+		ds_overwork.setColumn(0,"COST","0");
+		ds_overwork.setColumn(0,"APPLOVAL_STATUS","승인대기");// 승인여부  
+		ds_overwork.setColumn(0,"REJECT_CAUSE","승인대기");// 반려사유 
+		Tab.tabpage1.overwork_startT.value=1900;
+		
+	}
+	//초과근무 구분 다이알로그
+	function Tab_tabpage1_selectOverworkCode_oneditclick(obj:Edit,  e:EditClickEventInfo)
+	{
+
+		 g_codeNumber="CO-15";//초과근무
+		
+		 dialog(    
+					"detailCodeList",   // 생성될 ChildFrame의 이름
+					"Base::codeDialog.xfdl",   // 로딩한 폼의 URL
+					MainFrame,   // ParentFrame
+					null,   // ChildFrame에 추가될 변수 리스트 {변수명:변수값, 변수명:변수값}
+					"",   // ChildFrame에 설정할 속성 리스트 a=b b='c' 
+					650,   // ChildFrame의 position 중 left 값
+					350   // ChildFrame의 position 중 top 값
+				);
+		  
+		//다이얼로그 값 변수set
+		ds_overwork.setColumn(0,"REST_TYPE_CODE",g_detailCodeNumber); //근태코드set
+		ds_overwork.setColumn(0,"REST_TYPE_NAME",g_detailCodeName); //근태명 set
+		}
+
+
+	//종료일
+	function Tab_tabpage1_overwork_endD_onchanged(obj:Calendar, e:ChangeEventInfo)
+	{
+		var startD=Tab.tabpage1.overwork_startD.value;
+		var endD=Tab.tabpage1.overwork_endD.value;
+		trace("시작일: "+startD);
+		trace("종료일: "+endD);
+		if(startD>endD){
+			Tab.tabpage1.overwork_endD.value="";
+			alert("종료일을 다시확인해주세요.");
+		}else{
+		
+			transaction(
+						"holidayID",
+						"svcBase::findWeekDayCount",
+						"",//서<클
+						"ds_weekdayCount=ds_dayCount",//클<서
+						"startDate='"+Tab.tabpage1.overwork_startD.value+"' endDate='"+Tab.tabpage1.overwork_endD.value+"'",
+						"fn_callback");
+		}
+	}
+
+	//트랜잭션 콜백
+	function fn_callback(trID ,ErrorCode ,ErrorMsg)
+	{
+	if(trID=="holidayID"){
+		if(ErrorCode!=0){
+			alert("일수 실패 : "+ErrorMsg);
+		}else{ //성공시
+			Tab.tabpage1.overwork_day.value=ds_weekdayCount.getColumn(0,"WEEKDAY_COUNT");
+		}
+	  }
+	else if(trID=="overworkID"){
+		if(ErrorCode!=0){
+			alert("신청실패 : "+ErrorMsg);
+		}else{ //성공시
+			alert("신청되었습니다.");
+			form.reload();	
+		}
+	  }
+	 else if(trID=="deleteAtteID"){
+		if(ErrorCode!=0){
+			alert("삭제실패 : "+ErrorMsg);
+		}else{ //성공시
+			alert("삭제완료.");
+			reload();	
+		}
+	  }
+	  
+	}
+
+	//종료시간
+	function Tab_tabpage1_overwork_endT_onkillfocus(obj:MaskEdit, e:KillFocusEventInfo)
+	{
+		var endT=Tab.tabpage1.overwork_endT.value;
+		var startT=Tab.tabpage1.overwork_startT.value;
+		var substart=endT.substring(0,2);
+		var subend=endT.substring(2,4);
+		trace(substart);
+		trace(subend);
+		
+		if(endT.length!=4||subend>"59 "){
+			alert("종료시간을 정확히 입력 해주세요.");
+			Tab.tabpage1.overwork_endT.value="";
+		}
+	}
+
+	
+
+	//신청
+	function Tab_tabpage1_btn_regist_onclick(obj:Button,  e:ClickEventInfo)
+	{
+		
+		var startC=Tab.tabpage1.overwork_startD.value;  //시작일
+		var endC=Tab.tabpage1.overwork_endD.value;  //종료일 
+		var overworkEtime=Tab.tabpage1.overwork_endT.value; //종료시간
+		var endTime=new Number(overworkEtime);
+
+
+		trace("4:"+ds_overwork.getColumn(0,"REQUEST_DATE"));
+		trace("5:"+ds_overwork.getColumn(0,"START_DATE"));
+		trace("10:"+ds_overwork.getColumn(0,"START_TIME"));
+		trace("11:"+ds_overwork.getColumn(0,"END_TIME"));
+
+		ds_overwork.setColumn(0,"REST_ATTD_CODE","test");
+
+		if(startC < endC){
+				ds_overwork.setColumn(0,"END_TIME",(endTime+2400));	
+		}
+		if(Tab.tabpage1.selectOverworkCode.value==null){
+		alert("초과근무 구분을 선택해주세요");
+		return;
+	 }else if(Tab.tabpage1.overwork_startD.value==null ||Tab.tabpage1.overwork_endD.value==null){
+		alert("날짜를 선택해주세요");
+		return;
+	 }else{
+		transaction(
+					"overworkID",
+					"svcAttendance::registRestAttd",
+					"ds_restAttd=ds_overwork",//서<클
+					"",//클<서
+					"",
+					"fn_callback");	
+	  }
+	}
+
+	//취소 
+	function Tab_tabpage1_btn_cancel_onclick(obj:Button,  e:ClickEventInfo)
+	{
+	form.reload();	
+	}
+
+	//===============================================tab2===================================================
+	//초과근무 구분
+	function Tab_tabpage2_selectOverworkType_oneditclick(obj:Edit,  e:EditClickEventInfo)
+	{
+		Tab_tabpage1_selectOverworkCode_oneditclick();
+	}
+	//조회일자 endD
+	function Tab_tabpage2_search_endD_onkillfocus(obj:Calendar, e:KillFocusEventInfo)
+	{
+		var startD=Tab.tabpage2.search_startD.value;
+		var endD=Tab.tabpage2.search_endD.value;
+		
+		if(startD>endD){
+			Tab.tabpage2.search_endD.value="";
+			alert("종료일을 다시확인해주세요.");
+		}
+	}
+	//조회버튼
+	function Tab_tabpage2_search_overworkList_Btn_onclick(obj:Button,  e:ClickEventInfo)
+	{
+	 if(Tab.tabpage2.selectOverworkType.value==null){
+		alert("초과근무 구분을 선택해주세요");
+		return;
+	 }else if(Tab.tabpage2.search_startD.value==null || Tab.tabpage2.search_endD.value==null){
+		alert("날짜를 선택해주세요");
+		return;
+	 }else{
+	 trace(g_empCode);
+	 trace(Tab.tabpage2.search_startD.value);
+	 trace(Tab.tabpage2.search_endD.value);
+
+		transaction(
+					"findBreakID",
+					"svcAttendance::findRestAttdList",
+					"",
+					"ds_overworkList=ds_restAttd",
+					"empCode='"+g_empCode+"' startDate='"+Tab.tabpage2.search_startD.value+"' endDate='"+Tab.tabpage2.search_endD.value+"' code='"+g_detailCodeNumber+"'",
+					"fn_searchCallback");	
+		}
+	}
+	// 조회 콜백
+	function fn_searchCallback(trID,ErrorCode,ErrorMsg) {
+	if(trID=="findBreakID"){
+		 if(ErrorCode!=0){
+		   alert("조회실패 :"+ErrorMsg);
+		 }else{
+		  
+		   var count=ds_overworkList.rowcount;
+		   
+			 
+			 for(var i=0;i<count;i++){
+				var endTiem=ds_overworkList.getColumn(i,"END_TIME");  //출근시각
+				trace(endTiem);
+				if(endTiem >= 2400){
+					  endTiem = endTiem-2400;
+					  
+				}
+				ds_overworkList.setColumn(i,"END_TIME",addZeros(endTiem,4));   //4자리로 맞추기  
+				
+			 }
+			 
+			  alert("조회성공"+ErrorMsg);
+		 }
+	  }
+	}
+
+
+
+	//삭제버튼
+	function Tab_tabpage2_delete_overwork_Btn_onclick(obj:Button,  e:ClickEventInfo)
+	{
+
+	 var count=ds_overworkList.rowcount;
+	 var num=0;
+	 
+		for(var i=0;i<count;i++){
+			var status=ds_overworkList.getColumn(i,"STATUS");
+			
+			if(status==1){
+					transaction(
+								"deleteAtteID",
+								"svcAttendance::removeRestAttdList",
+								"ds_restAttd=ds_overworkList:u",
+								"",
+								"",
+								"fn_callback"
+					);
+					num++;
+		   }
+		   if(num==0){
+				alert("삭제할 행이 없습니다.");
+				return;
+		   }
+		}	
+	}
+
+
+
+	//체크박스 전체 선택 & 해제 
+	function grd_output_onheadclick(obj:Grid, e:GridClickEventInfo) //이벤트가 발생한 object , event object
+	{
+		if (e.cell == 0) // e.cell: Click된 Cell의 해당 Band내에서 Index 값을 가지는 Property 입니다.
+		{
+			fn_setGridCheckAll(obj, e);
+		}	
+	}
+
+	var fv_isGridCheckAll = 0;
+	function fn_setGridCheckAll(obj:Grid, e:GridClickEventInfo)
+	{
+		//Grid의 전체 Cell과 Bind 되는 Dataset의 ID를 설정하는 Property 입니다. BindDataset과 Gid는 Full Binding됩니다.
+		var objDs = eval(obj.binddataset); 
+		
+		var sCol  = obj.getCellProperty("body", e.cell, "text").replace("bind:", ""); 
+			 //getCellProperty(얻고자하는 cell의 영역, 얻고자하는 cell의 index, 얻고자하는 cell의 property)
+			 
+			 
+		if (fv_isGridCheckAll)
+		{
+			fv_isGridCheckAll = 0;
+		}
+		else
+		{
+			fv_isGridCheckAll = 1;
+		}
+
+		objDs.enableevent = false;  // enableevent Dataset 의 Event 를 발생할지 여부를 설정하는 Property 입니다.
+		
+		for (var i = 0; i < objDs.getRowCount(); i++) 
+		{
+			objDs.setColumn(i, sCol, fv_isGridCheckAll);
+		}
+		
+		obj.setCellProperty("Head", 0, "expr", fv_isGridCheckAll);
+		
+		objDs.enableevent = true;
+	}
+
+
+	function Tab_tabpage1_overwork_day_oneditclick(obj:Edit,  e:EditClickEventInfo)
+	{
+		
+	}
+]]></Script>
+  </Form>
+</FDL>

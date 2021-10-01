@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="annualVacationManage" classname="annualVacationManage" inheritanceid="" position="absolute 0 0 1165 768" titletext="New Form" style="background:#333333ff;color:#fa5252ff;">
+    <Layouts>
+      <Layout>
+        <Tab id="Tab00" taborder="0" position2="absolute l:32 w:1099 t:44 h:508" positiontype="position2" tabindex="0" scrollbars="autoboth" style="color:#5d5d5dff;font:나눔고딕 ExtraBold,10,bold antialias;">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="연차관리" style="anchor:default;font:verdana,9,antialias bold;background:gray;">
+              <Layouts>
+                <Layout width="922" height="489">
+                  <Button id="searchBtn" taborder="0" text="조회하기" position2="absolute l:711 w:127 t:86 h:34" positiontype="position2" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" onclick="Tab00_tabpage1_searchBtn_onclick"/>
+                  <Static id="Static00" text="연차관리" onclick="Tab00_tabpage1_Static00_onclick" position2="absolute l:434 w:207 t:12 h:45" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕 ExtraBold,14,bold;"/>
+                  <Button id="finalize_annualVacation_btn" taborder="1" text="마감하기" position2="absolute l:367 w:127 t:421 h:34" positiontype="position2" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" onclick="Tab00_tabpage1_finalize_annualVacation_btn_onclick"/>
+                  <Button id="cancel_annualVacation_btn" taborder="1" text="마감취소하기" position2="absolute l:543 w:127 t:421 h:34" positiontype="position2" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" onclick="Tab00_tabpage1_cancel_annualVacation_btn_onclick"/>
+                  <Static id="Static01" text="적용년월" position2="absolute l:255 w:94 t:85 h:36" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕,10,bold;"/>
+                  <Grid id="Grid00" taborder="1" useinputpanel="false" position2="absolute l:39 w:1012 t:145 h:262" positiontype="position2" binddataset="ds_annualVacation" style="font:나눔고딕,9,antialias;">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="140"/>
+                          <Column size="148"/>
+                          <Column size="162"/>
+                          <Column size="146"/>
+                          <Column size="148"/>
+                          <Column size="136"/>
+                          <Column size="125"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head">
+                          <Cell style="background:#ffffffb3;color:black;font:맑은 고딕 Semilight,9;" text="사원코드"/>
+                          <Cell col="1" style="background:#ffffffb3;color:black;font:맑은 고딕 Semilight,9;" text="직원이름"/>
+                          <Cell col="2" style="background:#ffffffb3;color:black;font:맑은 고딕 Semilight,9;" text="적용년월"/>
+                          <Cell col="3" style="background:#ffffffb3;color:black;font:맑은 고딕 Semilight,9;" text="반차사용개수"/>
+                          <Cell col="4" style="background:#ffffffb3;color:black;font:맑은 고딕 Semilight,9;" text="연차사용개수"/>
+                          <Cell col="5" style="background:#ffffffb3;color:black;font:맑은 고딕 Semilight,9;" text="남은연차"/>
+                          <Cell col="6" style="background:#ffffffb3;color:black;font:맑은 고딕 Semilight,9;" text="마감여부"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell text="bind:EMP_CODE"/>
+                          <Cell col="1" text="bind:EMP_NAME"/>
+                          <Cell col="2" text="bind:APPLY_YEAR_MONTH"/>
+                          <Cell col="3" text="bind:AFTERNOON_OFF"/>
+                          <Cell col="4" text="bind:MONTHLY_LEAVE"/>
+                          <Cell col="5" text="bind:REMAINING_HOLIDAY"/>
+                          <Cell col="6" text="bind:FINALIZE_STATUS"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                  <Calendar id="CalendarBtn" taborder="1" dateformat="yyyy-MM" editformat="yyyyMM" oneditclick="Tab00_tabpage1_CalendarBtn_oneditclick" position2="absolute l:410 w:237 t:87 h:32" positiontype="position2"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_annualVacation" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="EMP_CODE" type="STRING" size="256"/>
+          <Column id="EMP_NAME" type="STRING" size="256"/>
+          <Column id="APPLY_YEAR_MONTH" type="STRING" size="256"/>
+          <Column id="AFTERNOON_OFF" type="INT" size="256"/>
+          <Column id="MONTHLY_LEAVE" type="INT" size="256"/>
+          <Column id="REMAINING_HOLIDAY" type="INT" size="256"/>
+          <Column id="FINALIZE_STATUS" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript4.0"><![CDATA[include "lib::commDate.xjs";
+
+	//조회하기버튼
+	function Tab00_tabpage1_searchBtn_onclick(obj:Button,  e:ClickEventInfo)
+	{
+
+	   if(Tab00.tabpage1.CalendarBtn.value==null){
+		alert("조회할 날짜를 입력해주세요.");
+	   }else{
+	   
+	   dateData = Tab00.tabpage1.CalendarBtn.value.toFormatString("%Y%m")+'';
+	   trace("날짜 :: "+dateData.toString());
+
+		  transaction(
+					"vacaSearchID"									// ID
+					,"svcAttendance::findAnnualVacationMgtList" 	// url
+					,""												// inData
+					,"ds_annualVacation=ds_annualVacation" 			// outData
+					,"applyYearMonth='"+dateData+"'"  				// 인자값
+					,"fn_callback"
+		  );
+	   }
+	}
+
+
+	//조회 콜백
+	function fn_callback(trID,ErrorCode,ErrorMsg){
+	  if(trID=="vacaSearchID"){
+		 if(ErrorCode!=0){
+		   alert("조회실패 :"+ErrorMsg);
+		 }else{
+		  
+		  var count = ds_annualVacation.rowcount;
+			 
+			 for(var i=0;i<count;i++){
+			 var empCode = ds_annualVacation.getColumn(i, "EMP_CODE");
+			 var empName = ds_annualVacation.getColumn(i, "EMP_NAME");
+			 var applyYearMonth = ds_annualVacation.getColumn(i, "APPLY_YEAR_MONTH");
+			 var afternoonOff = ds_annualVacation.getColumn(i, "AFTERNOON_OFF");
+			 var monthlyHoliday = ds_annualVacation.getColumn(i, "MONTHLY_LEAVE");
+				var remainingHoliday = ds_annualVacation.getColumn(i, "REMAINING_HOLIDAY");
+				var finalizeStatus = ds_annualVacation.getColumn(i, "FINALIZE_STATUS");
+			 
+			  trace(empCode+' , '+empName+' :: '+applyYearMonth+' , '+afternoonOff+' , '+monthlyHoliday);
+			 trace(remainingHoliday+' , '+finalizeStatus);
+			 
+			 ds_annualVacation.setColumn(i, "EMP_CODE" , empCode);
+			 ds_annualVacation.setColumn(i, "EMP_NAME" , empName);
+			 ds_annualVacation.setColumn(i, "APPLY_YEAR_MONTH" , applyYearMonth);
+			 ds_annualVacation.setColumn(i, "AFTERNOON_OFF" , addZeros(afternoonOff, 1));
+			 ds_annualVacation.setColumn(i, "MONTHLY_LEAVE" , addZeros(monthlyHoliday, 1));
+			 ds_annualVacation.setColumn(i, "REMAINING_HOLIDAY" , addZeros(remainingHoliday, 2));
+			 ds_annualVacation.setColumn(i, "FINALIZE_STATUS" , finalizeStatus);
+
+			 }
+			 
+			  alert("조회성공"+ErrorMsg);
+		 }
+	  }
+	}
+
+
+	//마감하기버튼
+	function Tab00_tabpage1_finalize_annualVacation_btn_onclick(obj:Button,  e:ClickEventInfo)
+	{
+	   finalizeStatus=ds_annualVacation.getColumn(ds_annualVacation.rowposition,"FINALIZE_STATUS");
+	   if(finalizeStatus=="Y"){
+		  alert("이미 마감되었습니다.");
+	   }
+		var Size=ds_annualVacation.rowcount;
+		
+		for(var index=0;index<Size;index++){
+			ds_annualVacation.setColumn(index,"FINALIZE_STATUS","Y");
+		}
+		updateAnnualVacation();
+	}
+
+	//마감변경 저장 
+	function updateAnnualVacation(){
+		  transaction(
+				   "vacaUpdateID"
+				   ,"svcAttendance::modifyAnnualVacationMgtList"
+				   ,"ds_annualVacation=ds_annualVacation"
+				   ,"ds_annualVacation=ds_annualVacation"
+				   ,""
+				   ,"fn_VacaUpdate_callback"
+		  );
+	}
+
+	//마감취소
+	function Tab00_tabpage1_cancel_annualVacation_btn_onclick(obj:Button,  e:ClickEventInfo)
+	{
+	   finalizeStatus=ds_annualVacation.getColumn(ds_annualVacation.rowposition,"FINALIZE_STATUS");
+	   if(finalizeStatus=="N"){
+		  alert("아직 마감되지 않았습니다.");
+	   }
+	   
+		 var Size=ds_annualVacation.rowcount;
+		 
+		 for(var index=0;index<Size;index++){
+		   ds_annualVacation.setColumn(index,"FINALIZE_STATUS","N");
+		 }
+		 updateAnnualVacation();
+	}
+
+
+
+	function fn_VacaUpdate_callback(trID,ErrorCode,ErrorMsg){
+	   if(trID=="vacaUpdateID"){
+		  if(ErrorCode!=0){
+			 alert("실패 :"+ErrorMsg);
+		}else {
+		  var count = ds_annualVacation.rowcount;
+			 
+			 for(var i=0;i<count;i++){
+	   var empCode = ds_annualVacation.getColumn(i, "EMP_CODE");
+			 var empName = ds_annualVacation.getColumn(i, "EMP_NAME");
+			 var applyYearMonth = ds_annualVacation.getColumn(i, "APPLY_YEAR_MONTH");
+			 var afternoonOff = ds_annualVacation.getColumn(i, "AFTERNOON_OFF");
+			 var monthlyHoliday = ds_annualVacation.getColumn(i, "MONTHLY_LEAVE");
+				var remainingHoliday = ds_annualVacation.getColumn(i, "REMAINING_HOLIDAY");
+				var finalizeStatus = ds_annualVacation.getColumn(i, "FINALIZE_STATUS");
+			 
+			  trace(empCode+' , '+empName+' :: '+applyYearMonth+' , '+afternoonOff+' , '+monthlyHoliday);
+			 trace(remainingHoliday+' , '+finalizeStatus);
+					  
+					  
+			 ds_annualVacation.setColumn(i, "EMP_CODE" , empCode);
+			 ds_annualVacation.setColumn(i, "EMP_NAME" , empName);
+			 ds_annualVacation.setColumn(i, "APPLY_YEAR_MONTH" , applyYearMonth);
+			 ds_annualVacation.setColumn(i, "AFTERNOON_OFF" , addZeros(afternoonOff, 1));
+			 ds_annualVacation.setColumn(i, "MONTHLY_LEAVE" , addZeros(monthlyHoliday, 1));
+			 ds_annualVacation.setColumn(i, "REMAINING_HOLIDAY" , addZeros(remainingHoliday, 2));
+			 ds_annualVacation.setColumn(i, "FINALIZE_STATUS" , finalizeStatus);
+				
+				
+			 }
+		}
+	  }
+	}
+]]></Script>
+  </Form>
+</FDL>

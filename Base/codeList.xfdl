@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="codeList" classname="codeList" inheritanceid="" position="absolute 0 0 1024 643" titletext="New Form" onload="codeList_onload" style="background:#333333ff;">
+    <Layouts>
+      <Layout>
+        <Tab id="Tab00" taborder="0" position2="absolute l:75 w:426 t:29 h:611" positiontype="position2" tabindex="0" scrollbars="autoboth" style="color:#5d5d5dff;font:나눔고딕 ExtraBold,10,bold antialias;">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="코드관리" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout width="132" height="376">
+                  <Grid id="Grid00" taborder="1" binddataset="ds_codeList" useinputpanel="false" autofittype="col" position2="absolute l:24 w:360 t:42 h:459" positiontype="position2" style="align:center;font:맑은 고딕 Semilight,9,antialias;" oncellclick="Tab00_tabpage1_Grid00_oncellclick">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head" style="background:#008040ff;">
+                          <Cell style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="코드번호"/>
+                          <Cell col="1" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="코드이름"/>
+                          <Cell col="2" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="수정여부"/>
+                          <Cell col="3" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="상태"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell style="align:center;color:black;" text="bind:CODE_NUMBER" editlimit="6"/>
+                          <Cell col="1" style="color:black;" text="bind:CODE_NAME"/>
+                          <Cell col="2" style="align:center;color:black;" text="bind:MODIFIABLE" editlimit="4"/>
+                          <Cell col="3" style="color:black;" text="bind:STATUS"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+        <Tab id="Tab01" taborder="1" position2="absolute l:539 w:426 t:29 h:611" positiontype="position2" tabindex="0" scrollbars="autoboth" style="background:gray;color:#5d5d5dff;font:나눔고딕 ExtraBold,10,bold antialias;">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="상세코드관리" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout width="132" height="376">
+                  <Grid id="Grid00" taborder="1" binddataset="ds_detailCodeList" useinputpanel="false" autofittype="col" position2="absolute l:24 w:360 t:42 h:466" positiontype="position2" style="align:center;font:맑은 고딕 Semilight,9,antialias;">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="104"/>
+                          <Column size="97"/>
+                          <Column size="101"/>
+                          <Column size="107"/>
+                          <Column size="76"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head" style="background:#008040ff;">
+                          <Cell style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="상세코드번호"/>
+                          <Cell col="1" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="코드번호"/>
+                          <Cell col="2" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="상세코드이름"/>
+                          <Cell col="3" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="사용가능여부"/>
+                          <Cell col="4" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="상태"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell style="align:center;color:black;" text="bind:DETAIL_CODE_NUMBER" editlimit="6"/>
+                          <Cell col="1" style="color:black;" text="bind:CODE_NUMBER"/>
+                          <Cell col="2" style="align:center;color:black;" text="bind:DETAIL_CODE_NAME" editlimit="4"/>
+                          <Cell col="3" style="color:black;" text="bind:DETAIL_CODE_NAMEUSING"/>
+                          <Cell col="4" style="color:black;" text="bind:STATUS"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_codeList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE_NUMBER" type="STRING" size="256"/>
+          <Column id="CODE_NAME" type="STRING" size="256"/>
+          <Column id="MODIFIABLE" type="STRING" size="256"/>
+          <Column id="STATUS" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_detailCodeList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="DETAIL_CODE_NUMBER" type="STRING" size="256"/>
+          <Column id="CODE_NUMBER" type="STRING" size="256"/>
+          <Column id="DETAIL_CODE_NAME" type="STRING" size="256"/>
+          <Column id="DETAIL_CODE_NAMEUSING" type="STRING" size="256"/>
+          <Column id="STATUS" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript4.0"><![CDATA[//로드
+function codeList_onload(obj:Form, e:LoadEventInfo)
+{ 
+	transaction(
+				"codeListID"
+				,"svcBase::codeList"
+				,""
+				,"ds_codeList=gds_codeList"
+				,""
+				,"fn_callback"
+	);
+}
+
+
+//그리드 셀 클릭시 
+function Tab00_tabpage1_Grid00_oncellclick(obj:Grid, e:GridClickEventInfo)
+{
+	transaction(
+				"detailCodeID"
+				,"svcBase::detailCodeList"
+				,""
+				,"ds_detailCodeList=gds_detailcode"
+				,"code='"+ds_codeList.getColumn(ds_codeList.rowposition,"CODE_NUMBER")+"'"
+				,"fn_callback"
+	);
+}
+
+
+function fn_callback(trID,ErrorCode,ErrorMsg){
+	if(trID=="codeListID"){
+		if(ErrorCode!=0){
+			alert("실패");
+		}
+	}
+	if(trID=="detailCodeID"){
+		if(ErrorCode!=0){
+			alert("실패");
+		}
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

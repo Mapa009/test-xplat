@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="certificateApproval" classname="certificateApproval" inheritanceid="" position="absolute 0 0 1024 768" titletext="New Form" style="background:#333333ff;color:dimgray;">
+    <Layouts>
+      <Layout>
+        <Tab id="Tab00" taborder="0" position2="absolute l:56 w:915 t:34 h:530" positiontype="position2" tabindex="0" scrollbars="autoboth" style="color:white;font:나눔고딕 ExtraBold,10,bold antialias;">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="재직증명서 관리" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout>
+                  <Static id="Static00" text="조회부서" position2="absolute l:26 w:93 t:32 h:27" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Static id="Static01" text="신청일자" position2="absolute l:293 w:93 t:32 h:27" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Edit id="approveBtn" taborder="1" position2="absolute l:133 w:146 t:32 h:27" positiontype="position2" oneditclick="Tab00_tabpage1_approveBtn_oneditclick" style="color:#5d5d5dff;align:center;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Static id="Static03" text="-" position2="absolute l:563 w:21 t:32 h:25" positiontype="position2" style="align:center;font:Verdana,15,bold;"/>
+                  <Button id="searchBtn" taborder="1" text="조회하기" position2="absolute l:769 w:104 t:32 h:25" positiontype="position2" style="background:#5d5d5dff;color:white;" onclick="Tab00_tabpage1_searchBtn_onclick"/>
+                  <Button id="cancelBtn" taborder="1" text="승인취소" position2="absolute l:330 w:89 t:416 h:33" positiontype="position2" style="background:#5d5d5dff;color:white;font:나눔고딕,9,bold antialias;" onclick="Tab00_tabpage1_cancelBtn_onclick"/>
+                  <Button id="applyBtn" taborder="1" text="승인" position2="absolute l:200 w:89 t:416 h:33" positiontype="position2" style="background:#5d5d5dff;color:white;font:나눔고딕,9,bold antialias;" onclick="Tab00_tabpage1_applyBtn_onclick"/>
+                  <Button id="rejectBtn" taborder="1" text="반려" position2="absolute l:460 w:89 t:416 h:33" positiontype="position2" style="background:#5d5d5dff;color:white;font:나눔고딕,9,bold antialias;" onclick="Tab00_tabpage1_rejectBtn_onclick"/>
+                  <Button id="confirmBtn" taborder="1" text="확정" position2="absolute l:590 w:89 t:416 h:33" positiontype="position2" style="background:#5d5d5dff;color:white;font:나눔고딕,9,bold antialias;" onclick="Tab00_tabpage1_confirmBtn_onclick"/>
+                  <Calendar id="Calendar00" taborder="1" position2="absolute l:397 w:157 t:32 h:27" positiontype="position2" dateformat="yyyy-MM-dd" value="null" style="color:#5d5d5dff;font:나눔고딕 ExtraBold,9,bold;">
+                    <Layouts>
+                      <Layout width="146" height="27"/>
+                    </Layouts>
+                  </Calendar>
+                  <Calendar id="Calendar01" taborder="1" position2="absolute l:593 w:157 t:32 h:27" positiontype="position2" onchanged="Tab00_tabpage1_Calendar01_onchanged" dateformat="yyyy-MM-dd " value="null" style="color:#5d5d5dff;font:나눔고딕 ExtraBold,9,bold;">
+                    <Layouts>
+                      <Layout width="146" height="27"/>
+                    </Layouts>
+                  </Calendar>
+                  <Grid id="Grid00" taborder="1" binddataset="ds_certificateList" useinputpanel="false" autofittype="col" position2="absolute l:19 w:857 t:86 h:299" positiontype="position2" style="align:center;" onheadclick="grd_output_onheadclick">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="40"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head" style="background:#008040ff;">
+                          <Cell displaytype="checkbox" edittype="checkbox" expr="0"/>
+                          <Cell col="1" displaytype="normal" style="font:나눔고딕,9;" text="부서"/>
+                          <Cell col="2" displaytype="normal" style="font:나눔고딕,9;" text="사원번호"/>
+                          <Cell col="3" displaytype="normal" style="font:나눔고딕,9;" text="사원명"/>
+                          <Cell col="4" displaytype="normal" style="font:나눔고딕,9;" text="용도"/>
+                          <Cell col="5" displaytype="normal" style="font:나눔고딕,9;" text="신청일"/>
+                          <Cell col="6" displaytype="normal" style="font:나눔고딕,9;" text="사용일"/>
+                          <Cell col="7" displaytype="normal" style="font:나눔고딕,9;" text="승인여부"/>
+                          <Cell col="8" displaytype="normal" style="font:나눔고딕,9;" text="반려사유"/>
+                          <Cell col="9" displaytype="normal" style="font:나눔고딕,9;" text="비고"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell displaytype="checkbox" edittype="checkbox" text="bind:STATUS"/>
+                          <Cell col="1" displaytype="normal" style="font:나눔고딕,9;" text="bind:DEPT_NAME"/>
+                          <Cell col="2" displaytype="normal" style="font:나눔고딕,9;" text="bind:EMP_CODE"/>
+                          <Cell col="3" displaytype="normal" style="font:나눔고딕,9;" text="bind:EMP_NAME"/>
+                          <Cell col="4" displaytype="normal" style="font:나눔고딕,9;" text="bind:DETAIL_CODE_NAME"/>
+                          <Cell col="5" displaytype="normal" style="font:나눔고딕,9;" text="bind:REQUEST_DATE"/>
+                          <Cell col="6" displaytype="normal" style="font:나눔고딕,9;" text="bind:USE_DATE"/>
+                          <Cell col="7" displaytype="normal" style="font:나눔고딕,9;" text="bind:APPROVAL_STATUS"/>
+                          <Cell col="8" displaytype="normal" style="font:나눔고딕,9;" text="bind:REJECT_CAUSE"/>
+                          <Cell col="9" displaytype="normal" style="font:나눔고딕,9;" text="bind:ETC"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_certificateList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="DEPT_NAME" type="STRING" size="256"/>
+          <Column id="EMP_CODE" type="STRING" size="256"/>
+          <Column id="EMP_NAME" type="STRING" size="256"/>
+          <Column id="USAGE_NAME" type="STRING" size="256"/>
+          <Column id="REQUEST_DATE" type="STRING" size="256"/>
+          <Column id="USE_DATE" type="STRING" size="256"/>
+          <Column id="APPROVAL_STATUS" type="STRING" size="256"/>
+          <Column id="REJECT_CAUSE" type="STRING" size="256"/>
+          <Column id="ETC" type="STRING" size="256"/>
+          <Column id="STATUS" type="STRING" size="256"/>
+          <Column id="USAGE_CODE" type="STRING" size="256"/>
+          <Column id="DETAIL_CODE_NAME" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript4.0"><![CDATA[
+function Tab00_tabpage1_approveBtn_oneditclick(obj:Edit,  e:EditClickEventInfo)
+{
+	g_codeNumber="CO-07"
+	
+	application.dialog(
+						"deptCodeList"
+					   ,"Base::codeDialog.xfdl"
+					   ,MainFrame
+					   ,null
+					   ,650
+					   ,350
+	);
+	
+	Tab00.tabpage1.approveBtn.value=g_detailCodeName;
+}
+
+
+
+function Tab00_tabpage1_Calendar01_onchanged(obj:Calendar, e:ChangeEventInfo)
+{
+	startD=Tab00.tabpage1.Calendar00.value;
+	endD=Tab00.tabpage1.Calendar01.value;
+	
+	if(startD>endD){
+		alert("날짜를 정확하게 기입해주세요.");
+	}
+}
+
+//조회하기 
+function Tab00_tabpage1_searchBtn_onclick(obj:Button,  e:ClickEventInfo)
+{
+	deptName=Tab00.tabpage1.approveBtn.text;
+	startDate=Tab00.tabpage1.Calendar00.value;
+	endDate=Tab00.tabpage1.Calendar01.value; 
+	
+	transaction(
+				"certifiID"
+				,"svcCertificate::findCertificateListByDept"
+				,""
+				,"ds_certificateList=ds_employment"
+				,"deptName='"+deptName+"' startDate='"+startDate+"' endDate='"+endDate+"'"
+				,"fn_certificallback"
+	
+	);
+}
+
+function fn_certificallback(trID,ErrorCode,ErrorMsg){
+	if(trID=="certifiID"){
+		if(ErrorCode!=0){
+			alert("조회실패"+ErrorMsg);
+		}
+	}
+}
+
+//승인
+function Tab00_tabpage1_applyBtn_onclick(obj:Button,  e:ClickEventInfo)
+{
+	var count=ds_certificateList.rowcount;
+	num=0;
+	
+	for(var i=0;i<count;i++){
+		var status=ds_certificateList.getColumn(i,"STATUS");
+		
+		if(status=="1"){
+			ds_certificateList.setColumn(i,"APPROVAL_STATUS" ,"승인");
+			ds_certificateList.setColumn(i,"REJECT_CAUSE","");
+			ds_certificateList.setColumn(i,"STATUS","update");
+			
+			num++;
+		}
+		
+	}
+	if(num==0){
+		alert("선택된 행이 없습니다.");
+	}
+}
+
+//승인취소
+function Tab00_tabpage1_cancelBtn_onclick(obj:Button,  e:ClickEventInfo)
+{
+	 var count=ds_certificateList.rowcount;
+	 num=0;
+	 
+	 for(var i=0;i<count;i++){
+		var status=ds_certificateList.getColumn(i,"STATUS");
+		
+		if(status=="1"){
+			ds_certificateList.setColumn(i,"APPROVAL_STATUS" ,"승인취소");
+			ds_certificateList.setColumn(i,"REJECT_CAUSE","");
+			ds_certificateList.setColumn(i,"STATUS","update");
+			
+			num++;
+		}
+	 }
+	 if(num==0){
+		alert("선택된 행이 없습니다.");
+	 }
+}
+
+//반려 
+function Tab00_tabpage1_rejectBtn_onclick(obj:Button,  e:ClickEventInfo)
+{
+	var count=ds_certificateList.rowcount;
+	 num=0;
+	 
+	 for(var i=0;i<count;i++){
+		var status=ds_certificateList.getColumn(i,"STATUS");
+		
+		if(status=="1"){
+			ds_certificateList.setColumn(i,"APPROVAL_STATUS" ,"반려");
+			ds_certificateList.setColumn(i,"REJECT_CAUSE","");
+			ds_certificateList.setColumn(i,"STATUS","update");
+			
+			num++;
+		}
+	 }
+	 if(num==0){
+		alert("선택된 행이 없습니다.");
+	 }
+
+}
+
+//확정
+function Tab00_tabpage1_confirmBtn_onclick(obj:Button,  e:ClickEventInfo)
+{
+	transaction(
+				"confirmID"
+				,"svcCertificate::modifyCertificateList"
+				,"ds_employment=ds_certificateList:u"
+				,""
+				,""
+				,"fn_confirmcallback"
+	);
+}
+//확정 콜백 
+function fn_confirmcallback(trID,ErrorCode,ErrorMsg){
+	if(trID=="confirmID"){
+		if(ErrorCode!=0){
+			alert("확정 실패"+ErrorMsg);
+		}else{
+			alert("성공");
+		}
+	}
+}
+
+
+
+//체크박스 전체 선택 & 해제 
+function grd_output_onheadclick(obj:Grid, e:GridClickEventInfo) //이벤트가 발생한 object , event object
+{
+    if (e.cell == 0) // e.cell: Click된 Cell의 해당 Band내에서 Index 값을 가지는 Property 입니다.
+    {
+        fn_setGridCheckAll(obj, e);
+    }	
+}
+
+var fv_isGridCheckAll = 0;
+function fn_setGridCheckAll(obj:Grid, e:GridClickEventInfo)
+{
+    //Grid의 전체 Cell과 Bind 되는 Dataset의 ID를 설정하는 Property 입니다. BindDataset과 Gid는 Full Binding됩니다.
+    var objDs = eval(obj.binddataset); 
+    
+    var sCol  = obj.getCellProperty("body", e.cell, "text").replace("bind:", ""); 
+         //getCellProperty(얻고자하는 cell의 영역, 얻고자하는 cell의 index, 얻고자하는 cell의 property)
+         
+         
+    if (fv_isGridCheckAll)
+    {
+        fv_isGridCheckAll = 0;
+    }
+    else
+    {
+        fv_isGridCheckAll = 1;
+    }
+
+    objDs.enableevent = false;  // enableevent Dataset 의 Event 를 발생할지 여부를 설정하는 Property 입니다.
+    
+    for (var i = 0; i < objDs.getRowCount(); i++) 
+    {
+        objDs.setColumn(i, sCol, fv_isGridCheckAll);
+    }
+    
+    obj.setCellProperty("Head", 0, "expr", fv_isGridCheckAll);
+    
+    objDs.enableevent = true;
+}
+
+
+]]></Script>
+  </Form>
+</FDL>

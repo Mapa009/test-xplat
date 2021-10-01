@@ -1,0 +1,379 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="empRegist" classname="empRegist" inheritanceid="" position="absolute 0 0 1024 663" titletext="New Form" style="background:#333333ff;">
+    <Layouts>
+      <Layout>
+        <Button id="findPhoto" taborder="17" text="사진 첨부하기" position2="absolute l:578 w:140 t:192 h:23" positiontype="position2" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" onclick="findPhoto_onclick"/>
+        <Static id="Static00" text="직급" onclick="Tab00_tabpage1_Static00_onclick" position2="absolute l:141 w:100 t:442 h:28" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕,9,bold;"/>
+        <Static id="Static01" text="우편번호" position2="absolute l:542 w:100 t:401 h:28" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕,9,bold;"/>
+        <Static id="Static02" text="성별" position2="absolute l:141 w:100 t:481 h:28" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕,9,bold;"/>
+        <Static id="Static03" text="생년월일" onclick="Tab00_tabpage1_Static03_onclick" position2="absolute l:141 w:100 t:520 h:28" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕,9,bold;"/>
+        <Static id="Static04" text="주소" onclick="Tab00_tabpage1_Static04_onclick" position2="absolute l:542 w:100 t:323 h:28" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕,9,bold;"/>
+        <Static id="Static05" text="상세주소" onclick="Tab00_tabpage1_Static05_onclick" position2="absolute l:542 w:100 t:362 h:28" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕,9,bold;"/>
+        <Static id="Static06" text="전화번호" position2="absolute l:542 w:100 t:440 h:28" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕,9,bold;"/>
+        <Static id="Static07" text="이름" position2="absolute l:141 w:100 t:364 h:28" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕,9,bold;"/>
+        <Static id="Static08" text="사원번호" position2="absolute l:141 w:100 t:325 h:28" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕,9,bold;"/>
+        <Static id="Static09" text="이메일" position2="absolute l:542 w:100 t:479 h:28" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕,9,bold;"/>
+        <Static id="Static10" text="부서" position2="absolute l:141 w:100 t:403 h:28" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕,9,bold;"/>
+        <Static id="Static11" text="최종학력" position2="absolute l:542 w:100 t:518 h:28" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕,9,bold;"/>
+        <Edit id="txt_code" taborder="16" position2="absolute l:247 w:189 t:327 h:27" positiontype="position2" style="caretcolor:#00000080;background:#ffffffb3;color:#3e3e3eff;align:center;font:나눔고딕,9;" oneditclick="txt_code_oneditclick"/>
+        <Edit id="txt_name" taborder="15" position2="absolute l:247 w:189 t:366 h:27" positiontype="position2" style="align:center;font:나눔고딕,9;"/>
+        <Edit id="txt_dept" taborder="14" position2="absolute l:247 w:189 t:405 h:27" positiontype="position2" style="align:center;font:나눔고딕,9;" oneditclick="txt_dept_oneditclick"/>
+        <Edit id="txt_posi" taborder="13" position2="absolute l:247 w:189 t:444 h:27" positiontype="position2" style="align:center;font:나눔고딕,9;" oneditclick="txt_posi_oneditclick"/>
+        <Edit id="txt_gend" taborder="12" position2="absolute l:247 w:189 t:483 h:27" positiontype="position2" style="align:center;font:나눔고딕,9;" oneditclick="txt_gend_oneditclick"/>
+        <Edit id="txt_addr" taborder="11" position2="absolute l:648 w:189 t:325 h:27" positiontype="position2" style="align:center;font:나눔고딕,9;"/>
+        <Edit id="txt_daddr" taborder="10" position2="absolute l:648 w:189 t:364 h:27" positiontype="position2" style="align:center;font:나눔고딕,9;"/>
+        <Edit id="txt_pnum" taborder="9" position2="absolute l:648 w:189 t:403 h:27" positiontype="position2" style="align:center;font:나눔고딕,9;"/>
+        <Edit id="txt_emain" taborder="8" position2="absolute l:648 w:189 t:481 h:27" positiontype="position2" style="align:center;font:나눔고딕,9;"/>
+        <Edit id="txt_lasc" taborder="7" position2="absolute l:648 w:189 t:520 h:27" positiontype="position2" style="align:center;font:나눔고딕,9;" oneditclick="txt_lasc_oneditclick"/>
+        <Button id="btn_crenum" taborder="6" text="자동생성" position2="absolute l:444 w:82 t:325 h:26" positiontype="position2" style="background:#5d5d5dff;color:white;align:center;font:나눔고딕,9;" onclick="btn_crenum_onclick"/>
+        <Calendar id="txt_birth" taborder="5" position2="absolute l:247 w:189 t:521 h:29" positiontype="position2" style="font:나눔고딕,9;"/>
+        <Button id="Button03" taborder="4" text="검색" position2="absolute l:845 w:82 t:324 h:26" positiontype="position2" style="background:#5d5d5dff;color:white;align:center;font:나눔고딕,9;" onclick="Button03_onclick"/>
+        <MaskEdit id="txt_number" taborder="3" mask="###-####-####" position2="absolute l:648 w:188 t:441 h:27" positiontype="position2" style="align:center;font:나눔고딕,9;" type="string"/>
+        <Button id="Button04" taborder="2" text="사진 저장하기" position2="absolute l:578 w:140 t:232 h:23" positiontype="position2" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" onclick="Button04_onclick"/>
+        <ImageViewer id="empImg" taborder="1" position2="absolute l:314 w:241 t:153 h:132" positiontype="position2"/>
+        <Button id="regist_btn" taborder="18" text="등록" position2="absolute l:444 w:63 t:595 h:29" positiontype="position2" style="background:#5d5d5dff;color:white;font:나눔고딕,9,bold;" onclick="regist_btn_onclick"/>
+        <Button id="cancel_btn" taborder="0" text="취소" position2="absolute l:534 w:69 t:595 h:28" positiontype="position2" style="background:#5d5d5dff;color:white;font:나눔고딕,9,bold;" onclick="cancel_btn_onclick"/>
+        <Static id="Static12" text="사원등록" position2="absolute l:314 w:396 t:56 h:60" positiontype="position2" style="background:#eaeaeaff;border:3px solid #5d5d5dff ;color:#5d5d5dff;align:center;font:나눔고딕,14,bold;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_empRegist" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="EMP_CODE" type="STRING" size="256"/>
+          <Column id="EMP_NAME" type="STRING" size="256"/>
+          <Column id="BIRTHDATE" type="STRING" size="256"/>
+          <Column id="GENDER" type="STRING" size="256"/>
+          <Column id="MOBILE_NUMBER" type="STRING" size="256"/>
+          <Column id="ADDRESS" type="STRING" size="256"/>
+          <Column id="DETAIL_ADDRESS" type="STRING" size="256"/>
+          <Column id="POST_NUMBER" type="STRING" size="256"/>
+          <Column id="EMAIL" type="STRING" size="256"/>
+          <Column id="LAST_SCHOOL" type="STRING" size="256"/>
+          <Column id="POSITION" type="STRING" size="256"/>
+          <Column id="DEPT_NAME" type="STRING" size="256"/>
+          <Column id="IMG_EXTEND" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <FileDialog id="FileDialog" filter="All(*.*)|*.*|" filterindex="0" defaultextension="false"/>
+      <Dataset id="ds_img" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="EMP_FILE_NAME" type="STRING" size="256"/>
+          <Column id="IMG_FILE_DATA" type="BLOB" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="txt_code" propid="value" datasetid="ds_empRegist" columnid="EMP_CODE"/>
+      <BindItem id="item1" compid="txt_gend" propid="value" datasetid="ds_empRegist" columnid="GENDER"/>
+      <BindItem id="item2" compid="txt_birth" propid="value" datasetid="ds_empRegist" columnid="BIRTHDATE"/>
+      <BindItem id="item3" compid="txt_name" propid="value" datasetid="ds_empRegist" columnid="EMP_NAME"/>
+      <BindItem id="item4" compid="txt_addr" propid="value" datasetid="ds_empRegist" columnid="ADDRESS"/>
+      <BindItem id="item5" compid="txt_daddr" propid="value" datasetid="ds_empRegist" columnid="DETAIL_ADDRESS"/>
+      <BindItem id="item6" compid="txt_pnum" propid="value" datasetid="ds_empRegist" columnid="POST_NUMBER"/>
+      <BindItem id="item7" compid="txt_number" propid="value" datasetid="ds_empRegist" columnid="MOBILE_NUMBER"/>
+      <BindItem id="item8" compid="txt_emain" propid="value" datasetid="ds_empRegist" columnid="EMAIL"/>
+      <BindItem id="item9" compid="txt_lasc" propid="value" datasetid="ds_empRegist" columnid="LAST_SCHOOL"/>
+    </Bind>
+    <Script type="xscript4.0"><![CDATA[	//사진첨부하기    https://xplatform.tistory.com/120   , https://cafe.naver.com/xplatform101/314
+	function findPhoto_onclick(obj:Button,  e:ClickEventInfo)
+	{
+	   if(txt_code.value==null){
+		alert("사원번호를 먼저 생성하세요.");
+		return;
+	   }
+		
+		// FileDialog.open(strTitle,constOpenMode,strInitialPath,strFileName)
+		// 타이틀 영역에 표시될 문자열 , 파일처리하는 형식
+		// FileDialog.LOAD(1): 하나의 파일을 읽기 위해서 가져온다
+	   imgDialog=FileDialog.open("FileOpen",FileDialog.Load);
+	   imgName = imgDialog.filename;   	//파일명      ex)dochi.jpg
+	   imgPath = imgDialog.path;    	//파일경로    ex)C:\Users\user.DESKTOP-4AISN4G\Pictures\Saved Pictures\
+	   
+	   trace("imgName :"+imgName);
+	   trace("imgPath :"+imgPath);
+	   
+	   img = imgPath+imgName;
+	   empImg.image=img;  		//속성에 값 이미지 정보저장 
+	   empImg.stretch="fit";   	//속성에 값 저장 , 사진 사이즈에 맞게 조정 
+	}
+
+
+
+
+	//사진저장
+	function Button04_onclick(obj:Button,  e:ClickEventInfo)
+	{
+
+	var selEmpCode=ds_empRegist.getColumn(ds_empRegist.rowposition,"EMP_CODE");
+	trace(selEmpCode);
+	if(confirm(" 사진을 저장하시겠습니까? ")){
+	   if(selEmpCode==undefined){
+		  alert("사원번호를 생성 해주세요."); 
+		  return;
+	   }else{
+	   
+	   // 사원코드.jpg
+	   var fileExtend = String(imgName).substr(imgName.lastIndexOf('.'));   //ex) .jpg
+	   trace("fileExtend  : "+fileExtend);
+	   empFileName =  selEmpCode + fileExtend;    //  ex) A560025.jpg
+	   trace("empFileName : "+empFileName);
+		
+		// 바이너리파일 : 데이터로구성된 파일 , 이미지파일이나 데이터 , 실행파일
+		//읽기전용파일 열때 |  바이러리파일을 열때 사용
+	   imgDialog.open(VirtualFile.openRead | VirtualFile.openBinary); 
+		
+		// 파일 내용을 읽는 메소드입니다.
+	   var img_binary=imgDialog.read(imgDialog.getFileSize());
+	   trace("img_binary : "+img_binary);
+	   //버퍼데이터 또는 문자열 반환 
+		
+		
+		// 데이터셋에 추가하기 전에 기존 데이터가 있으면 삭제한다.
+	   var findNum = ds_img.findRow("EMP_FILE_NAME",empFileName);
+	   if(findNum > -1){
+		  ds_img.deleteRow(findNum); 
+	   }
+	   
+	   var img = ds_img.addRow();
+	   ds_img.addRow();
+	   ds_img.setColumn(img,"EMP_FILE_NAME",empFileName);   // ex) A560025.jpg
+	   ds_img.setColumn(img,"IMG_FILE_DATA",img_binary);    // [object Binary]     
+	   transaction(
+				"imgUpLoadID",
+				"svcBase::saveEmpImg",
+				"ds_img=ds_img:u",
+				"",
+				"",
+				"fn_callback");       
+		  }
+	   }
+	}
+
+
+
+
+
+	//부서
+	function txt_dept_oneditclick(obj:Edit,  e:EditClickEventInfo)
+	{
+	   g_codeNumber="CO-07";				// 팀 회계팀 / 인사팀 ..
+	   
+		dialog(   
+				"detailCodeList",   		// 생성될 ChildFrame의 이름
+				"Base::codeDialog.xfdl",   	// 로딩한 폼의 URL
+				MainFrame,   				// ParentFrame
+				null,   					// ChildFrame에 추가될 변수 리스트 {변수명:변수값, 변수명:변수값}
+				"",   						// ChildFrame에 설정할 속성 리스트 a=b b='c' 
+				650,   						// ChildFrame의 position 중 left 값
+				350   						// ChildFrame의 position 중 top 값
+	   );
+	   
+	   txt_dept.value=g_detailCodeName;  						// 다이얼로그에서 셀을 클릭했을때 글로별 변수에 값이 세팅됨
+	   ds_empRegist.setColumn(0,"DEPT_NAME",g_detailCodeNumber);//부서코드
+	   trace(ds_empRegist.getColumn(0,"DEPT_NAME"));
+	}
+
+
+
+
+	//직급
+	function txt_posi_oneditclick(obj:Edit,  e:EditClickEventInfo)
+	{
+	   g_codeNumber="CO-04";
+	   
+		dialog(   
+				"detailCodeList",   		// 생성될 ChildFrame의 이름
+				"Base::codeDialog.xfdl",   	// 로딩한 폼의 URL
+				MainFrame,   				// ParentFrame
+				null,   					// ChildFrame에 추가될 변수 리스트 {변수명:변수값, 변수명:변수값}
+				"",   						// ChildFrame에 설정할 속성 리스트 a=b b='c' 
+				650,   						// ChildFrame의 position 중 left 값
+				350   						// ChildFrame의 position 중 top 값
+	   );
+	   txt_posi.value=g_detailCodeName;
+	   ds_empRegist.setColumn(0,"POSITION",g_detailCodeNumber); //직급
+	   trace("직급 코드 입력 :  "+ds_empRegist.getColumn(0,"POSITION"));
+	}
+
+
+
+
+
+	//성별
+	function txt_gend_oneditclick(obj:Edit,  e:EditClickEventInfo)
+	{
+	   g_codeNumber="CO-01";
+	   
+	   trace("성별");
+	   
+		dialog(   
+				"detailCodeList",   // 생성될 ChildFrame의 이름
+				"Base::codeDialog.xfdl",   // 로딩한 폼의 URL
+				MainFrame,   // ParentFrame
+				null,   // ChildFrame에 추가될 변수 리스트 {변수명:변수값, 변수명:변수값}
+				"",   // ChildFrame에 설정할 속성 리스트 a=b b='c' 
+				650,   // ChildFrame의 position 중 left 값
+				350   // ChildFrame의 position 중 top 값
+	   );
+	   
+	   ds_empRegist.setColumn(0,"GENDER",g_detailCodeName); //성별 
+	}
+
+
+
+
+	//최종학력
+	function txt_lasc_oneditclick(obj:Edit,  e:EditClickEventInfo)
+	{
+	   g_codeNumber="CO-02";
+	   
+		dialog(   
+				"detailCodeList",   // 생성될 ChildFrame의 이름
+				"Base::codeDialog.xfdl",   // 로딩한 폼의 URL
+				MainFrame,   // ParentFrame
+				null,   // ChildFrame에 추가될 변수 리스트 {변수명:변수값, 변수명:변수값}
+				"",   // ChildFrame에 설정할 속성 리스트 a=b b='c' 
+				650,   // ChildFrame의 position 중 left 값
+				350   // ChildFrame의 position 중 top 값
+	   );
+	   
+	   ds_empRegist.setColumn(0,"LAST_SCHOOL",g_detailCodeName); //최종학력 
+	}
+
+
+
+
+	// 사번생성 자동생성
+	// 문자 A에 + 로 max 사번에 + 1 더해서 구해줌
+	function btn_crenum_onclick(obj:Button,  e:ClickEventInfo)
+	{
+
+	   transaction(
+				"empCodeID",
+				"svcEmp::findLastEmpCode",
+				"",								
+				"ds_empRegist=gds_emp",			 
+				"",
+				"fn_callback");   
+	}
+
+
+
+	//주소 검색
+	function Button03_onclick(obj:Button,  e:ClickEventInfo)
+	{
+		// dialog(strName,strFormURL,objParentFrame,{objArgumentList},strOpenStyle,nLeft,nTop[,nRight,nBottom[,objOpener]])
+		// application은 생략가능하다고 api 기록되어있음         전역접근객체
+		application.dialog(	
+					  "zipCodeDialog",
+					  "Base::zipCodeDialog.xfdl",
+					  mainframe,
+					  {},
+					  // showstatusbar, showtitlebar : 상태바와 타이틀바를 보여줄지를 결정합니다.
+					  // ChildFrame에 설정할 속성 리스트 a=b b='c' 
+					  "showtitlebar=true showstatusbar=false",  
+					  300, // letf
+					  300, // top
+					  300, // right
+					  300  // bottom
+					  // 모달 다이얼로그의 opener가될 폼 오브젝트 / Default : 처음 이벤트가 발생한 폼 오브젝트
+					  // this
+					  );
+
+	ds_empRegist.setColumn(ds_empRegist.rowposition,"ADDRESS",g_address);				// 주소
+	ds_empRegist.setColumn(ds_empRegist.rowposition,"DETAIL_ADDRESS",g_detail_address);	// 상세주소
+	ds_empRegist.setColumn(ds_empRegist.rowposition,"POST_NUMBER",g_post_number);		// 우편번호
+	}
+
+
+
+
+
+	//등록버튼
+	function regist_btn_onclick(obj:Button,  e:ClickEventInfo)
+	{
+	var empImgName=ds_img.getColumn(0,"EMP_FILE_NAME");  //사진 저장시 담아둠  ex) A560025.jpg
+	var empImgFile=ds_img.getColumn(0,"IMG_FILE_DATA");  //[object Binary]  
+	   
+	ds_empRegist.setColumn(ds_empRegist.rowposition,"IMG_EXTEND","jpg");  //IMG_EXTEND에 jpg세팅 
+
+
+	trace("???"+ds_empRegist.getColumn(0,"IMG_EXTEND"));  // jpg 
+	trace("empImgName :"+empImgName);
+	trace("empImgFile :"+empImgFile);
+
+
+	if(empImgName==null||empImgFile==null){alert("사진을 등록하여주세요."); return;
+	}if(txt_number.value==null){alert("전화번호를 정확히 입력해주세요."); return;
+	}if(txt_name.value==null){alert("이름을 입력해주세요."); return;
+	}if(txt_code.value==null){alert("사원번호를 생성해주세요."); return;
+	}if(txt_dept.value==null){alert("부서를 선택해주세요."); return;
+	}if(txt_posi.value==null){alert("직급을 선택해주세요."); return;
+	}if(txt_addr.value==null){alert("주소를 입력해주세요."); return;
+	}if(txt_gend.value==null){alert("성별을 선택해주세요."); return;
+	}if(txt_birth.value==null){alert("생년월일을 입력해주세요."); return;
+	}if(txt_lasc.value==null){alert("최종학력을 선택해주세요."); return;
+	}else{
+
+	trace("트랜잭션");
+
+	transaction(
+			 "empInsertID",
+			 "svcEmp::registEmployee",
+			 "gds_emp=ds_empRegist",	//서<-클
+			 "",						//클<-서
+			 "",
+			 "fn_callback");
+	   }
+	}
+
+
+
+
+
+
+
+	//콜백
+	function fn_callback(trID ,ErrorCode ,ErrorMsg)
+	{
+	if(trID=="empInsertID"){
+		  if(ErrorCode!=0){
+			 alert("사원등록 실패 : "+ErrorMsg);
+		  }else{
+			 alert("사원등록 성공");
+			 form.reload();
+		  }
+	 }
+	 
+	else if(trID=="empCodeID"){
+		  if(ErrorCode!=0){
+			 alert("사번생성 실패 : "+ErrorMsg);
+		  }else{
+			 alert("사번 생성완료.");
+		  }
+	 }
+	else if(trID=="imgUpLoadID"){
+	   if(ErrorCode!=0){
+			 alert("사진등록 실패 : "+ErrorMsg);
+		  }else{
+			 alert("사진등록 완료.");
+		  }
+	 }
+	}
+
+
+
+
+
+	//취소 
+	function cancel_btn_onclick(obj:Button,  e:ClickEventInfo)
+	{
+	   reload();
+	}
+
+
+]]></Script>
+  </Form>
+</FDL>

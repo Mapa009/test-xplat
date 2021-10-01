@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="mainTop" classname="mainTop" inheritanceid="" position="absolute 0 0 1443 768" titletext="New Form" style="background:#333333ff;border:0px solid #979797ff ;">
+    <Layouts>
+      <Layout>
+        <Menu id="Menu00" taborder="0" position2="absolute l:256 w:540 t:-1 h:74" positiontype="position2" innerdataset="@gds_newMenu" captioncolumn="MENU_NM" idcolumn="MENU_ID" levelcolumn="MENU_lV" style="buttonsize:-1;background:#333333ff;border:3px solid #697070b3 ;color:white;font:나눔고딕 ExtraBold,11,bold antialias;" onmenuclick="Menu00_onmenuclick"/>
+        <GroupBox id="GroupBox00" position2="absolute l:800 w:357 t:-1 h:74" positiontype="position2" onlbuttondown="GroupBox00_onlbuttondown" style="titlealign:leftbottom;background:#333333ff;border:2px solid darkgray ;color:transparent;"/>
+        <Static id="Static01" text="Today" position2="absolute l:870 w:196 t:8 h:20" positiontype="position2" style="color:white;align:center;font:맑은 고딕,10,bold;" onclick="Static01_onclick"/>
+        <Button id="homeBtn" taborder="1" text="Home" onclick="HomeB_onclick" position2="absolute l:1159 w:228 t:0 h:73" positiontype="position2" style="background:#333333ff;border:3px solid #979797ff ;color:white;font:맑은 고딕,10,bold;"/>
+        <Div id="Div00" taborder="2" position2="absolute l:6 w:242 t:0 h:74" positiontype="position2" style="background:#333333ff;border:2 double #dcdcdcff #ffffffff;color:white;font:@맑은 고딕,18,bold;" text="Seok Company"/>
+        <Edit id="today" taborder="3" readonly="true" oneditclick="Edit00_oneditclick" position2="absolute l:804 w:347 t:30 h:36" positiontype="position2" style="background:white;border:2px solid #a8a8a8b3 ;align:center;font:나눔고딕 ExtraBold,10,bold;"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript4.0"><![CDATA[function logoutB_onclick(obj:Button,  e:ClickEventInfo)
+{
+	application.mainframe.visible = false;
+	openLoginFormDialog("loginform","LoginForm","Base::loginForm.xfdl");
+}
+
+function Menu00_onmenuclick(obj:Menu, e:MenuClickEventInfo)
+{ 	trace(e.id);
+   var sID=e.id;
+   var sURL=gds_newMenu.lookup("MENU_ID", e.id, "MENU_URL");
+   var sTitle=gds_newMenu.lookup("MENU_ID", e.id, "MENU_NM");
+   
+ 
+	trace(sURL);
+	trace(gds_newMenu.getColumn(3,'MENU_URL'));
+ 
+    
+		gfn_Open(sID, sURL, sTitle);
+	
+}
+
+
+function HomeB_onclick(obj:Button,  e:ClickEventInfo)
+{
+	gfn_Open("MainForm", "Base::MainForm.xfdl", "MainForm");
+}
+
+function Static01_onclick(obj:Static,  e:ClickEventInfo)
+{
+	
+}
+]]></Script>
+  </Form>
+</FDL>

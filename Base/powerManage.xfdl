@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="powerManage" classname="powerManage" inheritanceid="" position="absolute 0 0 1024 768" titletext="New Form" style="background:#333333ff;" onload="powerManage_onload">
+    <Layouts>
+      <Layout>
+        <Tab id="Tab" taborder="0" position2="absolute l:72 w:399 t:152 h:423" positiontype="position2" tabindex="0" scrollbars="autoboth" style="background:gray;color:white;font:나눔고딕,10,bold antialias; :selected {color:#5d5d5dff;}">
+          <Tabpages>
+            <Tabpage id="page1" text="부서명으로 사원 검색" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout width="132" height="376">
+                  <Grid id="Grid00" taborder="1" binddataset="ds_emp" useinputpanel="false" autofittype="col" cellclickbound="cell" oncellclick="Tab00_tabpage1_Grid00_oncellclick" onheadclick="grd_output_onheadclick" position2="absolute l:19 w:344 t:84 h:289" positiontype="position2" style="background:gray;align:center;font:맑은 고딕 Semilight,9,antialias;">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head" style="background:#008040ff;">
+                          <Cell style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="사원명"/>
+                          <Cell col="1" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="부서"/>
+                          <Cell col="2" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="직급"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell style="font:나눔고딕,9;" text="bind:EMP_NAME"/>
+                          <Cell col="1" style="align:center;font:나눔고딕,9;" text="bind:DEPT_NAME" editlimit="4"/>
+                          <Cell col="2" style="font:나눔고딕,9;" text="bind:POSITION"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                  <Combo id="btn_dept_search" taborder="1" codecolumn="codecolumn" datacolumn="datacolumn" onitemchanged="Tab_page1_btn_dept_search_onitemchanged" position2="absolute l:64 w:179 t:23 h:36" positiontype="position2" style="align:center;font:HY헤드라인M,11,antialias;">
+                    <Dataset id="innerdataset">
+                      <ColumnInfo>
+                        <Column id="codecolumn" size="256"/>
+                        <Column id="datacolumn" size="256"/>
+                      </ColumnInfo>
+                      <Rows>
+                        <Row>
+                          <Col id="codecolumn">전체부서</Col>
+                          <Col id="datacolumn">전체부서</Col>
+                        </Row>
+                        <Row>
+                          <Col id="codecolumn">회계팀</Col>
+                          <Col id="datacolumn">회계팀</Col>
+                        </Row>
+                        <Row>
+                          <Col id="codecolumn">인사팀</Col>
+                          <Col id="datacolumn">인사팀</Col>
+                        </Row>
+                        <Row>
+                          <Col id="codecolumn">전산팀</Col>
+                          <Col id="datacolumn">전산팀</Col>
+                        </Row>
+                        <Row>
+                          <Col id="codecolumn">보안팀</Col>
+                          <Col id="datacolumn">보안팀</Col>
+                        </Row>
+                      </Rows>
+                    </Dataset>
+                  </Combo>
+                  <Button id="btn_search" taborder="1" text="검색" onclick="Tab_tabpage1_btn_search_onclick" position2="absolute l:280 w:40 t:28 h:28" positiontype="position2" style="background:#5d5d5dff;color:white;font:나눔고딕,9,antialias;"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="page2" text="사원명으로  검색" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout>
+                  <Button id="btn_search" taborder="1" text="검색" onclick="Tab_page2_btn_search_onclick" position2="absolute l:268 w:40 t:25 h:28" positiontype="position2" style="color:dimgray;"/>
+                  <Edit id="name_text" taborder="1" oneditclick="Tab_page2_name_text_oneditclick" position2="absolute l:60 w:190 t:25 h:32" positiontype="position2"/>
+                  <Grid id="Grid01" taborder="1" binddataset="ds_empList" useinputpanel="false" autofittype="col" cellclickbound="cell" oncellclick="Tab_page1_Grid00_oncellclick" onheadclick="grd_output_onheadclick" position2="absolute l:19 w:344 t:84 h:289" positiontype="position2" style="align:center;font:맑은 고딕 Semilight,9,antialias;">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head" style="background:#008040ff;">
+                          <Cell style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="사원명"/>
+                          <Cell col="1" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="부서"/>
+                          <Cell col="2" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="직급"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell style="font:나눔고딕,9;" text="bind:EMP_NAME"/>
+                          <Cell col="1" style="align:center;font:나눔고딕,9;" text="bind:DEPT_NAME" editlimit="4"/>
+                          <Cell col="2" style="font:나눔고딕,9;" text="bind:POSITION"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+        <Tab id="Tab00" taborder="1" position2="absolute l:574 w:357 t:107 h:511" positiontype="position2" tabindex="0" scrollbars="autoboth">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="권한" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout>
+                  <Grid id="Grid00" taborder="0" useinputpanel="false" position2="absolute l:7 w:324 t:7 h:390" positiontype="position2" autofittype="col" cellclickbound="cell" binddataset="ds_authority">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="92"/>
+                          <Column size="91"/>
+                          <Column size="106"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head">
+                          <Cell style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="메뉴코드"/>
+                          <Cell col="1" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="메뉴이름"/>
+                          <Cell col="2" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="권한"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell text="bind:MENU_CODE"/>
+                          <Cell col="1" text="bind:MENU_NAME"/>
+                          <Cell col="2" displaytype="checkbox" edittype="checkbox" text="bind:AUTHORITY"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+        <Button id="Button00" taborder="1" text="저장" onclick="save" position2="absolute l:640 w:93 t:546 h:43" positiontype="position2" style="background:#5d5d5dff;color:aliceblue;font:나눔고딕 ExtraBold,9,bold;"/>
+        <Button id="Button02" taborder="1" text="취소" onclick="cancle" position2="absolute l:783 w:93 t:546 h:43" positiontype="position2" style="background:#5d5d5dff;color:aliceblue;font:나눔고딕 ExtraBold,9,bold;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_emp" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="EMP_CODE" type="STRING" size="256"/>
+          <Column id="EMP_NAME" type="STRING" size="256"/>
+          <Column id="DEPT_NAME" type="STRING" size="256"/>
+          <Column id="POSITION" type="STRING" size="256"/>
+          <Column id="GENDER" type="STRING" size="256"/>
+          <Column id="MOBILE_NUMBER" type="STRING" size="256"/>
+          <Column id="EMAIL" type="STRING" size="256"/>
+          <Column id="ADDRESS" type="STRING" size="256"/>
+          <Column id="LAST_SCHOOL" type="STRING" size="256"/>
+          <Column id="IMG_EXTEND" type="STRING" size="256"/>
+          <Column id="BIRTHDATE" type="STRING" size="256"/>
+          <Column id="DETAIL_ADDRESS" type="STRING" size="256"/>
+          <Column id="POST_NUMBER" type="STRING" size="256"/>
+          <Column id="STATUS" type="STRING" size="256"/>
+          <Column id="DEPT_CODE" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_authority" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="EMP_NAME" type="STRING" size="256"/>
+          <Column id="EMP_CODE" type="STRING" size="256"/>
+          <Column id="DEPT_CODE" type="STRING" size="256"/>
+          <Column id="DEPT_NAME" type="STRING" size="256"/>
+          <Column id="MENU_CODE" type="STRING" size="256"/>
+          <Column id="MENU_NAME" type="STRING" size="256"/>
+          <Column id="AUTHORITY" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <InitValue/>
+    <Script type="xscript4.0"><![CDATA[
+var empCode;
+
+function powerManage_onload(obj:Form, e:LoadEventInfo)
+{ 
+	
+}
+
+function Tab_tabpage1_btn_search_onclick(obj:Button,  e:ClickEventInfo)
+{
+	codeName=Tab.page1.btn_dept_search.value;
+	
+	if(codeName==null){
+	    Tab.page1.btn_dept_search.value="전체부서";
+	}
+	
+	transaction(
+				"searchDeptID"
+			   ,"svcEmp::list"
+			   ,""
+			   ,"ds_emp=gds_emp" 
+			   ,"value='"+codeName+"'"
+			   ,"fn_callback" 
+	);
+}
+
+function Tab_page2_btn_search_onclick(obj:Button,  e:ClickEventInfo)
+{
+	var empName=Tab.page2.name_text.value;
+	
+	if(empName==null){
+	      alert("사원명을 입력하세요");
+	}
+	
+	transaction(
+	       "searchEmpID"
+	       ,"svcEmp::list"
+	       ,""
+	       ,"ds_emp=gds_emp"
+	       ,"value='"+empName+"'"
+	       ,"fn_callback"
+	);
+}
+
+function Tab00_tabpage1_Grid00_oncellclick(obj:Grid, e:GridClickEventInfo){
+	empCode=ds_emp.getColumn(ds_emp.rowposition,"EMP_CODE")
+	   transaction(
+				"authorityID"
+				,"svcBase::findAuthorityList"
+				,""
+				,"ds_authority=ds_authority"
+				,"empCode='"+empCode+"'"
+				,"fn_callback"
+		);
+}
+
+
+
+function save(obj:Button, e:ClickEventInfo){
+	trace("11");
+	transaction(
+				"authorityReg"
+				,"svcBase::saveAuthority"
+				,"ds_authority=ds_authority:u"
+				,""
+				,""
+				,"fn_callback"			
+	);
+}
+
+function cancle(obj:Button, e:ClickEventInfo){
+transaction(
+				"authorityID"
+				,"svcBase::findAuthorityList"
+				,""
+				,"ds_authority=ds_authority"
+				,"empCode='"+empCode+"'"
+				,"fn_callback"
+		);
+}
+
+function fn_callback(trID,ErrorCode,ErrorMsg){
+	if(trID=="searchDeptID"){
+		if(ErrorCode!=0){
+			alert("로드실패");
+		}
+	}else if(trID=="searchEmpID"){
+		if(ErrorCode!=0){
+			alert("로드실패");
+		}
+	}else if(trID=="authorityReg"){
+		if(ErrorCode!=0){
+			alert("로드실패");}
+		else{
+			alert("저장성공");
+	     }
+	}
+}
+function Combo00_onitemchanged(obj:Combo, e:ItemChangeEventInfo)
+{
+}
+
+]]></Script>
+  </Form>
+</FDL>

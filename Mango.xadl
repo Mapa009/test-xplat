@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ADL version="1.1">
+  <TypeDefinition url="default_typedef.xml"/>
+  <GlobalVariables url="globalvars.xml"/>
+  <Application id="Jieun" codepage="utf-8" language="Korean" loginformurl="" loginformstyle="" windowopeneffect="" windowcloseeffect="" version="" tracemode="" themeid="default.xtheme" onload="application_onload" licenseurl="..\..\..\Downloads\XPLATFORM_Client_License.xml">
+    <Layout>
+      <MainFrame id="mainframe" title="maintitle" defaultfont="" resizable="true" showtitlebar="true" showstatusbar="true" position="absolute 0 0 1400 830" openalign="center middle" style="icon:URL('C:\Users\rlaal\OneDrive\바탕 화면\20210323_145458.png');" showcascadestatustext="false" showcascadetitletext="false">
+        <VFrameSet id="VFrameSet0" separatesize="80,*">
+          <Frames>
+            <ChildFrame id="ChildFrame0" style="background:gainsboro;" showtitlebar="false" formurl="Base::mainTop.xfdl"/>
+            <HFrameSet id="HFrameSet0" separatesize="250,*">
+              <Frames>
+                <ChildFrame id="ChildFrame0" style="background:white;" showtitlebar="false" formurl="Base::mainLeft.xfdl"/>
+                <FrameSet id="FrameSet0" showcascadetitletext="false" showcascadestatustext="false" ctrltaborder="index" minimizedchildposition="top" showstatusbar="false" style="background:#e2efe4ff;" position="absolute 0 0 0 0"/>
+              </Frames>
+            </HFrameSet>
+          </Frames>
+        </VFrameSet>
+      </MainFrame>
+    </Layout>
+    <ScreenInfo/>
+  </Application>
+  <Script type="xscript4.0"><![CDATA[
+function application_onload(obj:Object, e:LoadEventInfo)
+{
+	application.mainframe.visible = false;
+	openLoginFormDialog("Loginform","LoginForm","Base::loginform.xfdl");
+	
+
+}
+
+function openLoginFormDialog(sID,sTitle,sUrl){
+
+	
+	//Dialog.showModal(sParent);
+	
+	var loginDialog = new ChildFrame(sID,0,0,0,0,sUrl);	
+	loginDialog.showstatusbar=false;
+	loginDialog.resizable = false;
+	loginDialog.showstatusbar = false;
+	loginDialog.openalign = "center middle"; //ChildFrame 뜰때 위치 지정 
+	loginDialog.showcascadetitletext = false; // newForm 상단에 나타나는것 제거!!(text 미포함)
+	loginDialog.showModal(sID,"");  // 선언 순서 상관 있음 
+	
+	gfn_Open("MainForm","Base::MainForm.xfdl","MainForm")
+}
+
+ //화면띄우는로직
+function gfn_Open(sID, sURL, sTitle)
+ {   
+ 
+	var oFS = application.mainframe.VFrameSet0.HFrameSet0.FrameSet0;
+	//var oCF=new ChildFrame(sID,0,1160,680);
+	
+	oFS. removeChild(sID);
+ 
+    //동적으로 화면 생성하기    객체아이디, 좌표
+    var oCF = new ChildFrame(sID,0,0,1160,680);
+    
+    oCF.showstatusbar=false;
+    oCF.showtitlebar=false;
+    
+	oCF.formurl=sURL;
+    oCF.titletext=sTitle;
+    
+    // 화면꺼내오기     객체아이디, 실제객체
+    oFS.addChild(sID,oCF);
+    trace(sURL);
+ 
+    // 화면보여지게하기
+    oCF.show();
+}
+
+ ]]></Script>
+</ADL>

@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="authorityGroupDialog" classname="codeDialog" inheritanceid="" position="absolute 0 0 290 260" titletext="New Form" onload="authorityGroupDialog_onload" style="background:#333333ff;">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="0" binddataset="ds_groupAuthority" useinputpanel="false" autofittype="col" position2="absolute l:17 w:255 t:16 h:235" positiontype="position2" oncellclick="Grid00_oncellclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head" style="background:#008040ff;">
+                <Cell displaytype="normal" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="그룹코드"/>
+                <Cell col="1" displaytype="normal" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="그룹이름"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="normal" text="bind:GROUP_CODE"/>
+                <Cell col="1" displaytype="normal" text="bind:GROUP_NAME"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_groupAuthority" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="GROUP_CODE" type="STRING" size="256"/>
+          <Column id="GROUP_NAME" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript4.0"><![CDATA[//로딩시
+function authorityGroupDialog_onload(obj:Form, e:LoadEventInfo)
+{
+	// ex) CO-07 [회계,인사,전산,보안]
+    transaction( 
+				 "authoGroupDialogID"
+ 	   		    ,"svcBase::findAllGroupAuthority"
+                ,""
+                ,"ds_groupAuthority=gds_groupAuthority"
+                ,""
+                ,"fn_code_callback"
+                );
+       trace(ds_groupAuthority.getColumn(0,'GROUP_CODE'));
+}
+
+//트랜잭션 콜백
+function fn_code_callback(trid, ErrorCode, ErrorMsg){
+
+   if(trid == "detailCode"){
+         if(ErrorCode <0){
+               alert("조회 실패 : " + ErrorMsg);
+         }
+   }
+}
+
+//셀을 클릭했을때 글로벌변수에 값 세팅 
+function Grid00_oncellclick(obj:Grid, e:GridClickEventInfo)
+{
+	g_groupAuthCode = ds_groupAuthority.getColumn(ds_groupAuthority.rowposition,"GROUP_CODE");
+	g_groupAuthName = ds_groupAuthority.getColumn(ds_groupAuthority.rowposition,"GROUP_NAME"); 
+
+ close();
+}
+
+
+]]></Script>
+  </Form>
+</FDL>

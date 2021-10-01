@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<GlobalVariables>
+  <Dataset id="gds_menu">
+    <ColumnInfo>
+      <Column id="menu_id" type="STRING" size="256"/>
+      <Column id="menu_nm" type="STRING" size="256"/>
+      <Column id="menu_lv" type="STRING" size="256"/>
+      <Column id="menu_st" type="STRING" size="256"/>
+      <Column id="menu_url" type="STRING" size="256"/>
+      <Column id="menu_enm" type="STRING" size="256"/>
+    </ColumnInfo>
+    <Rows>
+      <Row>
+        <Col id="menu_id">1</Col>
+        <Col id="menu_nm">사원메뉴</Col>
+        <Col id="menu_lv">0</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_enm">menu</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">2</Col>
+        <Col id="menu_nm">사원검색</Col>
+        <Col id="menu_lv">1</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_url">Emp::empFind.xfdl</Col>
+        <Col id="menu_enm">accessible</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">3</Col>
+        <Col id="menu_nm">일근태기록/조회</Col>
+        <Col id="menu_lv">1</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_url">Attendance::dayAttendance.xfdl</Col>
+        <Col id="menu_enm">accessible</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">4</Col>
+        <Col id="menu_nm">외출,조퇴신청/조회</Col>
+        <Col id="menu_lv">1</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_url">Attendance::restAttendance.xfdl</Col>
+        <Col id="menu_enm">accessible</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">5</Col>
+        <Col id="menu_nm">휴가신청/조회</Col>
+        <Col id="menu_lv">1</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_url">Attendance::break.xfdl</Col>
+        <Col id="menu_enm">accessible</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">6</Col>
+        <Col id="menu_nm">출장,교육신청/조회</Col>
+        <Col id="menu_lv">1</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_url">Attendance::travel.xfdl</Col>
+        <Col id="menu_enm">accessible</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">7</Col>
+        <Col id="menu_nm">초과근무신청/조회</Col>
+        <Col id="menu_lv">1</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_url">Attendance::overwork.xfdl</Col>
+        <Col id="menu_enm">accessible</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">8</Col>
+        <Col id="menu_nm">재직증명서신청/발급</Col>
+        <Col id="menu_lv">1</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_url">Certificate::employment.xfdl</Col>
+        <Col id="menu_enm">accessible</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">9</Col>
+        <Col id="menu_nm">증빙신청/조회</Col>
+        <Col id="menu_lv">1</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_url">Certificate::proof.xfdl</Col>
+        <Col id="menu_enm">accessible</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">10</Col>
+        <Col id="menu_nm">급여조회</Col>
+        <Col id="menu_lv">0</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_enm">menu</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">11</Col>
+        <Col id="menu_nm">월급여조회</Col>
+        <Col id="menu_lv">1</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_url">Salary::monthSalary.xfdl</Col>
+        <Col id="menu_enm">MONTH_SALARY</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">12</Col>
+        <Col id="menu_nm">인사관리</Col>
+        <Col id="menu_lv">0</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_enm">menu</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">13</Col>
+        <Col id="menu_nm">사원등록</Col>
+        <Col id="menu_lv">1</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_url">Emp::empRegist.xfdl</Col>
+        <Col id="menu_enm">EMP_REGIST</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">14</Col>
+        <Col id="menu_nm">사원상세조회</Col>
+        <Col id="menu_lv">1</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_url">Emp::empDetailedView.xfdl</Col>
+        <Col id="menu_enm">EMP_DETAILED_VIEW</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">15</Col>
+        <Col id="menu_nm">재직증명서관리</Col>
+        <Col id="menu_lv">1</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_url">Certificate::certificateApproval.xfdl</Col>
+        <Col id="menu_enm">CERTIFICATE_APPROVAL</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">16</Col>
+        <Col id="menu_nm">근태관리</Col>
+        <Col id="menu_lv">0</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_enm">menu</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">17</Col>
+        <Col id="menu_nm">일근태관리</Col>
+        <Col id="menu_lv">1</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_url">Attendance::dayAttendanceManage.xfdl</Col>
+        <Col id="menu_enm">DAY_ATTENDANCE_MANAGE</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">18</Col>
+        <Col id="menu_nm">월근태관리</Col>
+        <Col id="menu_lv">1</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_url">Attendance::monthAttendanceManage.xfdl</Col>
+        <Col id="menu_enm">MONTH_ATTENDANCE_MANAGE</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">30</Col>
+        <Col id="menu_nm">연차관리</Col>
+        <Col id="menu_lv">1</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_url">Attendance::annualVacationManage.xfdl</Col>
+        <Col id="menu_enm">ANNUAL_VACATION_MANAGE</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">19</Col>
+        <Col id="menu_nm">결재승인관리</Col>
+        <Col id="menu_lv">1</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_url">Attendance::attendanceApploval.xfdl</Col>
+        <Col id="menu_enm">ATTENDANCE_APPROVAL</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">20</Col>
+        <Col id="menu_nm">급여관리</Col>
+        <Col id="menu_lv">0</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_enm">menu</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">21</Col>
+        <Col id="menu_nm">급여기준관리</Col>
+        <Col id="menu_lv">1</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_url">Salary::baseSalaryManage.xfdl</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">22</Col>
+        <Col id="menu_nm">공제기준관리</Col>
+        <Col id="menu_lv">1</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_url">Salary::baseDeductionManage.xfdl</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">23</Col>
+        <Col id="menu_nm">초과수당관리</Col>
+        <Col id="menu_lv">1</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_url">Salary::baseExtSalManage.xfdl</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">24</Col>
+        <Col id="menu_nm">증빙승인관리</Col>
+        <Col id="menu_lv">1</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_url">Certificate::proofApproval.xfdl</Col>
+        <Col id="menu_enm">PROOF_APPROVAL</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">25</Col>
+        <Col id="menu_nm">시스템관리</Col>
+        <Col id="menu_lv">0</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_enm">menu</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">26</Col>
+        <Col id="menu_nm">부서관리</Col>
+        <Col id="menu_lv">1</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_url">Base::deptList.xfdl</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">27</Col>
+        <Col id="menu_nm">직급관리</Col>
+        <Col id="menu_lv">1</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_url">Base::positionList.xfdl</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">28</Col>
+        <Col id="menu_nm">코드조회</Col>
+        <Col id="menu_lv">1</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_url">Base::codeList.xfdl</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">29</Col>
+        <Col id="menu_nm">휴일조회</Col>
+        <Col id="menu_lv">1</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_url">Base::holidayList.xfdl</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">31</Col>
+        <Col id="menu_nm">권한관리</Col>
+        <Col id="menu_lv">1</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_url">Base::powerManage2.xfdl</Col>
+      </Row>
+      <Row>
+        <Col id="menu_id">32</Col>
+        <Col id="menu_nm">권한관리2</Col>
+        <Col id="menu_lv">1</Col>
+        <Col id="menu_st">1</Col>
+        <Col id="menu_url">Base::powerManage.xfdl</Col>
+      </Row>
+    </Rows>
+  </Dataset>
+  <Dataset id="gds_emp">
+    <ColumnInfo>
+      <Column id="EMP_CODE" type="STRING" size="256"/>
+      <Column id="EMP_NAME" type="STRING" size="256"/>
+      <Column id="BIRTHDATE" type="STRING" size="256"/>
+      <Column id="GENDER" type="STRING" size="256"/>
+      <Column id="MOBILE_NUMBER" type="STRING" size="256"/>
+      <Column id="ADDRESS" type="STRING" size="256"/>
+      <Column id="DETAIL_ADDRESS" type="STRING" size="256"/>
+      <Column id="POST_NUMBER" type="STRING" size="256"/>
+      <Column id="EMAIL" type="STRING" size="256"/>
+      <Column id="LAST_SCHOOL" type="STRING" size="256"/>
+      <Column id="IMG_EXTEND" type="STRING" size="256"/>
+      <Column id="DEPT_NAME" type="STRING" size="256"/>
+      <Column id="POSITION" type="STRING" size="256"/>
+    </ColumnInfo>
+  </Dataset>
+  <Variable id="g_empCode"/>
+  <Variable id="g_empName"/>
+  <Variable id="g_deptName"/>
+  <Variable id="g_position"/>
+  <Variable id="g_codeNumber"/>
+  <Variable id="g_code1"/>
+  <Variable id="g_code2"/>
+  <Variable id="g_code3"/>
+  <Variable id="g_detailCodeName"/>
+  <Variable id="g_detailCodeNumber"/>
+  <Variable id="gds_post"/>
+  <Variable id="g_post_number"/>
+  <Variable id="g_address"/>
+  <Variable id="g_detail_address"/>
+  <Variable id="empImgName"/>
+  <Variable id="g_today"/>
+  <Dataset id="gds_detailcode">
+    <ColumnInfo>
+      <Column id="CODE_NUMBER" type="STRING" size="256"/>
+      <Column id="DETAIL_CODE_NUMBER" type="STRING" size="256"/>
+      <Column id="DETAIL_CODE_NAME" type="STRING" size="256"/>
+      <Column id="DETAIL_CODE_NAMEUSING" type="STRING" size="256"/>
+    </ColumnInfo>
+  </Dataset>
+  <Dataset id="gds_dayattd">
+    <ColumnInfo>
+      <Column id="EMP_CODE" type="STRING" size="256"/>
+      <Column id="EMP_NAME" type="STRING" size="256"/>
+      <Column id="DAY_ATTD_CODE" type="STRING" size="256"/>
+      <Column id="APPLY_DAY" type="STRING" size="256"/>
+      <Column id="ATTD_TYPE_CODE" type="STRING" size="256"/>
+      <Column id="ATTD_TYPE_NAME" type="STRING" size="256"/>
+      <Column id="TIME" type="STRING" size="256"/>
+    </ColumnInfo>
+  </Dataset>
+  <Dataset id="gds_fileupload">
+    <ColumnInfo>
+      <Column id="FILE_NAME" type="STRING" size="256"/>
+      <Column id="FILE_DATA" type="BLOB" size="256"/>
+    </ColumnInfo>
+  </Dataset>
+  <Dataset id="gds_powerList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+    <ColumnInfo>
+      <Column id="POSITION" type="STRING" size="256"/>
+      <Column id="POSITION_CODE" type="STRING" size="256"/>
+      <Column id="EMP_REGIST" type="STRING" size="256"/>
+      <Column id="EMP_DETAILED_VIEW" type="STRING" size="256"/>
+      <Column id="CERTIFICATE_APPROVAL" type="STRING" size="256"/>
+      <Column id="ATTENDANCE_APPROVAL" type="STRING" size="256"/>
+      <Column id="DAY_ATTENDANCE_MANAGE" type="STRING" size="256"/>
+      <Column id="MONTH_ATTENDANCE_MANAGE" type="STRING" size="256"/>
+      <Column id="ANNUAL_VACATION_MANAGE" type="STRING" size="256"/>
+      <Column id="PROOF_APPROVAL" type="STRING" size="256"/>
+      <Column id="MONTH_SALARY" type="STRING" size="256"/>
+    </ColumnInfo>
+  </Dataset>
+  <Variable id="g_positionNumber"/>
+  <Dataset id="gds_position">
+    <ColumnInfo>
+      <Column id="POSITION_CODE" type="STRING" size="256"/>
+      <Column id="POSITION" type="STRING" size="256"/>
+      <Column id="BASE_SALARY" type="FLOAT" size="256"/>
+      <Column id="HOBONG_RATIO" type="FLOAT" size="256"/>
+    </ColumnInfo>
+  </Dataset>
+  <Dataset id="gds_authority">
+    <ColumnInfo>
+      <Column id="EMP_NAME" type="STRING" size="256"/>
+      <Column id="EMP_CODE" type="STRING" size="256"/>
+      <Column id="DEPT_CODE" type="STRING" size="256"/>
+      <Column id="DEPT_NAME" type="STRING" size="256"/>
+      <Column id="MENU_CODE" type="STRING" size="256"/>
+      <Column id="MENU_NAME" type="STRING" size="256"/>
+      <Column id="AUTHORITY" type="STRING" size="256"/>
+    </ColumnInfo>
+  </Dataset>
+  <Dataset id="gds_newMenu">
+    <ColumnInfo>
+      <Column id="MENU_ID" type="STRING" size="256"/>
+      <Column id="MENU_NM" type="STRING" size="256"/>
+      <Column id="MENU_lV" type="STRING" size="256"/>
+      <Column id="MENU_ST" type="STRING" size="256"/>
+      <Column id="MENU_URL" type="STRING" size="256"/>
+    </ColumnInfo>
+  </Dataset>
+  <Variable id="g_groupAuthCode"/>
+  <Variable id="g_groupAuthName"/>
+  <Dataset id="gds_groupAuthority">
+    <ColumnInfo>
+      <Column id="GROUP_CODE" type="STRING" size="256"/>
+      <Column id="GROUP_NAME" type="STRING" size="256"/>
+    </ColumnInfo>
+  </Dataset>
+  <Dataset id="gds_empAuthGroup">
+    <ColumnInfo>
+      <Column id="EMP_CODE" type="STRING" size="256"/>
+      <Column id="GROUP_CODE" type="STRING" size="256"/>
+    </ColumnInfo>
+  </Dataset>
+</GlobalVariables>

@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.4">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="monthSalary" classname="monthSalary" inheritanceid="" position="absolute 0 0 1024 768" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Tab id="Tab00" taborder="0" position2="absolute l:9 w:995 t:31 h:331" positiontype="position2" tabindex="0" scrollbars="autoboth">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="월급여조회" position="absolute 0 0 0 0">
+              <Layouts>
+                <Layout width="977" height="291">
+                  <Calendar id="Calendar00" taborder="0" position2="absolute l:126 w:237 t:26 h:32" dateformat="yyyy-M" value="null" editformat="yyyy-M" positiontype="position2"/>
+                  <Button id="Button00" taborder="1" text="조회하기" position2="absolute l:391 w:127 t:26 h:34" style="color:dimgray;font:HY헤드라인M,9;" positiontype="position2"/>
+                  <Button id="Button01" taborder="1" text="마감" position2="absolute l:540 w:87 t:28 h:32" positiontype="position2" style="color:dimgray;font:HY헤드라인M,9;"/>
+                  <Button id="Button02" taborder="1" text="마감취소" position2="absolute l:649 w:87 t:27 h:32" positiontype="position2" style="color:dimgray;font:HY헤드라인M,9;"/>
+                  <Button id="Button03" taborder="1" text="발급" position2="absolute l:758 w:87 t:27 h:32" positiontype="position2" style="color:dimgray;font:HY헤드라인M,9;"/>
+                  <Grid id="Grid00" taborder="1" binddataset="ds_codeList" useinputpanel="false" autofittype="col" position2="absolute l:64 w:812 t:81 h:197" positiontype="position2" style="align:center;font:맑은 고딕 Semilight,9,antialias;">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="32"/>
+                          <Column size="72"/>
+                          <Column size="89"/>
+                          <Column size="80"/>
+                          <Column size="96"/>
+                          <Column size="91"/>
+                          <Column size="80"/>
+                          <Column size="106"/>
+                          <Column size="80"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head">
+                          <Cell displaytype="checkbox" edittype="checkbox" style="align:center;font:HY헤드라인M,9;" text="사원코드"/>
+                          <Cell col="1" style="align:center;font:HY헤드라인M,9;" text="본 급여"/>
+                          <Cell col="2" style="align:center;font:HY헤드라인M,9;" text="초과주당합계"/>
+                          <Cell col="3" style="align:center;font:HY헤드라인M,9;" text="총 급여"/>
+                          <Cell col="4" style="align:center;" text="공제금액합계"/>
+                          <Cell col="5" style="align:center;" text="차인지금액"/>
+                          <Cell col="6" style="align:center;" text="경비지급액"/>
+                          <Cell col="7" style="align:center;" text="연차미사용수당"/>
+                          <Cell col="8" text="마감여부"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell displaytype="checkbox" edittype="checkbox" style="align:center;" text="bind:DEPT_CODE" editlimit="6"/>
+                          <Cell col="1" style="align:center;" text="bind:DEPT_NAME"/>
+                          <Cell col="2" style="align:center;" text="bind:DEPT_TEL" editlimit="4"/>
+                          <Cell col="3" style="align:center;" text="bind:STATUS"/>
+                          <Cell col="4" style="align:center;"/>
+                          <Cell col="5" style="align:center;"/>
+                          <Cell col="6" style="align:center;"/>
+                          <Cell col="7" style="align:center;"/>
+                          <Cell col="8" style="align:center;"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tabpage2" text="연급여조회">
+              <Layouts>
+                <Layout>
+                  <Calendar id="Calendar00" taborder="0" dateformat="yyyy-M" editformat="yyyy-M" position2="absolute l:126 w:237 t:26 h:32" positiontype="position2"/>
+                  <Button id="Button00" taborder="1" text="조회하기" position2="absolute l:391 w:127 t:26 h:34" positiontype="position2" style="color:dimgray;font:HY헤드라인M,9;"/>
+                  <Grid id="Grid00" taborder="1" binddataset="ds_codeList" useinputpanel="false" autofittype="col" position2="absolute l:64 w:812 t:81 h:197" positiontype="position2" style="align:center;font:맑은 고딕 Semilight,9,antialias;">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="72"/>
+                          <Column size="89"/>
+                          <Column size="80"/>
+                          <Column size="96"/>
+                          <Column size="91"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head">
+                          <Cell style="align:center;font:HY헤드라인M,9;" text="본 급여"/>
+                          <Cell col="1" style="align:center;font:HY헤드라인M,9;" text="초과주당합계"/>
+                          <Cell col="2" style="align:center;font:HY헤드라인M,9;" text="총 급여"/>
+                          <Cell col="3" style="align:center;" text="공제금액합계"/>
+                          <Cell col="4" style="align:center;" text="차인지금액"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell style="align:center;" text="bind:DEPT_NAME"/>
+                          <Cell col="1" style="align:center;" text="bind:DEPT_TEL" editlimit="4"/>
+                          <Cell col="2" style="align:center;" text="bind:STATUS"/>
+                          <Cell col="3" style="align:center;"/>
+                          <Cell col="4" style="align:center;"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                  <Static id="Static00" text="마감 완료된 월의 급여 정보만 출력됩니다." position2="absolute l:630 w:333 t:62 h:13" positiontype="position2" style="color:#808080ff;font:HY헤드라인M,9;"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+        <Tab id="Tab01" taborder="1" position2="absolute l:9 w:995 t:376 h:331" positiontype="position2" tabindex="0" scrollbars="autoboth">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="공제내역">
+              <Layouts>
+                <Layout/>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tabpage2" text="tabpage2"/>
+          </Tabpages>
+        </Tab>
+        <Grid id="Grid" taborder="1" binddataset="ds_monthDeductionList" useinputpanel="false" position2="absolute l:36 w:932 t:432 h:255" positiontype="position2">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="205"/>
+                <Column size="240"/>
+                <Column size="229"/>
+                <Column size="255"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="normal" text="적용연월"/>
+                <Cell col="1" displaytype="normal" text="공제항목코드"/>
+                <Cell col="2" displaytype="normal" text="공제항목명"/>
+                <Cell col="3" displaytype="normal" text="공제금액"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="normal" style="align:center;" text="bind:APPLY_YEAR_MONTH"/>
+                <Cell col="1" displaytype="normal" style="align:center;" text="bind:DEDUCTION_CODE"/>
+                <Cell col="2" displaytype="normal" style="align:center;" text="bind:DEDUCTION_NAME"/>
+                <Cell col="3" displaytype="normal" style="align:center;" text="bind:PRICE" mask="###,###" maskchar="0" editlimitbymask="decimal"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>

@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="holidayList" classname="holidayList" inheritanceid="" position="absolute 0 0 1024 768" titletext="New Form" onload="holidayList_onload" style="background:#333333ff;">
+    <Layouts>
+      <Layout>
+        <Tab id="Tab00" taborder="0" position2="absolute l:262 w:466 t:57 h:551" positiontype="position2" tabindex="0" scrollbars="autoboth" style="color:#5d5d5dff;font:나눔고딕 ExtraBold,10,bold antialias;">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="휴일목록" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout>
+                  <Button id="delete_Btn" taborder="1" text="삭제" onclick="Tab00_tabpage1_delete_Btn_onclick" position2="absolute l:188 w:71 t:25 h:30" positiontype="position2" style="background:#5d5d5dff;color:white;font:나눔고딕,9;"/>
+                  <Grid id="Grid00" taborder="1" binddataset="ds_holidayList" useinputpanel="false" autofittype="col" position2="absolute l:17 w:418 t:78 h:408" positiontype="position2" style="align:center;" ontextchanged="Tab00_tabpage1_Grid00_ontextchanged">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head" style="background:#008040ff;">
+                          <Cell displaytype="normal" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="일자"/>
+                          <Cell col="1" displaytype="normal" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="휴일명"/>
+                          <Cell col="2" displaytype="normal" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="비고"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell displaytype="text" edittype="text" style="font:나눔고딕,9;" text="bind:APPLY_DAY" mask="####-##-##"/>
+                          <Cell col="1" displaytype="text" edittype="text" style="font:나눔고딕,9;" text="bind:HOLIDAY_NAME"/>
+                          <Cell col="2" displaytype="text" edittype="text" style="font:나눔고딕,9;" text="bind:NOTE"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                  <Button id="add_Btn" taborder="1" text="추가" position2="absolute l:101 w:67 t:25 h:30" positiontype="position2" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" onclick="Tab00_tabpage1_add_Btn_onclick"/>
+                  <Button id="update_Btn" taborder="1" text="저장" onclick="Tab00_tabpage1_update_Btn_onclick" position2="absolute l:279 w:71 t:25 h:30" positiontype="position2" style="background:#5d5d5dff;color:white;font:나눔고딕,9;"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_holidayList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="APPLY_DAY" type="STRING" size="256"/>
+          <Column id="HOLIDAY_NAME" type="STRING" size="256"/>
+          <Column id="NOTE" type="STRING" size="256"/>
+          <Column id="STATUS" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript4.0"><![CDATA[//로드
+function holidayList_onload(obj:Form, e:LoadEventInfo)
+{ 
+	transaction(
+				"holidayID"
+				,"svcBase::findHolidayList"
+				,""
+				,"ds_holidayList=ds_holiday"
+				,""
+				,"fn_callback"
+	);
+}
+
+
+//추가
+function Tab00_tabpage1_add_Btn_onclick(obj:Button,  e:ClickEventInfo)
+{
+	ds_holidayList.addRow();	
+	ds_holidayList.setColumn(ds_holidayList.rowposition,"STATUS","insert");
+}
+
+//삭제
+function Tab00_tabpage1_delete_Btn_onclick(obj:Button,  e:ClickEventInfo)
+{
+	ds_holidayList.setColumn(ds_holidayList.rowposition,"STATUS","delete");
+}
+
+
+
+
+//저장
+function Tab00_tabpage1_update_Btn_onclick(obj:Button,  e:ClickEventInfo)
+{	
+	var status=ds_holidayList.getColumn(ds_holidayList.rowposition,"STATUS");
+	
+	if(status!="insert"&&status!="delete"){
+		ds_holidayList.setColumn(ds_holidayList.rowposition,"STATUS","update");
+	}
+	transaction(
+				"submitID"
+				,"svcBase::regitCodeList"
+				,"ds_holiday=ds_holidayList:u"
+				,""
+				,""
+				,"fn_callback"
+				
+	);
+}
+
+//콜백 
+function fn_callback(trID,ErrorCode,ErrorMsg){
+	if(trID=="holidayID"){
+		if(ErrorCode!=0){
+			alert("로드실패");
+		}else{
+			var count=ds_holidayList.rowcount;
+			for(var i=0;i<count;i++){
+			ds_holidayList.setColumn(i,"STATUS","");
+			var applyList=ds_holidayList.getColumn(i,"APPLY_DAY");  //일자 
+			var subApplyList=applyList.substr(0,10).replace("-","");
+			trace(subApplyList);
+			ds_holidayList.setColumn(i,"APPLY_DAY",subApplyList);
+		}
+	}
+}
+	if(trID=="submitID"){
+		if(ErrorCode!=0){
+			alert("저장실패"+ErrorMsg);
+		}else{
+			alert("저장되었습니다");
+			form.reload();
+		}
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

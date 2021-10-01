@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="monthAttendanceManage" classname="monthAttendanceManage" inheritanceid="" position="absolute 0 0 1183 630" titletext="New Form" style="background:#333333ff;color:#fa5252ff;">
+    <Layouts>
+      <Layout>
+        <Tab id="Tab00" taborder="0" position2="absolute l:29 w:1099 t:41 h:508" positiontype="position2" tabindex="0" scrollbars="autoboth" style="color:white;font:나눔고딕 ExtraBold,10,bold antialias;">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="월근태관리" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout width="922" height="489">
+                  <Button id="searchBtn" taborder="1" text="조회하기" position2="absolute l:595 w:127 t:79 h:34" positiontype="position2" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" onclick="Tab00_tabpage1_searchBtn_onclick"/>
+                  <Calendar id="CalendarBtn" taborder="1" dateformat="yyyy-MM" editformat="yyyy-MM" position2="absolute l:325 w:237 t:81 h:32" positiontype="position2" value="null"/>
+                  <Button id="finalize_monthAttdMgt_Btn" taborder="1" text="전체마감하기" position2="absolute l:402 w:120 t:401 h:26" positiontype="position2" style="background:#5d5d5dff;color:white;font:나눔고딕 ExtraBold,9,bold;" onclick="Tab00_tabpage1_finalize_monthAttdMgt_Btn_onclick"/>
+                  <Button id="cancel_monthAttdMgt_Btn" taborder="1" text="전체마감취소" position2="absolute l:534 w:120 t:401 h:26" positiontype="position2" style="background:#5d5d5dff;color:white;font:나눔고딕 ExtraBold,9,bold;" onclick="Tab00_tabpage1_cancel_monthAttdMgt_Btn_onclick"/>
+                  <Static id="Static00" text="월근태관리" position2="absolute l:434 w:207 t:12 h:45" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕 ExtraBold,14,bold;" onclick="Tab00_tabpage1_Static00_onclick"/>
+                  <Grid id="Grid00" taborder="1" binddataset="ds_monthAttenMng" useinputpanel="false" autofittype="col" position2="absolute l:11 w:1063 t:135 h:242" positiontype="position2" style="align:center;">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="67"/>
+                          <Column size="55"/>
+                          <Column size="69"/>
+                          <Column size="81"/>
+                          <Column size="86"/>
+                          <Column size="83"/>
+                          <Column size="83"/>
+                          <Column size="81"/>
+                          <Column size="80"/>
+                          <Column size="86"/>
+                          <Column size="80"/>
+                          <Column size="58"/>
+                          <Column size="60"/>
+                          <Column size="57"/>
+                          <Column size="53"/>
+                          <Column size="60"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head" style="background:#008040ff;">
+                          <Cell displaytype="normal" style="font:나눔고딕,9;" text="사원코드"/>
+                          <Cell col="1" displaytype="normal" style="font:나눔고딕,9;" text="사원명"/>
+                          <Cell col="2" displaytype="normal" style="font:나눔고딕,9;" text="적용연월"/>
+                          <Cell col="3" displaytype="normal" style="font:나눔고딕,9;" text="기준근무일수"/>
+                          <Cell col="4" displaytype="normal" style="font:나눔고딕,9;" text="평일근무일수"/>
+                          <Cell col="5" displaytype="normal" style="font:나눔고딕,9;" text="기준근무시간"/>
+                          <Cell col="6" displaytype="normal" style="font:나눔고딕,9;" text="실제근무시간"/>
+                          <Cell col="7" displaytype="normal" style="font:나눔고딕,9;" text="연장근무시간"/>
+                          <Cell col="8" displaytype="normal" style="font:나눔고딕,9;" text="심야근무시간"/>
+                          <Cell col="9" displaytype="normal" style="font:나눔고딕,9;" text="휴일근무일수"/>
+                          <Cell col="10" displaytype="normal" style="font:나눔고딕,9;" text="휴일근무시간"/>
+                          <Cell col="11" displaytype="normal" style="font:나눔고딕,9;" text="지각일수"/>
+                          <Cell col="12" displaytype="normal" style="font:나눔고딕,9;" text="결근일수"/>
+                          <Cell col="13" displaytype="normal" style="font:나눔고딕,9;" text="반차일수"/>
+                          <Cell col="14" displaytype="normal" style="font:나눔고딕,9;" text="휴가일수"/>
+                          <Cell col="15" displaytype="normal" style="font:나눔고딕,9;" text="마감여부"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell displaytype="normal" style="font:나눔고딕,9;" text="bind:EMP_CODE"/>
+                          <Cell col="1" displaytype="normal" style="font:나눔고딕,9;" text="bind:EMP_NAME"/>
+                          <Cell col="2" displaytype="normal" style="font:나눔고딕,9;" text="bind:APPLY_YEAR_MONTH"/>
+                          <Cell col="3" displaytype="normal" style="font:나눔고딕,9;" text="bind:BASIC_WORK_DAYS"/>
+                          <Cell col="4" displaytype="normal" style="font:나눔고딕,9;" text="bind:WEEKDAY_WORK_DAYS"/>
+                          <Cell col="5" displaytype="normal" style="font:나눔고딕,9;" text="bind:BASIC_WORK_HOUR" mask="###시간" maskchar="00:00"/>
+                          <Cell col="6" displaytype="normal" style="font:나눔고딕,9;" text="bind:WORK_HOUR" mask="00#시간##분" maskchar="00:00"/>
+                          <Cell col="7" displaytype="normal" style="font:나눔고딕,9;" text="bind:OVER_WORK_HOUR" mask="0#시간##분" maskchar="00:00"/>
+                          <Cell col="8" displaytype="normal" style="font:나눔고딕,9;" text="bind:NIGHT_WORK_HOUR" mask="0#시간##분" maskchar="00:00"/>
+                          <Cell col="9" displaytype="normal" style="font:나눔고딕,9;" text="bind:HOLIDAY_WORK_DAYS"/>
+                          <Cell col="10" displaytype="normal" style="font:나눔고딕,9;" text="bind:HOLIDAY_WORK_HOUR" mask="0#시간##분" maskchar="00:00"/>
+                          <Cell col="11" displaytype="normal" style="font:나눔고딕,9;" text="bind:LATE_DAYS"/>
+                          <Cell col="12" displaytype="normal" style="font:나눔고딕,9;" text="bind:ABSENT_DAYS"/>
+                          <Cell col="13" displaytype="normal" style="font:나눔고딕,9;" text="bind:HALF_HOLIDAYS"/>
+                          <Cell col="14" displaytype="normal" style="font:나눔고딕,9;" text="bind:HOLIDAYS"/>
+                          <Cell col="15" displaytype="normal" style="font:나눔고딕,9;" text="bind:FINALIZE_STATUS"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_monthAttenMng" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="EMP_CODE" type="STRING" size="256"/>
+          <Column id="APPLY_YEAR_MONTH" type="STRING" size="256"/>
+          <Column id="BASIC_WORK_DAYS" type="STRING" size="256"/>
+          <Column id="WEEKDAY_WORK_DAYS" type="STRING" size="256"/>
+          <Column id="BASIC_WORK_HOUR" type="STRING" size="256"/>
+          <Column id="WORK_HOUR" type="STRING" size="256"/>
+          <Column id="OVER_WORK_HOUR" type="STRING" size="256"/>
+          <Column id="NIGHT_WORK_HOUR" type="STRING" size="256"/>
+          <Column id="HOLIDAY_WORK_DAYS" type="STRING" size="256"/>
+          <Column id="HOLIDAY_WORK_HOUR" type="STRING" size="256"/>
+          <Column id="LATE_DAYS" type="STRING" size="256"/>
+          <Column id="ABSENT_DAYS" type="STRING" size="256"/>
+          <Column id="EARLY_LEAVE_DAYS" type="STRING" size="256"/>
+          <Column id="HALF_HOLIDAYS" type="STRING" size="256"/>
+          <Column id="HOLIDAYS" type="STRING" size="256"/>
+          <Column id="FINALIZE_STATUS" type="STRING" size="256"/>
+          <Column id="EMP_NAME" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript4.0"><![CDATA[ function Tab00_tabpage1_searchBtn_onclick(obj:Button,  e:ClickEventInfo)
+{
+	if(Tab00.tabpage1.CalendarBtn.value==null){
+		alert("조회할 날짜를 입력하세요.");
+	}else{
+	
+	trace("달력날짜"+Tab00.tabpage1.CalendarBtn.text);
+
+	transaction(
+				"monthSearchID",
+				"svcAttendance::findMonthAttdMgtList",
+				"",
+				"ds_monthAttenMng=ds_monthAttenMng",
+				"applyYearMonth='"+Tab00.tabpage1.CalendarBtn.text+"'",
+				"fn_callback");
+	}
+}
+//조회하기 콜백
+function fn_callback(trID,ErrorCode,ErrorMsg){
+  if(trID=="monthSearchID"){
+     if(ErrorCode!=0){
+       alert("조회실패 :"+ErrorMsg);
+     }else{
+      
+	   var count = ds_monthAttenMng.rowcount;
+       // var count=ds_dayAttenMng.rowcount;
+         
+         for(var i=0;i<count;i++){
+			var baicWork = ds_monthAttenMng.getColumn(i, "BASIC_WORK_HOUR");
+			var work = ds_monthAttenMng.getColumn(i, "WORK_HOUR");
+			var overWork = ds_monthAttenMng.getColumn(i, "OVER_WORK_HOUR");
+			var nightWork = ds_monthAttenMng.getColumn(i, "NIGHT_WORK_HOUR");
+			var holiday = ds_monthAttenMng.getColumn(i, "HOLIDAY_WORK_HOUR");
+         
+			trace(baicWork);
+			trace(work);
+			trace(overWork);
+			trace(nightWork);
+			trace(holiday);
+         
+			ds_monthAttenMng.setColumn(i, "BASIC_WORK_HOUR" , addZeros(baicWork, 3));
+			ds_monthAttenMng.setColumn(i, "WORK_HOUR" , addZeros(work, 5));
+			ds_monthAttenMng.setColumn(i, "OVER_WORK_HOUR" , addZeros(overWork, 4));
+			ds_monthAttenMng.setColumn(i, "NIGHT_WORK_HOUR" , addZeros(nightWork, 4));
+			ds_monthAttenMng.setColumn(i, "HOLIDAY_WORK_HOUR" , addZeros(holiday, 4));
+            
+            
+         }
+         
+          alert("조회성공"+ErrorMsg);
+     }
+  }
+}
+
+//전체마감하기 버튼 
+function Tab00_tabpage1_finalize_monthAttdMgt_Btn_onclick(obj:Button,  e:ClickEventInfo)
+{
+	monthStatus=ds_monthAttenMng.getColumn(ds_monthAttenMng.rowposition,"FINALIZE_STATUS");
+	if(monthStatus=="Y"){
+		alert("이미 마감되었습니다.");
+	}
+	 var monthSize=ds_monthAttenMng.rowcount;
+	 
+	 for(var index=0;index<monthSize;index++){
+		  ds_monthAttenMng.setColumn(index,"FINALIZE_STATUS","Y");
+	 }
+	 updateMonthAtten();
+}
+
+
+//마감취소 버튼 
+function Tab00_tabpage1_cancel_monthAttdMgt_Btn_onclick(obj:Button,  e:ClickEventInfo)
+{
+	// rowposition  -->  Grid 선택한 row 조회
+	monthStatus=ds_monthAttenMng.getColumn(ds_monthAttenMng.rowposition,"FINALIZE_STATUS");
+	if(monthStatus=="N"){
+		alert("아직 마감되지 않았습니다.");
+	}
+	
+	  var monthSize=ds_monthAttenMng.rowcount;
+	  
+	  for(var index=0;index<monthSize;index++){
+		 ds_monthAttenMng.setColumn(index,"FINALIZE_STATUS","N");
+	  }
+	  updateMonthAtten();
+}
+
+
+//마감변경 저장 
+function updateMonthAtten(){
+		transaction(
+					"monthUpdateID"
+					,"svcAttendance::modifyMonthAttdList"
+					,"ds_monthAttenMng=ds_monthAttenMng"
+					,"ds_monthAttenMng=ds_monthAttenMng"
+					,""
+					,"fn_MonthUpdate_callback"
+		);
+}
+
+function fn_MonthUpdate_callback(trID,ErrorCode,ErrorMsg){
+	if(trID=="monthUpdateID"){
+		if(ErrorCode!=0){
+			alert("실패 :"+ErrorMsg);
+	 }else {
+		var count = ds_monthAttenMng.rowcount;
+       // var count=ds_dayAttenMng.rowcount;
+         
+         for(var i=0;i<count;i++){
+			var baicWork = ds_monthAttenMng.getColumn(i, "BASIC_WORK_HOUR");
+			var work = ds_monthAttenMng.getColumn(i, "WORK_HOUR");
+			var overWork = ds_monthAttenMng.getColumn(i, "OVER_WORK_HOUR");
+			var nightWork = ds_monthAttenMng.getColumn(i, "NIGHT_WORK_HOUR");
+			var holiday = ds_monthAttenMng.getColumn(i, "HOLIDAY_WORK_HOUR");
+         
+			trace(baicWork);
+			trace(work);
+			trace(overWork);
+			trace(nightWork);
+			trace(holiday);
+         
+			ds_monthAttenMng.setColumn(i, "BASIC_WORK_HOUR" , addZeros(baicWork, 3));
+			ds_monthAttenMng.setColumn(i, "WORK_HOUR" , addZeros(work, 5));
+			ds_monthAttenMng.setColumn(i, "OVER_WORK_HOUR" , addZeros(overWork, 4));
+			ds_monthAttenMng.setColumn(i, "NIGHT_WORK_HOUR" , addZeros(nightWork, 4));
+			ds_monthAttenMng.setColumn(i, "HOLIDAY_WORK_HOUR" , addZeros(holiday, 4));
+            
+            
+         }
+	 }
+  }
+}
+
+
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="MainForm" classname="MainForm" inheritanceid="" position="absolute 0 0 1024 768" titletext="New Form" style="background:#333333ff;color:#fa5252ff;font:arial,11;" onload="MainForm_onload">
+    <Layouts>
+      <Layout>
+        <Div id="Div00" taborder="1" position2="absolute l:139 w:762 t:200 h:405" positiontype="position2" text="Div00" style="background:gray;" tabstop="false" applystyletype="cascade,keep" enableevent="false" enable="true">
+          <Layouts>
+            <Layout>
+              <Static id="Static01" text="금일 사원 출근 현황" position2="absolute l:46 w:150 t:40 h:31" style="color:white;font:나눔고딕 ExtraBold,11,bold;" positiontype="position2"/>
+              <Grid id="CompleteEmp" taborder="1" binddataset="ds_dayAttenComplete" useinputpanel="false" autofittype="col" position2="absolute l:46 w:669 t:71 h:292" positiontype="position2">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="24"/>
+                    </Rows>
+                    <Band id="head" style="background:#008040ff;">
+                      <Cell style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="Today"/>
+                      <Cell col="1" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="사원명"/>
+                      <Cell col="2" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="출근시각"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell style="align:center;" text="bind:APPLY_DAY" mask="####-##-##"/>
+                      <Cell col="1" style="align:center;" text="bind:EMP_NAME"/>
+                      <Cell col="2" style="align:center;" text="bind:TIME" mask="##:##"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="positionID" position2="absolute l:304 w:124 t:76 h:80" positiontype="position2" style="color:white;align:right;font:나눔고딕,24,bold;"/>
+        <Button id="attdBtn" taborder="2" text="금일 일근태 보기" onclick="attdBtn_onclick" position2="absolute l:694 w:157 t:100 h:28" positiontype="position2" style="background:white;color:#5d5d5dff;font:나눔고딕 ExtraBold,9,bold;"/>
+        <Static id="nameID" position2="absolute l:209 w:117 t:76 h:80" positiontype="position2" style="color:white;align:right;font:나눔고딕,24,bold;"/>
+        <Static id="Static00" text="님 환영합니다" position2="absolute l:391 w:268 t:76 h:80" positiontype="position2" style="color:white;align:center;font:나눔고딕 ExtraBold,24,bold;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_dayAttenComplete" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="EMP_CODE" type="STRING" size="256"/>
+          <Column id="APPLY_DAY" type="STRING" size="256"/>
+          <Column id="EMP_NAME" type="STRING" size="256"/>
+          <Column id="TIME" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript4.0"><![CDATA[
+function MainForm_onload(obj:Form, e:LoadEventInfo)
+{	g_groupAuthCode=null
+	g_groupAuthName=null
+	
+	trace(g_position);
+    trace(g_empName);
+    trace(g_deptName);
+	nameID.text=g_empName;
+	positionID.text=g_position;
+	
+	transaction(
+				"positionID"
+				,"svcBase::findPositionList"
+				,""
+				,"gds_position=ds_baseSalary"
+				,""
+				,"fn_callback"			
+	);
+	//오늘날짜
+	var date = new Date(); 
+	var year = date.getFullYear(); 
+	var month = new String(date.getMonth()+1); 
+	var day = new String(date.getDate()); 
+
+	// 한자리수일 경우 0을 채워준다. 
+	if(month.length == 1){ 
+	month = "0" + month; 
+	} 
+	if(day.length == 1){ 
+	day = "0" + day; 
+	} 
+
+	today=year+month+day;
+	trace(today);
+	
+	transaction(
+			 "CompleteID"
+			,"svcAttendance::findAttdCompleteList"
+			,""
+			,"ds_dayAttenComplete=ds_girok"
+			,"applyDay='"+today+"'"
+			,"fn_callback"
+		);
+	}
+
+
+
+function attdBtn_onclick(obj:Button,  e:ClickEventInfo)
+{
+	gfn_Open("AttdForm","Attendance::dayAttendance.xfdl","AttdForm");
+}
+
+
+
+function fn_callback(trID,ErrorCode,ErrorMsg){
+	 if(trID=="CompleteID"){
+		if(ErrorCode!=0){
+			alert("조회실패"+ErrorCode);
+		}else{
+		var count=ds_dayAttenComplete.rowcount;
+		for(var i=0;i<count;i++){
+		  var attdtime=ds_dayAttenComplete.getColumn(i,"TIME");
+		  
+		   trace("??"+attdtime);
+		  
+			if(attdtime.length<4){
+				attdtime="0"+attdtime;
+				trace("!!!"+attdtime);
+				ds_dayAttenComplete.setColumn(i,"EMP_NAME",g_empName);
+				ds_dayAttenComplete.setColumn(i,"TIME",attdtime);
+			}
+		}
+	   }
+   }else{
+   if(ErrorCode!=0){
+			alert("조회실패"+ErrorCode);
+		}
+		}
+}]]></Script>
+  </Form>
+</FDL>

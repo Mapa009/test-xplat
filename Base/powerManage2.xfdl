@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="powerManage2" classname="powerManage2" inheritanceid="" position="absolute 0 0 1024 768" titletext="New Form" style="background:#333333ff;">
+    <Layouts>
+      <Layout>
+        <Tab id="Tab01" taborder="1" position2="absolute l:64 w:905 t:390 h:253" positiontype="position2" tabindex="0" scrollbars="autoboth">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="권한">
+              <Layouts>
+                <Layout>
+                  <Button id="Button00" taborder="0" text="저장" onclick="save" position2="absolute l:324 w:93 t:154 h:42" positiontype="position2" style="background:#5d5d5dff;color:aliceblue;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Button id="Button02" taborder="1" text="취소" onclick="cancle" position2="absolute l:467 w:93 t:154 h:42" positiontype="position2" style="background:#5d5d5dff;color:aliceblue;font:나눔고딕 ExtraBold,9,bold;"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+        <Tab id="Tab00" taborder="1" position2="absolute l:381 w:245 t:56 h:301" positiontype="position2" tabindex="0" scrollbars="autoboth">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="직급">
+              <Layouts>
+                <Layout>
+                  <Grid id="Grid00" taborder="0" binddataset="gds_position" useinputpanel="false" autofittype="col" position2="absolute l:12 w:204 t:7 h:246" positiontype="position2" style="align:center;font:맑은 고딕 Semilight,9,antialias;" oncellclick="Tab00_tabpage1_Grid00_oncellclick">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="80"/>
+                          <Column size="87"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head" style="background:#008040ff;">
+                          <Cell style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="직급코드"/>
+                          <Cell col="1" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" text="직급명"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell displaytype="text" edittype="text" style="align:center;font:나눔고딕,9;" text="bind:POSITION_CODE" mask="POS###" editlimit="6"/>
+                          <Cell col="1" displaytype="text" edittype="text" style="font:나눔고딕,9;" text="bind:POSITION"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+        <Grid id="powerList" taborder="1" binddataset="ds_powerList" useinputpanel="false" position2="absolute l:77 w:878 t:438 h:112" positiontype="position2">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="52"/>
+                <Column size="67"/>
+                <Column size="99"/>
+                <Column size="112"/>
+                <Column size="111"/>
+                <Column size="89"/>
+                <Column size="86"/>
+                <Column size="83"/>
+                <Column size="89"/>
+                <Column size="88"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="41"/>
+              </Rows>
+              <Band id="head" style="cellline:1px solid #bfbfbfb3 ;celllinespace: ;">
+                <Cell style="background:#5d5d5dff;color:white;font:나눔고딕,9;linespace:10;" text="직급"/>
+                <Cell col="1" style="background:#5d5d5dff;color:white;font:나눔고딕,9;linespace:10;" text="사원등록"/>
+                <Cell col="2" style="background:#5d5d5dff;color:white;font:나눔고딕,9;linespace:10;" text="사원상세조회"/>
+                <Cell col="3" style="background:#5d5d5dff;color:white;font:나눔고딕,9;linespace:10;" text="재직증명서관리"/>
+                <Cell col="4" style="background:#5d5d5dff;color:white;font:나눔고딕,9;linespace:10;" text="결제승인관리"/>
+                <Cell col="5" style="background:#5d5d5dff;color:white;font:나눔고딕,9;linespace:10;" text="일근태관리"/>
+                <Cell col="6" style="background:#5d5d5dff;color:white;font:나눔고딕,9;linespace:10;" text="월근태관리"/>
+                <Cell col="7" style="background:#5d5d5dff;color:white;font:나눔고딕,9;linespace:10;" text="연차관리"/>
+                <Cell col="8" style="background:#5d5d5dff;color:white;font:나눔고딕,9;linespace:10;" text="증빙승인관리"/>
+                <Cell col="9" style="background:#5d5d5dff;color:white;font:나눔고딕,9;linespace:10;" text="월급여조회"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:POSITION"/>
+                <Cell col="1" displaytype="checkbox" edittype="checkbox" text="bind:EMP_REGIST" combodataset="ds_powerList"/>
+                <Cell col="2" displaytype="checkbox" edittype="checkbox" text="bind:EMP_DETAILED_VIEW" combodataset="bind:EMP_DETAILED_VIEW"/>
+                <Cell col="3" displaytype="checkbox" edittype="checkbox" text="bind:CERTIFICATE_APPROVAL"/>
+                <Cell col="4" displaytype="checkbox" edittype="checkbox" text="bind:ATTENDANCE_APPROVAL"/>
+                <Cell col="5" displaytype="checkbox" edittype="checkbox" text="bind:DAY_ATTENDANCE_MANAGE"/>
+                <Cell col="6" displaytype="checkbox" edittype="checkbox" text="bind:MONTH_ATTENDANCE_MANAGE"/>
+                <Cell col="7" displaytype="checkbox" edittype="checkbox" text="bind:ANNUAL_VACATION_MANAGE"/>
+                <Cell col="8" displaytype="checkbox" edittype="checkbox" text="bind:PROOF_APPROVAL"/>
+                <Cell col="9" displaytype="checkbox" edittype="checkbox" text="bind:MONTH_SALARY"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item0" compid="Tab00.tabpage1.powerList" propid="" datasetid="ds_powerList" columnid=""/>
+      <BindItem id="item1" compid="powerList" propid="binddataset" datasetid="ds_powerList"/>
+    </Bind>
+    <Objects>
+      <Dataset id="ds_powerList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="POSITION" type="STRING" size="256"/>
+          <Column id="POSITION_CODE" type="STRING" size="256"/>
+          <Column id="EMP_REGIST" type="STRING" size="256"/>
+          <Column id="EMP_DETAILED_VIEW" type="STRING" size="256"/>
+          <Column id="CERTIFICATE_APPROVAL" type="STRING" size="256"/>
+          <Column id="ATTENDANCE_APPROVAL" type="STRING" size="256"/>
+          <Column id="DAY_ATTENDANCE_MANAGE" type="STRING" size="256"/>
+          <Column id="MONTH_ATTENDANCE_MANAGE" type="STRING" size="256"/>
+          <Column id="ANNUAL_VACATION_MANAGE" type="STRING" size="256"/>
+          <Column id="PROOF_APPROVAL" type="STRING" size="256"/>
+          <Column id="MONTH_SALARY" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <InitValue>
+      <Grid id="powerList" binddataset="ds_powerList"/>
+    </InitValue>
+    <Script type="xscript4.0"><![CDATA[var pos;
+
+function Tab00_tabpage1_Grid00_oncellclick(obj:Grid, e:GridClickEventInfo)
+{	pos=gds_position.getColumn(gds_position.rowposition,"POSITION");
+	if(pos=='관리자'||pos=='인턴'){
+		alert('직급 '+pos+ '는(은) 권한설정할 수 없습니다.');
+		trace(pos)
+	}else{
+	
+	transaction(
+				"powerID"
+				,"svcBase::findPowerList"
+				,""
+				,"ds_powerList=gds_powerList"
+				,"position='"+pos+"'"
+				,"fn_callback"
+	);
+	}
+}
+function save(obj:Button, e:ClickEventInfo){
+	trace("11");
+	transaction(
+				"saveID"
+				,"svcBase::save"
+				,"gds_powerList=ds_powerList"
+				,""
+				,""
+				,"fn_callback"			
+	);
+}
+
+function cancle(obj:Button, e:ClickEventInfo){
+	transaction(
+				"powerID"
+				,"svcBase::findPowerList"
+				,""
+				,"ds_powerList=gds_powerList"
+				,"position='"+pos+"'"
+				,"fn_callback"			
+	);
+}
+
+function fn_callback(trID,ErrorCode,ErrorMsg){
+	if(trID=="powerID"){
+		if(ErrorCode!=0){
+			alert("실패");
+		}
+	}
+	else if(trID=="saveID"){
+		if(ErrorCode!=0){alert(ErrorMsg);}
+		else{alert('저장성공');}
+	}
+	
+}]]></Script>
+  </Form>
+</FDL>

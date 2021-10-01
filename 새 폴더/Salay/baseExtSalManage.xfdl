@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.4">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="baseExtSalManage" classname="baseExtSalManage" inheritanceid="" position="absolute 0 0 1024 768" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Tab id="Tab01" taborder="0" position2="absolute l:91 w:493 t:37 h:601" positiontype="position2" tabindex="0" scrollbars="autoboth">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="초과수당관리">
+              <Layouts>
+                <Layout width="132" height="376">
+                  <Grid id="Grid00" taborder="1" binddataset="ds_codeList" useinputpanel="false" autofittype="col" position2="absolute l:57 w:368 t:141 h:391" positiontype="position2" style="align:center;font:맑은 고딕 Semilight,9,antialias;">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head">
+                          <Cell style="font:HY헤드라인M,9;" text="초과수당코드"/>
+                          <Cell col="1" style="font:HY헤드라인M,9;" text="초과수당명"/>
+                          <Cell col="2" style="font:HY헤드라인M,9;" text="배율"/>
+                          <Cell col="3" text="상태"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell style="align:center;" text="bind:DEPT_CODE" editlimit="6"/>
+                          <Cell col="1" text="bind:DEPT_NAME"/>
+                          <Cell col="2" style="align:center;" text="bind:DEPT_TEL" editlimit="4"/>
+                          <Cell col="3"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                  <Static id="Static00" text="초과수당관리" position2="absolute l:123 w:229 t:13 h:42" positiontype="position2" style="border:3px solid #b1b5b9b3 ;align:center;font:HY헤드라인M,12,bold;"/>
+                  <Button id="Button02" taborder="1" text="변경확정" position2="absolute l:191 w:93 t:77 h:42" positiontype="position2" style="color:dimgray;"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>

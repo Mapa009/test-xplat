@@ -1,0 +1,413 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="proof" classname="proof" inheritanceid="" position="absolute 0 0 1024 768" titletext="New Form" onload="proof_onload" style="background:#333333ff;">
+    <Layouts>
+      <Layout>
+        <Tab id="Tab00" taborder="0" position2="absolute l:102 w:863 t:62 h:558" positiontype="position2" tabindex="0" scrollbars="autoboth" style="color:white;font:나눔고딕 ExtraBold,10,bold antialias; :selected {color:#5d5d5dff;}">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="증빙외신청" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout width="776" height="476">
+                  <Static id="Static00" text="증빙외 구분" onclick="Tab00_tabpage1_Static00_onclick" position2="absolute l:278 w:107 t:34 h:34" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Edit id="Edit" taborder="1" position2="absolute l:416 w:175 t:34 h:31" positiontype="position2" style="align:center;font:나눔고딕 ExtraBold,9,bold;" oneditclick="Tab00_tabpage1_Edit_oneditclick"/>
+                  <Static id="Static01" text="신청자" position2="absolute l:139 w:121 t:283 h:31" positiontype="position2" style="color:white;align:center;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Static id="Static02" text="부서" position2="absolute l:139 w:121 t:324 h:31" positiontype="position2" style="color:white;align:center;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Static id="Static04" text="신청일" position2="absolute l:139 w:121 t:370 h:31" positiontype="position2" style="color:white;align:center;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Static id="Static08" text="사유" position2="absolute l:139 w:121 t:411 h:31" positiontype="position2" style="color:white;align:center;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Static id="Static09" text="직급" position2="absolute l:416 w:121 t:283 h:31" positiontype="position2" style="color:white;align:center;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Edit id="empname" taborder="1" position2="absolute l:234 w:174 t:283 h:27" positiontype="position2" style="align:center;font:나눔고딕,9;"/>
+                  <Edit id="position1" taborder="1" position2="absolute l:514 w:174 t:283 h:27" positiontype="position2" style="align:center;font:나눔고딕,9;"/>
+                  <Edit id="Edit05" taborder="1" position2="absolute l:234 w:174 t:411 h:27" positiontype="position2" style="align:center;font:나눔고딕,9;"/>
+                  <Edit id="deptname1" taborder="1" position2="absolute l:234 w:174 t:324 h:27" positiontype="position2" style="align:center;font:나눔고딕,9;" oneditclick="Tab00_tabpage1_Edit06_oneditclick"/>
+                  <Calendar id="Calendar00" taborder="1" position2="absolute l:234 w:173 t:370 h:27" positiontype="position2" style="align:center;font:나눔고딕,9;" dateformat="yyyy-MM-dd" value="null"/>
+                  <Button id="Button00" taborder="1" text="신청" position2="absolute l:336 w:87 t:468 h:29" positiontype="position2" style="background:#5d5d5dff;color:white;align:center;font:나눔고딕,9;" onclick="Tab00_tabpage1_Button00_onclick"/>
+                  <Button id="Button01" taborder="1" text="취소" position2="absolute l:450 w:87 t:468 h:29" positiontype="position2" style="background:#5d5d5dff;color:white;align:center;font:나눔고딕,9;" onclick="Tab00_tabpage1_Button01_onclick"/>
+                  <Static id="Static03" text="금액" position2="absolute l:416 w:121 t:328 h:31" positiontype="position2" style="color:white;align:center;font:나눔고딕 ExtraBold,9,bold;"/>
+                  <Edit id="Edit03" taborder="1" position2="absolute l:514 w:174 t:328 h:27" positiontype="position2" style="align:center;font:나눔고딕,9;"/>
+                  <ImageViewer id="receiptImage" taborder="1" position2="absolute l:322 w:219 t:100 h:128" positiontype="position2"/>
+                  <Button id="receiptBtn" taborder="1" text="영수증 첨부" position2="absolute l:305 w:192 t:239 h:27" positiontype="position2" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" onclick="Tab00_tabpage1_receiptBtn_onclick"/>
+                  <Button id="saveBtn" taborder="1" text="저장" position2="absolute l:510 w:45 t:242 h:23" positiontype="position2" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" onclick="Tab00_tabpage1_saveBtn_onclick"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tabpage2" text="증빙외조회" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout>
+                  <Static id="Static00" text="조회범위 선택" position2="absolute l:276 w:246 t:36 h:46" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:HY헤드라인M,12;"/>
+                  <Static id="Static01" text="구분" position2="absolute l:203 w:81 t:104 h:25" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:HY헤드라인M,9;"/>
+                  <Edit id="Lookup2" taborder="1" position2="absolute l:308 w:159 t:104 h:25" positiontype="position2" oneditclick="Tab00_tabpage2_Lookup2_oneditclick" style="align:center;"/>
+                  <Static id="Static02" text="기간" position2="absolute l:203 w:81 t:144 h:25" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:HY헤드라인M,9;"/>
+                  <Static id="Static03" text="-" position2="absolute l:476 w:21 t:144 h:25" positiontype="position2" style="align:center;font:Verdana,15,bold;"/>
+                  <Button id="Button00" taborder="1" text="조회하기" position2="absolute l:308 w:92 t:196 h:26" positiontype="position2" style="background:black;color:white;font:HY헤드라인M,9;" onclick="Tab00_tabpage2_Button00_onclick"/>
+                  <Button id="Button01" taborder="1" text="삭제하기" position2="absolute l:430 w:92 t:196 h:26" positiontype="position2" style="background:black;color:white;font:HY헤드라인M,9;" onclick="Tab00_tabpage2_Button01_onclick"/>
+                  <Grid id="Grid00" taborder="1" binddataset="ds_proofList" useinputpanel="false" autofittype="col" position2="absolute l:87 w:657 t:244 h:190" positiontype="position2" style="align:center;font:맑은 고딕 Semilight,9,antialias;" onheadclick="grd_output_onheadclick" cellclickbound="cell">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="40"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head" style="background:#008040ff;">
+                          <Cell displaytype="checkbox" edittype="checkbox" style="align:center;font:HY헤드라인M,9;" expr="0"/>
+                          <Cell col="1" text="사원명"/>
+                          <Cell col="2" text="증빙구분명"/>
+                          <Cell col="3" text="사원직급"/>
+                          <Cell col="4" text="금액"/>
+                          <Cell col="5" text="신청일"/>
+                          <Cell col="6" text="사유"/>
+                          <Cell col="7" text="승인여부"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell celltype="none" displaytype="checkbox" edittype="checkbox" style="align:center;" text="bind:STATUS" editlimit="4"/>
+                          <Cell col="1" style="align:center;" text="bind:EMP_NAME"/>
+                          <Cell col="2" style="align:center;" text="bind:PROOF_NAME"/>
+                          <Cell col="3" style="align:center;" text="bind:POSITION"/>
+                          <Cell col="4" displaytype="number" style="align:center;" text="bind:PROOT_COST" mask="###,##0"/>
+                          <Cell col="5" style="align:center;" text="bind:REQUEST_DATE"/>
+                          <Cell col="6" style="align:center;" text="bind:REASON"/>
+                          <Cell col="7" style="align:center;" text="bind:APPLOVALSTATUS"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                  <Calendar id="stday" taborder="1" position2="absolute l:308 w:155 t:144 h:24" positiontype="position2" dateformat="yyyy-MM-dd" value="null"/>
+                  <Calendar id="enday" taborder="1" position2="absolute l:508 w:155 t:144 h:24" positiontype="position2" dateformat="yyyy-MM-dd" value="null"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_proof" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="EMP_CODE" type="STRING" size="256"/>
+          <Column id="PROOF_CODE" type="STRING" size="256"/>
+          <Column id="PROOF_NAME" type="STRING" size="256"/>
+          <Column id="POSITION" type="STRING" size="256"/>
+          <Column id="DEPT_NAME" type="STRING" size="256"/>
+          <Column id="PROOT_COST" type="STRING" size="256"/>
+          <Column id="REQUEST_DATE" type="STRING" size="256"/>
+          <Column id="REASON" type="STRING" size="256"/>
+          <Column id="APPLOVALSTATUS" type="STRING" size="256"/>
+          <Column id="RECEIPT" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_proofList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SEQ_NO" type="STRING" size="256"/>
+          <Column id="EMP_NAME" type="STRING" size="256"/>
+          <Column id="PROOF_CODE" type="STRING" size="256"/>
+          <Column id="PROOF_NAME" type="STRING" size="256"/>
+          <Column id="POSITION" type="STRING" size="256"/>
+          <Column id="DEPT_NAME" type="STRING" size="256"/>
+          <Column id="PROOT_COST" type="STRING" size="256"/>
+          <Column id="REQUEST_DATE" type="STRING" size="256"/>
+          <Column id="REASON" type="STRING" size="256"/>
+          <Column id="RECEIPT" type="STRING" size="256"/>
+          <Column id="APPLOVALSTATUS" type="STRING" size="256"/>
+          <Column id="STATUS" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <FileDialog id="FileDialog" filter="All(*.*)|*.*|" filterindex="0" defaultextension="false"/>
+      <Dataset id="ds_img" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="PROOF_FILE_NAME" type="STRING" size="256"/>
+          <Column id="IMG_FILE_DATA" type="BLOB" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="Tab00.tabpage1.Edit03" propid="value" datasetid="ds_proof" columnid="PROOT_COST"/>
+      <BindItem id="item1" compid="Tab00.tabpage1.Edit05" propid="value" datasetid="ds_proof" columnid="REASON"/>
+      <BindItem id="item2" compid="Tab00.tabpage1.Calendar00" propid="value" datasetid="ds_proof" columnid="REQUEST_DATE"/>
+      <BindItem id="item3" compid="Tab00.tabpage1.deptname1" propid="value" datasetid="ds_proof" columnid="DEPT_NAME"/>
+      <BindItem id="item4" compid="Tab00.tabpage1.position1" propid="value" datasetid="ds_proof" columnid="POSITION"/>
+      <BindItem id="item5" compid="Tab00.tabpage1.Edit" propid="value" datasetid="ds_proof" columnid="PROOF_NAME"/>
+    </Bind>
+    <Script type="xscript4.0"><![CDATA[
+// 로드되자 마자
+function proof_onload(obj:Form, e:LoadEventInfo)
+{
+    trace(g_position);
+    trace(g_deptName);
+    
+    // 로그인할때 이미 g_변수에 담겨져 있다
+	Tab00.tabpage1.empname.value=g_empName;
+	Tab00.tabpage1.position1.value=g_position;
+	Tab00.tabpage1.deptname1.value=g_deptName;
+	
+	ds_proof.setColumn(0,"EMP_CODE",g_empCode);	
+	ds_proofList.setColumn(0,"EMP_CODE",g_empCode);	
+}
+
+
+
+
+// 구분 다이얼로그
+function Tab00_tabpage1_Edit_oneditclick(obj:Edit,  e:EditClickEventInfo)
+{
+	// 회사업무 관련외출    출장교육 , 증빙신청
+	g_codeNumber="CO-08"
+	
+			dialog(
+					 "proofdialog"
+					,"Base::codeDialog.xfdl"
+					,MainFrame
+					,null
+					,""
+					,650
+					,350
+					
+	);
+	
+	Tab00.tabpage1.Edit.value=g_detailCodeName;
+	Tab00.tabpage2.Lookup2.value=g_detailCodeName;
+	ds_proof.setColumn(0,"PROOF_CODE",g_detailCodeNumber);
+	ds_proofList.setColumn(0,"PROOF_CODE",g_detailCodeNumber);
+}
+
+
+//조회 구분 
+function Tab00_tabpage2_Lookup2_oneditclick(obj:Edit,  e:EditClickEventInfo)
+{
+	Tab00_tabpage1_Edit_oneditclick();
+}
+
+
+
+
+//영수증 첨부 
+function Tab00_tabpage1_receiptBtn_onclick(obj:Button,  e:ClickEventInfo)
+{
+	if(Tab00.tabpage1.Calendar00.value==null){
+			alert("신청일을 먼저 선택해주세요");
+			return;
+ }
+
+     imgDialog=FileDialog.open("FileOpen",FileDialog.Load);
+     imgName=imgDialog.filename;
+     imgPath=imgDialog.path;
+     
+     trace(imgName); //dochi.jpg
+     trace(imgPath); //C:\Users\user.DESKTOP-4AISN4G\Pictures\Saved Pictures\
+
+     img= imgPath+imgName;
+     trace(img);
+     Tab00.tabpage1.receiptImage.image=img;
+     Tab00.tabpage1.receiptImage.stretch="fit";
+     
+}
+
+//영수증 저장 
+function Tab00_tabpage1_saveBtn_onclick(obj:Button,  e:ClickEventInfo)
+{
+
+  var applyDate=Tab00.tabpage1.Calendar00.value;
+  trace("신청일"+applyDate);
+  	
+  	var selEmpCode=g_empCode
+	var fileExtend = String(imgName).substr(imgName.lastIndexOf('.'));    //ex) .jpg
+	trace("fileExtend  : "+fileExtend);
+	empFileName = applyDate + selEmpCode + fileExtend;   
+	trace("empFileName : "+empFileName);
+
+	imgDialog.open(VirtualFile.openRead | VirtualFile.openBinary); // 앞쪽에서 선언함.. imgDialog = virtualfile 을 return  F1 -> fileDialog에서 반환받은 경우!
+    //읽기전용파일 열때 |  바이러리파일을 열때 사용
+	var img_binary=imgDialog.read(imgDialog.getFileSize());
+	trace("img_binary : "+img_binary);
+	//버퍼데이터 또는 문자열 반환 
+    
+    // 데이터셋에 추가하기 전에 기존 데이터가 있으면 삭제한다.
+	var findNum = ds_img.findRow("PROOF_FILE_NAME",empFileName);
+	if(findNum > -1){
+		ds_img.deleteRow(findNum); 
+	}
+   
+	ds_img.addRow();
+	ds_img.setColumn(0,"PROOF_FILE_NAME",empFileName);   // ex) A560025.jpg
+	ds_img.setColumn(0,"IMG_FILE_DATA",img_binary);    // [object Binary]  
+	
+	transaction(
+				"imgUpLoadID",
+				"svcCertificate::saveProofImg",
+				"ds_img = ds_img:u",
+				"",
+				"",
+				"fn_callback");		 
+}
+
+function fn_callback(trID,ErrorCode,ErrorMsg){
+	if(trID=="imgUpLoadID"){
+		if(ErrorCode!=0){
+			alert("저장실패"+ErrorMsg);
+		}else{
+			alert("저장성공");
+		}
+	}
+	else if(trID=="empInsertID"){
+	    if(ErrorCode!=0){
+			alert("신청실패"+ErrorMsg);
+	    }else{
+			alert("신청되었습니다");
+			form.reload();
+	    }
+	}
+	else if(trID="selectID"){
+		if(ErrorCode!=0){
+			alert("조회실패"+ErrorMsg);
+		}else{
+			"조회성공"
+		}
+	}
+}
+
+//신청
+function Tab00_tabpage1_Button00_onclick(obj:Button,  e:ClickEventInfo)
+{
+	var empImgName=ds_img.getColumn(0,"PROOF_FILE_NAME");  
+	var empImgFile=ds_img.getColumn(0,"IMG_FILE_DATA");  
+	
+	ds_proof.setColumn(ds_proof.rowposition,"RECEIPT","jpg"); 
+	ds_proof.setColumn(ds_proof.rowposition,"APPLOVALSTATUS","승인대기");
+	
+if(Tab00.tabpage1.Edit.value==null){alert("구분을 선택해주세요"); return;
+}if(empImgName==null||empImgFile==null){alert("사진을 등록하여주세요."); return;
+}if(Tab00.tabpage1.Edit03.value==null){alert("금액을 입력해주세요"); return;
+}if(Tab00.tabpage1.Calendar00.value==null){alert("신청일을 입력해주세요"); return;
+}else{
+
+trace("트랜잭션");
+
+transaction(
+			"empInsertID",
+			"svcCertificate::receiptProof",
+			"ds_proof=ds_proof",//서<-클
+			"",//클<-서
+			"",
+			"fn_callback");
+	}
+}
+
+//취소 
+function Tab00_tabpage1_Button01_onclick(obj:Button,  e:ClickEventInfo)
+{
+	form.reload();
+}
+
+
+//조회
+function Tab00_tabpage2_Button00_onclick(obj:Button,  e:ClickEventInfo)
+{
+	var startD=Tab00.tabpage2.stday.value;
+	var endD=Tab00.tabpage2.enday.value;
+	
+	if(startD>endD){
+			alert("날짜를 확인해주세요."); return;
+	}
+	transaction(
+				 "selectID"
+				,"svcCertificate::selectProof"
+				,""
+				,"ds_proofList=ds_proof"
+				,"empCode='"+g_empCode+"' Code='"+g_detailCodeNumber+"' startDate='"+startD+"' endDate='"+endD+"'"
+				,"fn_callback"
+	);
+}
+
+
+//삭제하기 
+function Tab00_tabpage2_Button01_onclick(obj:Button,  e:ClickEventInfo)
+{
+
+   var count=ds_proofList.rowcount;
+   var num=0;
+   
+   for(var i=0;i<count;i++){
+		var status=ds_proofList.getColumn(i,"STATUS");
+		if(status==1){
+				transaction(
+				"deleteID"
+				,"svcCertificate::deleteProof"
+				,"ds_proof=ds_proofList:u"
+				,""
+				,""
+				,"fn_deleteback"
+	);
+				num++;
+		}
+   }
+   if(num==0){
+			alert("삭제할 행이 없습니다.");
+   }
+}
+
+function fn_deleteback(trID,ErrorCode,ErrorMsg){
+	if(ErrorCode!=0){
+		alert("실패");
+	}else{
+		alert("성공");
+		form.reload();
+	}
+}
+
+
+
+
+//체크박스 전체 선택 & 해제 
+function grd_output_onheadclick(obj:Grid, e:GridClickEventInfo) //이벤트가 발생한 object , event object
+{
+    if (e.cell == 0) // e.cell: Click된 Cell의 해당 Band내에서 Index 값을 가지는 Property 입니다.
+    {
+        fn_setGridCheckAll(obj, e);
+    }	
+}
+
+var fv_isGridCheckAll = 0;
+function fn_setGridCheckAll(obj:Grid, e:GridClickEventInfo)
+{
+    //Grid의 전체 Cell과 Bind 되는 Dataset의 ID를 설정하는 Property 입니다. BindDataset과 Gid는 Full Binding됩니다.
+    var objDs = eval(obj.binddataset); 
+    
+    var sCol  = obj.getCellProperty("body", e.cell, "text").replace("bind:", ""); 
+         //getCellProperty(얻고자하는 cell의 영역, 얻고자하는 cell의 index, 얻고자하는 cell의 property)
+         
+         
+    if (fv_isGridCheckAll)
+    {
+        fv_isGridCheckAll = 0;
+    }
+    else
+    {
+        fv_isGridCheckAll = 1;
+    }
+
+    objDs.enableevent = false;  // enableevent Dataset 의 Event 를 발생할지 여부를 설정하는 Property 입니다.
+    
+    for (var i = 0; i < objDs.getRowCount(); i++) 
+    {
+        objDs.setColumn(i, sCol, fv_isGridCheckAll);
+    }
+    
+    obj.setCellProperty("Head", 0, "expr", fv_isGridCheckAll);
+    
+    objDs.enableevent = true;
+}
+]]></Script>
+  </Form>
+</FDL>

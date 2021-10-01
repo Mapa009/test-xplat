@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="monthSalary" classname="monthSalary" inheritanceid="" position="absolute 0 0 1024 768" titletext="New Form" style="background:#333333ff;">
+    <Layouts>
+      <Layout>
+        <Tab id="Tab1" taborder="0" position2="absolute l:9 w:995 t:31 h:331" positiontype="position2" tabindex="0" scrollbars="autoboth" onchanged="Tab1_onchanged" style="color:white;font:나눔고딕 ExtraBold,10,bold antialias; :selected {color:#5d5d5dff;}">
+          <Tabpages>
+            <Tabpage id="monthSalary" text="월급여조회" position="absolute 0 0 0 0" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout width="977" height="291">
+                  <Button id="monthSearchBtn" taborder="1" text="조회하기" position2="absolute l:350 w:127 t:27 h:34" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" positiontype="position2" onclick="Tab1_monthSalary_monthSearchBtn_onclick"/>
+                  <Button id="finalizeBtn" taborder="1" text="마감" position2="absolute l:540 w:87 t:28 h:32" positiontype="position2" style="background:#5d5d5dff;color:white;font:나눔고딕,9,bold;" onclick="Tab1_monthSalary_finalizeBtn_onclick"/>
+                  <Button id="cancelBtn" taborder="1" text="마감취소" position2="absolute l:649 w:87 t:27 h:32" positiontype="position2" style="background:#5d5d5dff;color:white;font:나눔고딕,9,bold;" onclick="Tab1_monthSalary_cancelBtn_onclick"/>
+                  <Calendar id="Calendar" taborder="1" position2="absolute l:127 w:204 t:27 h:32" positiontype="position2" value="null" oneditclick="Tab1_monthSalary_Calendar_oneditclick" dateformat="yyyy-MM" editformat="yyyy-MM"/>
+                  <Grid id="monthGird" taborder="1" binddataset="ds_MonthSalary" useinputpanel="false" position2="absolute l:33 w:909 t:75 h:195" positiontype="position2">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="113"/>
+                          <Column size="114"/>
+                          <Column size="133"/>
+                          <Column size="122"/>
+                          <Column size="115"/>
+                          <Column size="108"/>
+                          <Column size="102"/>
+                          <Column size="100"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head" style="background:#008040ff;">
+                          <Cell displaytype="normal" style="font:나눔고딕,9;" text="본 급여"/>
+                          <Cell col="1" displaytype="normal" style="font:나눔고딕,9;" text="초과수당합계"/>
+                          <Cell col="2" displaytype="normal" style="font:나눔고딕,9;" text="경비지급액"/>
+                          <Cell col="3" displaytype="normal" style="font:나눔고딕,9;" text="총급여"/>
+                          <Cell col="4" displaytype="normal" style="font:나눔고딕,9;" text="공제금액합계"/>
+                          <Cell col="5" displaytype="normal" style="font:나눔고딕,9;" text="차인지급액"/>
+                          <Cell col="6" displaytype="normal" style="font:나눔고딕,9;" text="연차미사용수당"/>
+                          <Cell col="7" displaytype="normal" style="font:나눔고딕,9;" text="마감여부"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell displaytype="number" style="align:center;font:나눔고딕,9;" text="bind:SALARY" mask="###,##0" maskchar="0"/>
+                          <Cell col="1" displaytype="number" style="align:center;font:나눔고딕,9;" text="bind:TOTAL_EXT_SAL" mask="###,##0" maskchar="0"/>
+                          <Cell col="2" displaytype="number" style="align:center;font:나눔고딕,9;" text="bind:COST" mask="###,##0" maskchar="0"/>
+                          <Cell col="3" displaytype="number" editfilter="number" style="align:center;font:나눔고딕,9;" text="bind:TOTAL_PAYMENT" mask="###,##0" maskchar="0"/>
+                          <Cell col="4" displaytype="number" style="align:center;font:나눔고딕,9;" text="bind:TOTAL_DEDUCTION" mask="###,##0" maskchar="0"/>
+                          <Cell col="5" displaytype="number" style="align:center;font:나눔고딕,9;" text="bind:REAL_SALARY" mask="###,##0" maskchar="0"/>
+                          <Cell col="6" displaytype="number" style="align:center;font:나눔고딕,9;" text="bind:UNUSED_DAY_SALARY" mask="###,##0"/>
+                          <Cell col="7" displaytype="normal" style="align:center;font:나눔고딕,9;" text="bind:FINALIZE_STATUS"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="yearSalaryTab" text="연급여조회" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout width="977" height="291">
+                  <Calendar id="Calendar" taborder="0" dateformat="yyyy" editformat="yyyy" position2="absolute l:126 w:237 t:26 h:32" positiontype="position2" type="spin" value="null"/>
+                  <Button id="monthSearchBtn" taborder="2" text="조회하기" position2="absolute l:391 w:127 t:26 h:34" positiontype="position2" style="background:#5d5d5dff;color:white;font:나눔고딕,9;" onclick="Tab1_yearSalaryTab_monthSearchBtn_onclick"/>
+                  <Static id="Static00" text="마감 완료된 월의 급여 정보만 출력됩니다." position2="absolute l:630 w:333 t:62 h:13" positiontype="position2" style="color:#808080ff;font:HY헤드라인M,9;"/>
+                  <Grid id="Grid" taborder="1" binddataset="ds_yearSalary" useinputpanel="false" position2="absolute l:24 w:928 t:86 h:189" positiontype="position2">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="117"/>
+                          <Column size="110"/>
+                          <Column size="153"/>
+                          <Column size="163"/>
+                          <Column size="214"/>
+                          <Column size="166"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head" style="background:#008040ff;">
+                          <Cell displaytype="normal" style="align:center;font:나눔고딕,9;" text="적용연월"/>
+                          <Cell col="1" displaytype="normal" style="align:center;font:나눔고딕,9;" text="본 급여"/>
+                          <Cell col="2" displaytype="normal" style="align:center;font:나눔고딕,9;" text="초과수당합계"/>
+                          <Cell col="3" displaytype="normal" style="align:center;font:나눔고딕,9;" text="총급여"/>
+                          <Cell col="4" displaytype="normal" style="align:center;font:나눔고딕,9;" text="공제금액합계"/>
+                          <Cell col="5" displaytype="normal" style="align:center;font:나눔고딕,9;" text="차인지급액"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell displaytype="normal" style="align:center;" text="bind:APPLY_YEAR_MONTH"/>
+                          <Cell col="1" displaytype="number" style="align:center;" text="bind:SALARY" mask="###,##0" maskchar="0"/>
+                          <Cell col="2" displaytype="number" style="align:center;" text="bind:TOTAL_EXT_SAL" mask="###,##0" maskchar="0"/>
+                          <Cell col="3" displaytype="number" style="align:center;" text="bind:TOTAL_PAYMENT" mask="###,##0" maskchar="0"/>
+                          <Cell col="4" displaytype="number" style="align:center;" text="bind:TOTAL_DEDUCTION" mask="###,##0" maskchar="0"/>
+                          <Cell col="5" displaytype="number" style="align:center;" text="bind:REAL_SALARY" mask="###,##0" maskchar="0"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+        <Tab id="Tab2" taborder="1" position2="absolute l:9 w:995 t:376 h:331" positiontype="position2" tabindex="0" scrollbars="autoboth" style="background:gray;color:white;font:나눔고딕 ExtraBold,10,bold antialias; :selected {color:#5d5d5dff;}">
+          <Tabpages>
+            <Tabpage id="deductionTab" text="공제내역" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout>
+                  <Grid id="Grid" taborder="0" binddataset="ds_monthDeductionList" useinputpanel="false" position2="absolute l:65 w:813 t:60 h:188" positiontype="position2" autofittype="col">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="205"/>
+                          <Column size="240"/>
+                          <Column size="229"/>
+                          <Column size="255"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head" style="background:#008040ff;">
+                          <Cell displaytype="normal" style="font:나눔고딕,9;" text="적용연월"/>
+                          <Cell col="1" displaytype="normal" style="font:나눔고딕,9;" text="공제항목코드"/>
+                          <Cell col="2" displaytype="normal" style="font:나눔고딕,9;" text="공제항목명"/>
+                          <Cell col="3" displaytype="normal" style="font:나눔고딕,9;" text="공제금액"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell displaytype="normal" style="align:center;font:나눔고딕,9;" text="bind:APPLY_YEAR_MONTH"/>
+                          <Cell col="1" displaytype="normal" style="align:center;font:나눔고딕,9;" text="bind:DEDUCTION_CODE"/>
+                          <Cell col="2" displaytype="normal" style="align:center;font:나눔고딕,9;" text="bind:DEDUCTION_NAME"/>
+                          <Cell col="3" displaytype="number" style="align:center;font:나눔고딕,9;" text="bind:PRICE" mask="###,##0" maskchar="0" editlimitbymask="decimal"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="extSalary" text="초과수당내역" style="anchor:default;background:gray;">
+              <Layouts>
+                <Layout width="977" height="291">
+                  <Grid id="Grid00" taborder="0" useinputpanel="false" position2="absolute l:65 w:813 t:60 h:188" positiontype="position2" autofittype="col" binddataset="ds_monthExtSalList">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head" style="background:#008040ff;">
+                          <Cell text="적용연월"/>
+                          <Cell col="1" text="초과수당코드"/>
+                          <Cell col="2" text="초과수당명"/>
+                          <Cell col="3" text="금액"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell style="align:center;" text="bind:APPLY_YEAR_MONTH"/>
+                          <Cell col="1" style="align:center;" text="bind:EXT_SAL_CODE"/>
+                          <Cell col="2" style="align:center;" text="bind:EXT_SAL_NAME"/>
+                          <Cell col="3" displaytype="number" style="align:center;" text="bind:PRICE" mask="###,##0"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_monthExtSalList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="EMP_CODE" type="STRING" size="256"/>
+          <Column id="MONTH_EXT_SAL_CODE" type="STRING" size="256"/>
+          <Column id="APPLY_YEAR_MONTH" type="STRING" size="256"/>
+          <Column id="EXT_SAL_CODE" type="STRING" size="256"/>
+          <Column id="EXT_SAL_NAME" type="STRING" size="256"/>
+          <Column id="PRICE" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_yearSalary" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="EMP_CODE" type="STRING" size="256"/>
+          <Column id="APPLY_YEAR_MONTH" type="STRING" size="256"/>
+          <Column id="SALARY" type="STRING" size="256"/>
+          <Column id="TOTAL_EXT_SAL" type="STRING" size="256"/>
+          <Column id="TOTAL_PAYMENT" type="STRING" size="256"/>
+          <Column id="TOTAL_DEDUCTION" type="STRING" size="256"/>
+          <Column id="REAL_SALARY" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_MonthSalary" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="EMP_CODE" type="STRING" size="256"/>
+          <Column id="APPLY_YEAR_MONTH" type="STRING" size="256"/>
+          <Column id="SALARY" type="STRING" size="256"/>
+          <Column id="TOTAL_EXT_SAL" type="STRING" size="256"/>
+          <Column id="TOTAL_PAYMENT" type="STRING" size="256"/>
+          <Column id="TOTAL_DEDUCTION" type="STRING" size="256"/>
+          <Column id="REAL_SALARY" type="STRING" size="256"/>
+          <Column id="COST" type="STRING" size="256"/>
+          <Column id="UNUSED_DAY_SALARY" type="STRING" size="256"/>
+          <Column id="FINALIZE_STATUS" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_monthDeductionList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="EMP_CODE" type="STRING" size="256"/>
+          <Column id="APPLY_YEAR_MONTH" type="STRING" size="256"/>
+          <Column id="DEDUCTION_CODE" type="STRING" size="256"/>
+          <Column id="DEDUCTION_NAME" type="STRING" size="256"/>
+          <Column id="PRICE" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript4.0"><![CDATA[	//Tab1-2 누를때 Tab2숨기는 이벤트
+	var view=true; 
+	function Tab1_onchanged(obj:Tab, e:TabIndexChangeEventInfo)
+	{
+		if(!view){
+			view=true;
+			}else{
+				view=false;
+			} 
+		Tab2.visible=view;
+	}
+
+
+	//월급여조회 버튼 
+	function Tab1_monthSalary_monthSearchBtn_onclick(obj:Button,  e:ClickEventInfo)
+	{	
+		trace(g_empCode);
+		trace(Tab1.monthSalary.Calendar.text);
+		
+		if(Tab1.monthSalary.Calendar.value ==null){
+			alert("적용 연월을 선택해 주세요");
+			return;
+		}else{		
+		transaction(
+					"monthSalaryID",                    // callBack함수를 구분
+					"svcSalary::findMonthSalary",    	// url
+					"",                                 // inData
+					// outData  ->  data를 띄울 그리드가 여러개이므로 dataset도 여러개
+					// 월급여 조회 dataset , 공제내역 dataset , 초과수당내역 dataset
+					"ds_MonthSalary=ds_MonthSalary ds_monthDeductionList=ds_monthDeductionList ds_monthExtSalList=ds_monthExtSalList",
+					"empCode='"+g_empCode+"' applyYearMonth='"+Tab1.monthSalary.Calendar.text+"'",   // 넘겨줄 인자값
+					"fn_callback"
+					);
+		}
+	}
+	
+	
+	
+	//트랜잭션 콜백
+	function fn_callback(trID, ErrorCode, ErrorMsg)
+	{
+	if(trID=="monthSalaryID"){
+		if(ErrorCode!=0){
+			alert("조회실패"+ErrorMsg);
+				return;
+			}
+			alert("조회성공"+ErrorMsg);
+		}
+	}
+
+
+
+	//마감버튼
+	function Tab1_monthSalary_finalizeBtn_onclick(obj:Button,  e:ClickEventInfo)
+	{
+		ds_MonthSalary.applyChange(); //데이터셋 값 변경
+		ds_MonthSalary.setColumn(ds_MonthSalary.rowposition ,'FINALIZE_STATUS',"Y");
+		
+		alert(ds_MonthSalary.getColumn(ds_MonthSalary.rowposition,'FINALIZE_STATUS'));
+		
+	// {"finalizeStatus":"Y",
+	// "empCode":"A490075",
+	// "applyYearMonth":"2020-3"}
+		
+		transaction("finalizeID",
+					"svcSalary::modifyMonthSalary",
+					"ds_MonthSalary=ds_MonthSalary",
+					"",
+					"",
+					"finalize_callback");
+			}
+			
+			
+			
+	//마감취소 버튼
+	function Tab1_monthSalary_cancelBtn_onclick(obj:Button,  e:ClickEventInfo)
+	{
+		ds_MonthSalary.applyChange(); //데이터셋 값 변경
+		ds_MonthSalary.setColumn(ds_MonthSalary.rowposition ,'FINALIZE_STATUS',"N");
+		alert(ds_MonthSalary.getColumn(ds_MonthSalary.rowposition,'FINALIZE_STATUS'));
+		
+		transaction(
+					"cancelfinalizeID",
+					"svcSalary::modifyMonthSalary",
+					"ds_MonthSalary=ds_MonthSalary",
+					"",
+					"",
+					"finalize_callback"
+					);
+		
+	}
+			
+	 function finalize_callback(trID, ErrorCode, ErrorMsg)
+	 {
+		if(trID=="finalizeID"){
+			if(ErrorCode!=0){
+				alert("마감을 실패했습니다. ");
+				}else{
+					alert("마감처리되었습니다. ");
+			}
+		}
+		if(trID=="cancelfinalizeID"){
+		if(ErrorCode!=0){
+			alert("마감취소에 실패했습니다. ");
+			}else{
+				alert("취소 처리되었습니다. ");
+			}
+		}
+	 }
+	 
+	 
+	 
+
+	//연조회버튼 
+	function Tab1_yearSalaryTab_monthSearchBtn_onclick(obj:Button,  e:ClickEventInfo)
+	{
+
+	trace("년도"+Tab1.yearSalaryTab.Calendar.text);
+	trace("사원코드"+g_empCode);
+
+
+	if(Tab1.yearSalaryTab.Calendar.text==null){
+			alert("조회연도를 선택하여주세요.");
+		}else{
+				transaction(
+							"findYearSalaryID",
+							"svcSalary::findYearSalary",
+							"",
+							"ds_yearSalary=ds_MonthSalary",
+							"applyYear='"+Tab1.yearSalaryTab.Calendar.text+"' empCode='"+g_empCode+"'",
+							"fn_findYearSalary"
+							);
+		}
+	}
+	
+	
+	
+	
+	//연조회버튼 콜백함수
+	function fn_findYearSalary(trID,ErrorCode,ErrorMsg)
+	{
+	if(trID=="findYearSalaryID"){
+		if(ErrorCode!=0){
+			alert("해당 연도의 마감 완료된 급여 정보가 존재하지 않습니다");
+			}else{
+			alert("조회성공"+ErrorMsg);
+			
+			}
+		}
+	}
+
+
+
+
+
+
+
+]]></Script>
+  </Form>
+</FDL>

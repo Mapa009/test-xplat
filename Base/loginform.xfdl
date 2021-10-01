@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="loginform" classname="loginform" inheritanceid="" position="absolute 0 0 400 350" style="background:#333333ff;color:white;font:arial,11,italic;" tooltiptype="inplace">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" text="Seok Insa Project" position2="absolute l:33 w:334 t:35 h:86" positiontype="position2" style="background:#333333ff;border:0px solid #b1b5b9b3 ;color:white;padding:1px 1 1px 1px;align:center;font:나눔고딕,23,bold;shadow:outer 0,0 0 gray;" onclick="Static00_onclick"/>
+        <Static id="Static01" text="ID" position2="absolute l:88 w:76 t:159 h:28" positiontype="position2" style="background:#000000ff;border:2px solid #b1b5b9b3 ;color:white;align:center;font:맑은 고딕,12,bold;" onclick="Static01_onclick"/>
+        <Static id="Static02" text="PW" position2="absolute l:88 w:76 t:209 h:25" positiontype="position2" style="background:#000000ff;border:2px solid #b1b5b9b3 ;color:white;align:center;font:한컴 고딕,12,bold;"/>
+        <Edit id="empName" taborder="1" position2="absolute l:184 w:132 t:159 h:28" positiontype="position2" style="background:white;align:center;font:나눔고딕 ExtraBold,11,bold;" value="고범석"/>
+        <Button id="loginB" taborder="1" text="LOGIN" position2="absolute l:224 w:69 t:294 h:34" positiontype="position2" onclick="loginB_onclick" style="background:#000000ff;color:white;font:@맑은 고딕,10,bold;"/>
+        <Button id="closeB" taborder="1" text="CLOSE" position2="absolute l:306 w:69 t:294 h:34" positiontype="position2" style="background:#000000ff;color:white;font:맑은 고딕,10,bold;" onclick="closeB_onclick"/>
+        <Edit id="empCode" taborder="2" value="A490079" position2="absolute l:184 w:132 t:208 h:27" positiontype="position2" style="background:white;align:center;font:나눔고딕 ExtraBold,11,bold;" oneditclick="empCode_oneditclick"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript4.0"><![CDATA[
+// CODE 모달 [출근 ,퇴근 ,귀사 ,외출]  SET
+function fn_code_callback(trID, ErrorCode, ErrorMsg)
+{
+
+if(trID=="detailCode"){
+		if(ErrorCode<0){
+			alert(ErrorMsg);
+		}
+	}
+}
+
+
+//로그인버튼 
+function loginB_onclick(obj:Button,  e:ClickEventInfo)
+{
+	if(empName.text.length==0||empCode.text.length==0)
+	{
+		alert("사원명과 사원코드를 입력해주세요.");
+		return;
+	}
+	
+	trace(empName.value);
+	trace(empCode.value);
+
+	transaction
+	(
+	  "empLogin"
+	 ,"svcBase::login"
+	 ,""
+	 ,"gds_emp=gds_emp gds_newMenu=gds_newMenu gds_empAuthGroup=gds_empAuthGroup"
+	 ,"empCode='"+empCode.value+"' empName='"+empName.text+"'"
+	 ,"fn_callback"
+	 ,false  //비동기 여부 
+	);
+}
+
+function fn_callback(trID,ErrorCode,ErrorMsg)
+{
+
+
+	if(trID=="empLogin")
+	{
+		if(ErrorCode<0)
+		{
+			alert(ErrorMsg);
+		}
+	else
+	{
+		//오늘날짜
+		var date = new Date();
+		var year = date.getFullYear().toString();
+		var month = (date.getMonth() + 1 > 9 ? date.getMonth()+1 : '0' + (date.getMonth() + 1)).toString();   
+		var lday = date.getDate() > 9 ? date.getDate() : '0' + date.getDate().toString();
+		var today = year + "-" + month + "-" + lday;    
+		trace(today); 
+	
+		g_empCode=empCode.value;
+		g_empName=gds_emp.getColumn(0,"EMP_NAME");
+		g_deptName=gds_emp.getColumn(0,"DEPT_NAME");
+		g_position=gds_emp.getColumn(0,"POSITION");		
+		
+		  trace(g_empName);
+		  trace(g_deptName);
+		  trace(g_position);
+		  trace(g_empCode);
+	
+		var objFrameSet=application.mainframe.VFrameSet0.HFrameSet0.ChildFrame0;
+        var asdasd=application.mainframe.VFrameSet0.ChildFrame0;
+       
+		
+		
+        //폼에서 생성된 모든 오브젝트에 접근할 수 있는 속성임 
+        //모든폼["id"].값으로=글로벌변수값을 할당한다
+		//objFrameSet.form.all["empCode"].value=g_empCode;
+		objFrameSet.form.all["empName"].value=g_empName;
+		objFrameSet.form.all["deptName"].value=g_deptName;
+		objFrameSet.form.all["position"].value=g_position;
+		objFrameSet.form.all["empCode"].value=g_empCode;
+	
+		asdasd.form.all["today"].value=today;
+		
+		
+          //asdasd.form.reload();
+          application.mainframe.visible = true;
+          close();
+	   } // else end
+	} // if end
+}	// function end
+
+
+function empCode_oneditclick(obj:Edit,  e:EditClickEventInfo)
+{
+	
+}
+]]></Script>
+  </Form>
+</FDL>

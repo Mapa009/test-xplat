@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="empFind" classname="empFind" inheritanceid="" position="absolute 0 0 1024 688" titletext="New Form" style="background:#333333ff;">
+    <Layouts>
+      <Layout>
+        <Static id="사원검색" text="사원검색" position2="absolute l:145 w:298 t:59 h:76" positiontype="position2" style="background:#eaeaeaff;border:3px solid #5d5d5dff ;color:#5d5d5dff;align:center;font:나눔고딕 ExtraBold,18,bold;"/>
+        <Edit id="deptSerch" taborder="1" oneditclick="searchDeptName_oneditclick" position2="absolute l:102 w:373 t:162 h:40" positiontype="position2" style="align:center middle;font:나눔고딕 ExtraBold,12,bold;" value="부서를 선택해주세요"/>
+        <Grid id="Grid00" taborder="2" binddataset="ds_emp" useinputpanel="false" autofittype="col" oncellclick="Grid00_oncellclick" position2="absolute l:98 w:386 t:220 h:347" positiontype="position2" style="align:center;">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="100"/>
+                <Column size="89"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head" style="background:#008040ff;">
+                <Cell displaytype="normal" style="background:gray;color:white;font:맑은 고딕 Semilight,9;" text="부서"/>
+                <Cell col="1" displaytype="normal" style="background:gray;color:white;font:맑은 고딕 Semilight,9;" text="사원명"/>
+                <Cell col="2" displaytype="normal" style="background:gray;color:white;font:맑은 고딕 Semilight,9;" text="직급"/>
+                <Cell col="3" style="background:gray;color:white;font:맑은 고딕 Semilight,9;" text="사원코드"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="normal" text="bind:EMP_CODE"/>
+                <Cell col="1" displaytype="normal" text="bind:EMP_NAME"/>
+                <Cell col="2" displaytype="normal" text="bind:POSITION"/>
+                <Cell col="3" text="bind:EMP_CODE"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <ImageViewer id="empImage" taborder="3" stretch="fit" onclick="empImage_onclick" position2="absolute l:565 w:235 t:123 h:175" positiontype="position2"/>
+        <Static id="Static00" text="사원코드" onclick="Div00_Static00_onclick" position2="absolute l:527 w:111 t:322 h:33" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕,10,bold;"/>
+        <Static id="Static01" text="이름" position2="absolute l:527 w:111 t:377 h:33" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕,10,bold;"/>
+        <Static id="Static02" text="휴대폰번호" position2="absolute l:527 w:111 t:426 h:33" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕,10,bold;"/>
+        <Static id="Static03" text="직급" position2="absolute l:527 w:111 t:482 h:33" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕,10,bold;"/>
+        <Static id="Static04" text="E-mail" position2="absolute l:527 w:111 t:534 h:33" positiontype="position2" style="border:3px solid #b1b5b9b3 ;color:white;align:center;font:나눔고딕,10,bold;"/>
+        <Edit id="email" taborder="4" position2="absolute l:666 w:165 t:537 h:26" positiontype="position2" style="align:center;font:나눔고딕,10,bold;"/>
+        <Edit id="position" taborder="5" oneditclick="Tab00_tabpage1_position_oneditclick" position2="absolute l:666 w:165 t:491 h:26" positiontype="position2" style="align:center;font:나눔고딕,10,bold;"/>
+        <MaskEdit id="MaskEdit00" taborder="6" type="string" mask="###-####-####" enable="false" position2="absolute l:670 w:161 t:436 h:24" positiontype="position2" style="compositecolor:transparent;align:center;font:나눔고딕,10,bold; :disabled {color:white;font:Verdana,10,bold;}" oneditclick="MaskEdit00_oneditclick"/>
+        <Edit id="empName" taborder="7" position2="absolute l:666 w:165 t:381 h:26" positiontype="position2" style="align:center;font:나눔고딕,10,bold;"/>
+        <Edit id="empCode" taborder="8" oneditclick="Tab00_tabpage1_Edit00_oneditclick" position2="absolute l:666 w:165 t:326 h:26" positiontype="position2" style="align:center;font:나눔고딕,10,bold;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_emp" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="EMP_CODE" type="STRING" size="256"/>
+          <Column id="EMP_NAME" type="STRING" size="256"/>
+          <Column id="BIRTHDATE" type="STRING" size="256"/>
+          <Column id="GENDER" type="STRING" size="256"/>
+          <Column id="MOBILE_NUMBER" type="STRING" size="256"/>
+          <Column id="ADDRESS" type="STRING" size="256"/>
+          <Column id="DETAIL_ADDRESS" type="STRING" size="256"/>
+          <Column id="POST_NUMBER" type="STRING" size="256"/>
+          <Column id="EMAIL" type="STRING" size="256"/>
+          <Column id="LAST_SCHOOL" type="STRING" size="256"/>
+          <Column id="IMG_EXTEND" type="STRING" size="256"/>
+          <Column id="DEPT_NAME" type="STRING" size="256"/>
+          <Column id="POSITION" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item5" compid="empImage" propid="visible" datasetid="gds_emp" columnid="IMG_EXTEND"/>
+      <BindItem id="item4" compid="email" propid="value" datasetid="ds_emp" columnid="EMAIL"/>
+      <BindItem id="item3" compid="position" propid="value" datasetid="ds_emp" columnid="POSITION"/>
+      <BindItem id="item2" compid="MaskEdit00" propid="value" datasetid="ds_emp" columnid="MOBILE_NUMBER"/>
+      <BindItem id="item1" compid="empName" propid="value" datasetid="ds_emp" columnid="EMP_NAME"/>
+      <BindItem id="item0" compid="empCode" propid="value" datasetid="ds_emp" columnid="EMP_CODE"/>
+    </Bind>
+    <Script type="xscript4.0"><![CDATA[
+	//조회부서 다이얼로그창
+	function searchDeptName_oneditclick(obj:Edit,  e:EditClickEventInfo)
+	{
+
+		g_codeNumber="CO-07";   // 인사팀 , 전산팀 등등
+		
+		 dialog(   
+			"detailCodeList",   		// 생성될 ChildFrame의 이름
+			"Base::codeDialog.xfdl",   	// 로딩한 폼의 URL
+			 MainFrame,   				// ParentFrame
+			 null,   					// ChildFrame에 추가될 변수 리스트 {변수명:변수값, 변수명:변수값}
+			 "",   						// ChildFrame에 설정할 속성 리스트 a=b b='c' 
+			 650,   					// ChildFrame의 position 중 left 값
+			 350   						// ChildFrame의 position 중 top 값
+		);
+		   deptSerch.value=g_detailCodeName;
+		   trace(deptSerch.value);
+		   
+		   // 트랜잭션
+		   // 사원창에 값이 뜨도록
+		   transaction( 
+						 "gds_employeeList"                	// callBack에서 사용될 ID
+						,"svcEmp::list"                 	// url   @RequestMapping과 동일하여야 controller를 찾음
+						,""                                	// inData
+						,"ds_emp=gds_emp"                  	// outData
+						,"value='"+deptSerch.value+"'"     	// 인자값
+						,"fn_callback");
+					  }
+
+
+	//트랜잭션 콜백
+	function fn_callback(trID, ErrorCode, ErrorMsg)
+	  {
+		if(trID=="gds_employeeList"){
+			if(ErrorCode!=0){
+				alert("조회 실패 : "+ErrorMsg);
+			}else{
+			//gds_emp.getColumn(0,"EMP_NAME");
+			//gds_emp테이블에 getColumn()해당테이블의 컬럼값을출력 
+			  trace(gds_emp.getColumn(0,"EMP_NAME"));
+			  trace(gds_emp.getColumn(2,"EMP_NAME"));
+			  trace(gds_emp.getColumn(3,"EMP_NAME"));
+	 
+			}
+		 }
+	  }
+
+
+	//셀클릭시
+	function Grid00_oncellclick(obj:Grid, e:GridClickEventInfo)
+	{
+		  var empCode =ds_emp.getColumn(ds_emp.rowposition,"EMP_CODE");
+		  trace(empCode);
+		  var imgExtend =ds_emp.getColumn(ds_emp.rowposition,"IMG_EXTEND");
+		  trace(imgExtend);
+		  empImage.image="URL('http://localhost/EmpImg/"+empCode+'"."'+imgExtend+"')"; 
+		  var empImg=empImage.image;
+		  trace("셀클릭"+empImg);
+	}
+]]></Script>
+  </Form>
+</FDL>
