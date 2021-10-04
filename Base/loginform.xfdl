@@ -10,7 +10,7 @@
         <Edit id="empName" taborder="1" position2="absolute l:184 w:132 t:159 h:28" positiontype="position2" style="background:white;align:center;font:나눔고딕 ExtraBold,11,bold;" value="전부추가 테스트" oneditclick="empName_oneditclick"/>
         <Button id="loginB" taborder="1" text="LOGIN" position2="absolute l:224 w:69 t:294 h:34" positiontype="position2" onclick="loginB_onclick" style="background:#000000ff;color:white;font:@맑은 고딕,10,bold;"/>
         <Button id="closeB" taborder="1" text="CLOSE" position2="absolute l:306 w:69 t:294 h:34" positiontype="position2" style="background:#000000ff;color:white;font:맑은 고딕,10,bold;" onclick="closeB_onclick"/>
-        <Edit id="empCode" taborder="2" value="전부추가테스트" position2="absolute l:184 w:132 t:208 h:27" positiontype="position2" style="background:white;align:center;font:나눔고딕 ExtraBold,11,bold;" oneditclick="empCode_oneditclick"/>
+        <Edit id="empCode" taborder="2" value="깃브랜치용" position2="absolute l:184 w:132 t:208 h:27" positiontype="position2" style="background:white;align:center;font:나눔고딕 ExtraBold,11,bold;" oneditclick="empCode_oneditclick"/>
       </Layout>
     </Layouts>
     <Script type="xscript4.0"><![CDATA[
